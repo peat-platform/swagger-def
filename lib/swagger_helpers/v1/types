@@ -1,0 +1,205 @@
+{    
+   "apiVersion"      : "1.0.0",
+   "swaggerVersion"  : "1.2",
+   "basePath"        : "http://dev.openi-ict.eu/api/v1",
+   "resourcePath"    : "/types",
+   "produces": [
+      "application/json"
+   ],
+   "apis": [
+      { 
+         "path": "/types",
+         "operations": [
+            {
+               "method"     : "POST",
+               "summary"    : "Creates a type.",
+               "notes"      : "Creates a type on the Cloudlet platform",
+               "type"       : "string",
+               "nickname"   : "createType",
+               "parameters" : [
+                  {
+                     "name"         : "data",
+                     "description"  : "The type to be created.",
+                     "required"     : true,
+                     "type"         : "Type",
+                     "paramType"    : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok",
+                     "responseModel": "string"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Type could not be created",
+                     "responseModel": "Error"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "Error"
+                  }
+               ]
+            },
+            {
+               "method"     : "PATCH",
+               "summary"    : "Create multiple types in a single request.",
+               "notes"      : "Create multiple types to a in one go.",
+               "type"       : "StatusArray",
+               "nickname"   : "createTypes",
+               "parameters" : [
+                  {
+                     "name"         : "body",
+                     "description"  : "JSON array of the types to be created.",
+                     "required"     : true,
+                     "type"         : "TypeArray",
+                     "paramType"    : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok",
+                     "responseModel": "StatusArray"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Error adding some types.",
+                     "responseModel": "StatusArray"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "StatusArray"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path": "/types/{typeID}",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Get a type.",
+               "notes"      : "Returns the type associated with the provided Id.",
+               "type"       : "Type",
+               "nickname"   : "getType",
+               "parameters" : [
+                  {
+                     "name"         : "typeID",
+                     "description"  : "The Id of the type.",
+                     "required"     : true,
+                     "type"        : "String",
+                     "paramType"    : "path"
+                  },
+				 {
+					"name"        : "format",
+					"description" : "Format the type should be returned in.",
+					"required"    : true,
+               "type"        : "String",
+					"paramType"   : "query"
+				 }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Type not found",
+                     "responseModel": "TypeStatus"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "TypeStatus"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "models": {
+      "TypeArray": {
+         "id": "TypeArray",
+         "properties": {
+            "types": {
+               "type"        : "array",
+               "description" : "An array of Types",
+               "items"       : {
+                  "$ref" : "Type"
+               }
+            }
+         }
+      },
+      "Type": {
+         "id": "Type",
+         "properties": {
+            "id": {
+               "type"        : "string",
+               "description" : "Unique identifier for the type",
+               "required"    : false
+            },
+            "context": {
+               "type"        : "string",
+               "description" : "The type's semantic context (optional?)",
+               "required"    : true
+            },
+            "object": {
+               "type"        : "Object",
+               "description" : "The defined schema format for this type (format JSON)",
+               "required"    : true
+            }
+         }
+      },
+      "TypeStatus": {
+         "id": "TypeStatus",
+         "properties": {
+            "code": {
+               "type"        : "string",
+               "description" : "Response code",
+               "required"    : true
+            },
+            "message":{
+               "type"     :"string",
+               "description" : "Descriptive message",
+               "required" : false
+            }
+         }
+      },
+      "Error": {
+         "id": "Error",
+         "properties": {
+            "code": {
+               "type"    : "string",
+               "description" : "Response code",
+               "required"    : true
+            },
+            "message":{
+               "type"     :"string",
+               "description" : "Descriptive message",
+               "required" : false
+            }
+         }
+      },
+      "Object": {
+         "id": "Object"
+      },
+      "StatusArray": {
+         "id": "StatusArray",
+         "properties": {
+            "types": {
+               "type"        : "array",
+               "description" : "An array of Statuses",
+               "items"       : {
+                  "$ref" : "TypeStatus"
+               }
+            }
+         }
+      }
+   }
+}

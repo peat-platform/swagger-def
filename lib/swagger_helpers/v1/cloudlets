@@ -1,0 +1,171 @@
+{ 
+   "apiVersion"      : "1.0.0",
+   "swaggerVersion"  : "1.2",
+   "basePath"        : "/api/v1",
+   "resourcePath"    : "/cloudlets",
+   "produces"        : [
+      "application/json"
+   ],
+   "apis": [
+      {
+         "path"       : "/cloudlets",
+         "operations" : [
+            {
+               "method"     : "POST",
+               "summary"    : "Creates a Cloudlet",
+               "notes"      : "Provisions a Cloudlet on the Cloudlet Platform. This is an internal API that only the resource service can use.",
+               "type"       : "CloudletStatus",
+               "nickname"   : "createCloudlet",
+               "parameters" : [
+                  {
+                     "name"          : "data",
+                     "description"   : "The Cloudlet data",
+                     "required"      : true,
+                     "type"          : "Cloudlet",
+                     "paramType"     : "body"
+                  }
+               ],
+               "responseClass": "CloudletStatus",
+               "responseMessages": [
+                  {
+                     "code": 501,
+                     "message": "Not yet Implemented"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CloudletStatus"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "CloudletStatus"
+                  },
+                  {
+                     "code": 405,
+                     "message": "Method Not allowed",
+                     "responseModel": "CloudletStatus"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path": "/cloudlets/{cloudletId}",
+         "operations": [
+            {
+               "method"     : "DELETE",
+               "summary"    : "DELETE Cloudlet by Id",
+               "notes"      : "This endpoint allows a user delete their Cloudlet. When called all their data is purged from their Cloudlet and indexes referring to their Cloudlet are removed.",
+               "type"       : "CloudletStatus",
+               "nickname"   : "deleteCloudletById",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the Cloudlet that is to be deleted.",
+                     "required"    : true,
+                     "type"        : "String",
+                     "paramType"   : "path"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 501,
+                     "message": "Not yet Implemented"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CloudletStatus"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "CloudletStatus"
+                  },
+                  {
+                     "code": 405,
+                     "message": "Method Not allowed",
+                     "responseModel": "CloudletStatus"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path": "cloudlets/{cloudletId}",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Export Cloudlet data.",
+               "notes"      : "This endpoint allows a user export all their data from their Cloudlet. Data is exported in a json file.",
+               "type"       : "Cloudlet",
+               "nickname"   : "exportCloudletById",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the Cloudlet that is to be exported.",
+                     "required"    : true,
+                     "type"        : "String",
+                     "paramType"   : "path"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 501,
+                     "message": "Not yet Implemented"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CloudletStatus"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "CloudletStatus"
+                  },
+                  {
+                     "code": 405,
+                     "message": "Method Not allowed",
+                     "responseModel": "CloudletStatus"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "models": {
+      "Cloudlet": {
+         "id": "Cloudlet",
+         "properties": {
+            "alias": {
+               "type"        : "string",
+               "description" : "Human readable name for the Cloudlet.",
+               "required"    : true
+            },
+            "username": {
+               "type"        : "string",
+               "description" : "Username of person who owns the Cloudlet.",
+               "required"    : true
+            }
+         }
+      },
+      "CloudletStatus": {
+         "id": "CloudletStatus",
+         "properties": {
+            "result": {
+               "type"        : "boolean",
+               "format"      : "boolean",
+               "description" : "True if request was success, otherwise False.",
+               "required"    : true
+            },
+            "cloudletId":{
+               "type"     : "string",
+               "description" : "The id of the Cloudlet.",
+               "required" : false
+            }
+         }
+      }
+   }
+}

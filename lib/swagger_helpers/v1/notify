@@ -1,0 +1,152 @@
+{ 
+   "apiVersion": "1.0.0",
+   "swaggerVersion": "1.2",
+   "basePath": "http://localhost/api/v1",
+   "resourcePath": "/notification",
+   "apis": 
+   [
+      {
+         "path": "/subscription/{cloudletId}",
+         "operations": [
+            {
+               "method": "GET",
+               "summary": "List All Subscriptions",
+               "notes": "",
+               "nickname": "",
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "ok"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "NotifyStatus"
+                  }
+               ],
+               "parameters" : [
+                  {
+                     "name"          : "cloudletId",
+                     "description"   : "The Cloudlet Id for the User",
+                     "required"      : true,
+                     "type"          : "string",
+                     "paramType"     : "path"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path": "/subscription/{cloudletId}/{objectId}",
+         "operations": [
+            {
+               "method": "GET",
+               "summary": "List subscription settings for {objectId}",
+               "notes": "",
+               "nickname": "",
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "ok"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "NotifyStatus"
+                  }
+               ],
+               "parameters" : [
+                  {
+                     "name"          : "cloudletId",
+                     "description"   : "The Cloudlet Id for the User",
+                     "required"      : true,
+                     "type"          : "string",
+                     "paramType"     : "path"
+                  },
+                  {
+                     "name"        : "objectId",
+                     "description" : "Subscription Object to be returned in JSON representation",
+                     "required"    : true,
+                     "dataType"    : "string",
+                     "paramType"   : "path"
+                  }
+               ]
+            },
+            {
+               "method": "POST",
+               "summary": "Update Subscription settings for {objectId}",
+               "notes": "",
+               "nickname": "",
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "ok"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "NotifyStatus"
+                  }
+               ],
+               "parameters" : [
+                  {
+                     "name"          : "cloudletId",
+                     "description"   : "The Cloudlet Id for the User",
+                     "required"      : true,
+                     "type"          : "string",
+                     "paramType"     : "path"
+                  },
+                  {
+                     "name"        : "objectId",
+                     "description" : "Subscription Object to be returned in JSON representation",
+                     "required"    : true,
+                     "dataType"    : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"          : "subscriptionInfo",
+                     "description"   : "Updated Subscription info",
+                     "required"      : true,
+                     "type"          : "Subscription",
+                     "paramType"     : "body"
+                  }
+               ]
+            },
+            {
+               "method": "DELETE",
+               "summary": "??",
+               "notes": "",
+               "nickname": "",
+               "responseMessages": [
+                  {
+                     "code": 501,
+                     "message": "Not yet Implemented"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "models": {
+      "NotifyStatus": {
+         "id": "NotifyStatus",
+         "properties": {
+            "value": {
+               "type"        : "boolean",
+               "description" : "Response was OK",
+               "required"    : true
+            },
+            "viewId":{
+               "type"     :"string",
+               "required" : false
+            }
+         }
+      },
+      "Subscription": {
+         "application"     : "string",
+         "data"   : [
+            {}
+         ]
+      }
+   }
+}

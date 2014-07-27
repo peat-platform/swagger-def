@@ -1,0 +1,179 @@
+{ 
+   "apiVersion"      : "1.0.0",
+   "swaggerVersion"  : "1.2",
+   "basePath"        : "http://dev.openi-ict.eu/api/v1",
+   "resourcePath"    : "/objects",
+   "produces": [
+      "application/Json"
+   ],
+   "apis": [
+      {
+         "path": "/objects/{cloudletId}",
+         "operations": [
+            {
+               "method"     : "POST",
+               "summary"    : "Create an Object in the Cloudlet",
+               "notes"      : "Create an Object in the Cloudlet.",
+               "type"       : "string",
+               "nickname"   : "createObject",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the users cloudlet.",
+                     "required"    : true,
+                     "type"        : "String",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "object",
+                     "description" : "Object to be created in the cloudlet.",
+                     "required"    : true,
+                     "type"        : "Object",
+                     "paramType"   : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok",
+                     "responseModel": "string"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Data could not be added to the cloudlet",
+                     "responseModel": "ObjectStatus"
+                  },
+			      {
+				 	 "code": 401,
+					 "message": "Unauthorised request",
+					 "responseModel": "ObjectStatus"
+				  }
+               ]
+            }
+         ]
+      },
+      {
+         "path": "/objects/{cloudletId}/{objectId}",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Retrieves an object from the Cloudlet.",
+               "notes"      : "Returns an object from the cloudlet.",
+               "type"       : "Object",
+               "nickname"   : "getObject",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the users Cloudlet that is to be accessed.",
+                     "required"    : true,
+                     "type"        : "String",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be accessed.",
+                     "required"    : true,
+                     "type"        : "String",
+                     "paramType"   : "path"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok",
+                     "responseModel": "Object"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectStatus"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectStatus"
+                  }
+               ]
+            }]
+      },
+      {
+         "path": "/objects/{cloudletId}/{objectId}/{revision}",
+         "operations": [
+            {
+               "method"     : "PUT",
+               "summary"    : "Updates the properties of on object with the provided properties",
+               "notes"      : "Updates the properties of on object with the provided properties.",
+               "nickname"   : "setObject",
+               "type"        : "String",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the users Cloudlet that is to be accessed.",
+                     "required"    : true,
+                     "type"        : "String",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be accessed.",
+                     "required"    : true,
+                     "type"        : "String",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "revision",
+                     "description" : "revision id of the object to be updated.",
+                     "required"    : true,
+                     "type"        : "String",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "data",
+                     "description" : "Object with properties that are to be overwritten.",
+                     "required"    : true,
+                     "type"    : "Object",
+                     "paramType"   : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectStatus"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectStatus"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "models": {
+      "ObjectStatus": {
+         "id": "ObjectStatus",
+         "properties": {
+            "code": {
+               "type"        : "integer",
+	       "format"	     : "int32",
+               "description" : "Response code",
+               "required"    : true
+            },
+            "message":{
+               "type"     :"string",
+               "description" : "Descriptive message",
+               "required" : false
+            }
+         }
+      },
+      "Object" : {
+         "id": "Object"
+      }
+   }
+}

@@ -1,0 +1,33 @@
+{
+   "name"        : "swagger-def",
+   "description" : "Generated the swagger JSON for the OPENi Cloudlet Platform",
+   "version"     : "0.1.0",
+   "homepage"    : "openi-ict.eu",
+   "author"      : {
+      "name" : "dmccarthy",
+      "email": "dmccarthy@tssg.org"
+   },
+   "repository"  : {
+      "type": "git",
+      "url" : "git@github.com:OPENi-ict/swagger-def.git"
+   },
+   "bugs"        : {
+      "url": ""
+   },
+   "licenses"    : [
+      {
+         "type": "MIT",
+         "url" : "openi-ict.eu/blob/master/LICENSE-MIT"
+      }
+   ],
+   "main"        : "lib/main",
+   "engines"     : {
+      "node": ">= 0.8.0"
+   },
+   "dependencies": {
+      "m2nodehandler"          : "git+https://github.com/OPENi-ict/m2nodehandler.git#master",
+      "openi-logger"           : "git+https://github.com/OPENi-ict/openi-logger.git#master"
+   },
+
+   "keywords": []
+}

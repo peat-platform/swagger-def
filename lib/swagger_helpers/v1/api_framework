@@ -1,0 +1,101 @@
+{         
+   "apiVersion": "1.0.0",
+   "swaggerVersion": "1.1",
+   "apis": [
+      {
+         "path": "/api/doc/schema/account"
+      },
+      {
+         "path": "/api/doc/schema/application"
+      },
+      {
+         "path": "/api/doc/schema/article"
+      },
+      {
+         "path": "/api/doc/schema/audio"
+      },
+      {
+         "path": "/api/doc/schema/badge"
+      },
+      {
+         "path": "/api/doc/schema/card"
+      },
+      {
+         "path": "/api/doc/schema/cbsconnector"
+      },
+      {
+         "path": "/api/doc/schema/checkin"
+      },
+      {
+         "path": "/api/doc/schema/contact"
+      },
+      {
+         "path": "/api/doc/schema/context"
+      },
+      {
+         "path": "/api/doc/schema/device"
+      },
+      {
+         "path": "/api/doc/schema/event"
+      },
+      {
+         "path": "/api/doc/schema/file"
+      },
+      {
+         "path": "/api/doc/schema/game"
+      },
+      {
+         "path": "/api/doc/schema/measurement"
+      },
+      {
+         "path": "/api/doc/schema/note"
+      },
+      {
+         "path": "/api/doc/schema/nutrition"
+      },
+      {
+         "path": "/api/doc/schema/photo"
+      },
+      {
+         "path": "/api/doc/schema/place"
+      },
+      {
+         "path": "/api/doc/schema/product"
+      },
+      {
+         "path": "/api/doc/schema/question"
+      },
+      {
+         "path": "/api/doc/schema/route"
+      },
+      {
+         "path": "/api/doc/schema/service"
+      },
+      {
+         "path": "/api/doc/schema/shop"
+      },
+      {
+         "path": "/api/doc/schema/sleep"
+      },
+      {
+         "path": "/api/doc/schema/status"
+      },
+      {
+         "path": "/api/doc/schema/user"
+      },
+      {
+         "path": "/api/doc/schema/video"
+      },
+      {
+         "path": "/api/doc/schema/workout"
+      }
+   ],
+   "info": {
+      "title": "OPENi API Framework Platform REST APIs",
+      "description": "",
+      "termsOfServiceUrl": "/terms/",
+      "contact": "help@openi-ict.eu",
+      "license": "Apache 2.0",
+      "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
+   }
+}

@@ -1,0 +1,141 @@
+{
+   "apiVersion"      : "1.0.0",
+   "swaggerVersion"  : "1.2",
+   "basePath"        : "http://dev.openi-ict.eu/api/v1",
+   "resourcePath"    : "/attachments",
+   "produces": [
+      "image/gif",
+      "image/jpg",
+      "image/png"
+   ], 
+   "apis": [
+	{
+	   "path"       : "/attachments/{cloudletId}/{objectId}",
+	   "operations" : [
+		  {
+			 "method"     : "POST",
+			 "summary"    : "Creates an attachment to the JSON object",
+			 "notes"      : "Creates an attachment to the JSON object. which may be any binary (see couchdb)",
+			 "type"       : "AttachmentStatus",
+			 "nickname"   : "createCloudlet",
+			 "parameters" : [
+            {
+               "name"        : "cloudletId",
+               "description" : "The id of the users cloudlet.",
+               "required"    : true,
+               "type"        : "String",
+               "paramType"   : "path"
+            },
+            {
+               "name"        : "objectId",
+               "description" : "The id of the objects.",
+               "required"    : true,
+               "type"          : "String",
+               "paramType"   : "path"
+            },
+				{
+				   "name"          : "data",
+				   "description"   : "The data",
+				   "required"      : true,
+				   "type"          : "String",
+				   "paramType"     : "body"
+				}
+			 ],
+			 "responseMessages": [
+				{
+				   "code": 200,
+				   "message": "Ok"
+				},
+				{
+				   "code": 400,
+				   "message": "Bad Request",
+				   "responseModel": "AttachmentStatus"
+				},
+				{
+				   "code": 401,
+				   "message": "Unauthorised request",
+				   "responseModel": "AttachmentStatus"
+				}
+			 ]
+		  }
+	   ]
+	},
+	{
+	   "path"       : "/attachments/{cloudletId}/{objectId}/{attachmentId}",
+	   "operations" : [
+		  {
+			 "method"     : "GET",
+			 "summary"    : "Gets the attachment",
+			 "notes"      : "Gets the attachment",
+			 "type"       : "AttachmentStatus",
+			 "nickname"   : "createCloudlet",
+			 "parameters" : [
+            {
+               "name"        : "cloudletId",
+               "description" : "The id of the users cloudlet.",
+               "required"    : true,
+               "type"        : "String",
+               "paramType"   : "path"
+            },
+            {
+               "name"        : "objectId",
+               "description" : "The id of the objects.",
+               "required"    : true,
+               "type"        : "String",
+               "paramType"   : "path"
+            },
+            {
+               "name"        : "attachmentId",
+               "description" : "The id of the binary data.",
+               "required"    : true,
+               "type"        : "String",
+               "paramType"   : "path"
+            },
+				{
+				   "name"          : "data",
+				   "description"   : "The binary data",
+				   "required"      : true,
+				   "type"          : "string",
+				   "paramType"     : "body"
+				}
+			 ],
+			 "responseMessages": [
+				{
+				   "code": 200,
+				   "message": "Ok"
+				},
+				{
+				   "code": 400,
+				   "message": "Bad Request",
+				   "responseModel": "AttachmentStatus"
+				},
+				{
+				   "code": 401,
+				   "message": "Unauthorised request",
+				   "responseModel": "AttachmentStatus"
+				}
+			 ]
+		  }
+	   ]
+	}
+   ],
+
+   "models" : {
+		"AttachmentStatus" : {
+			"id" : "AttachmentStatus",
+			"properties" : {
+				"code" : {
+					"type" : "integer",
+					"format": "int32",
+					"description" : "Response code",
+               "required"    : true
+				},
+				"message":{
+               "type"     :"string",
+               "description" : "Descriptive message",
+               "required" : false
+            }
+			}
+		}
+   }
+}
