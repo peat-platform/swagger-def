@@ -154,13 +154,13 @@
       "CloudletStatus": {
          "id": "CloudletStatus",
          "properties": {
-            "result": {
+            "value": {
                "type"        : "boolean",
                "format"      : "boolean",
                "description" : "True if request was success, otherwise False.",
                "required"    : true
             },
-            "cloudletId":{
+            "data":{
                "type"     : "string",
                "description" : "The id of the Cloudlet.",
                "required" : false
