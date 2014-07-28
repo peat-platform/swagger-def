@@ -93,7 +93,7 @@
          ]
       },
       {
-         "path": "cloudlets/{cloudletId}",
+         "path": "/cloudlets/{cloudletId}",
          "operations": [
             {
                "method"     : "GET",
