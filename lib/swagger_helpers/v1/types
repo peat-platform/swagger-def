@@ -94,14 +94,7 @@
                      "required"     : true,
                      "type"        : "String",
                      "paramType"    : "path"
-                  },
-				 {
-					"name"        : "format",
-					"description" : "Format the type should be returned in.",
-					"required"    : true,
-               "type"        : "String",
-					"paramType"   : "query"
-				 }
+                  }
                ],
                "responseMessages": [
                   {

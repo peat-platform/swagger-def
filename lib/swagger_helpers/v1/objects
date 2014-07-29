@@ -28,7 +28,7 @@
                      "name"        : "object",
                      "description" : "Object to be created in the cloudlet.",
                      "required"    : true,
-                     "type"        : "Object",
+                     "type"        : "OPENiObject",
                      "paramType"   : "body"
                   }
                ],
@@ -58,8 +58,8 @@
             {
                "method"     : "GET",
                "summary"    : "Retrieves an object from the Cloudlet.",
-               "notes"      : "Returns an object from the cloudlet.",
-               "type"       : "Object",
+               "notes"      : "Returns an object from the Cloudlet.",
+               "type"       : "OPENiObject",
                "nickname"   : "getObject",
                "parameters" : [
                   {
@@ -161,7 +161,7 @@
          "properties": {
             "code": {
                "type"        : "integer",
-	       "format"	     : "int32",
+               "format"	     : "int32",
                "description" : "Response code",
                "required"    : true
             },
@@ -169,6 +169,26 @@
                "type"     :"string",
                "description" : "Descriptive message",
                "required" : false
+            }
+         }
+      },
+      "OPENiObject": {
+         "id": "OPENiObject",
+         "properties": {
+            "openi_type": {
+               "type"        : "string",
+               "description" : "OPENi Type that this object is an instance of.",
+               "required"    : true
+            },
+            "data":{
+               "type"        :"string",
+               "description" : "The Objects values.",
+               "required"    : false
+            },
+            "revision":{
+               "type"        : "string",
+               "description" : "Revision number associated with this version of the Object, this number must be presented when updating the object",
+               "required"    : false
             }
          }
       },
