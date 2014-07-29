@@ -131,7 +131,7 @@
                      "name"        : "data",
                      "description" : "Object with properties that are to be overwritten.",
                      "required"    : true,
-                     "type"    : "Object",
+                     "type"        : "OPENiObject",
                      "paramType"   : "body"
                   }
                ],
