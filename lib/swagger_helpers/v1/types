@@ -85,7 +85,7 @@
                "method"     : "GET",
                "summary"    : "Get a type.",
                "notes"      : "Returns the type associated with the provided Id.",
-               "type"       : "Type",
+               "type"       : "OPENiType",
                "nickname"   : "getType",
                "parameters" : [
                   {
