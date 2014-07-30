@@ -21,7 +21,7 @@
                      "name"         : "data",
                      "description"  : "The type to be created.",
                      "required"     : true,
-                     "type"         : "Type",
+                     "type"         : "OPENiType",
                      "paramType"    : "body"
                   }
                ],
@@ -124,27 +124,29 @@
                "type"        : "array",
                "description" : "An array of Types",
                "items"       : {
-                  "$ref" : "Type"
+                  "$ref" : "OPENiType"
                }
             }
          }
       },
-      "Type": {
-         "id": "Type",
+      "OPENiType": {
+         "id": "OPENiType",
          "properties": {
-            "id": {
+            "_id": {
                "type"        : "string",
                "description" : "Unique identifier for the type",
                "required"    : false
             },
-            "context": {
-               "type"        : "string",
-               "description" : "The type's semantic context (optional?)",
-               "required"    : true
+            "_context": {
+               "type"        : "array",
+               "description" : "An array of Types",
+               "items"       : {
+                  "$ref" : "ContextEntry"
+               }
             },
-            "object": {
-               "type"        : "Object",
-               "description" : "The defined schema format for this type (format JSON)",
+            "_reference": {
+               "type"        : "String",
+               "description" : "The URL of the refernce type.",
                "required"    : true
             }
          }
@@ -181,6 +183,48 @@
       },
       "Object": {
          "id": "Object"
+      },
+      "ContextEntryArray": {
+         "id": "ContextEntryArray",
+         "properties": {
+            "_context": {
+               "type"        : "array",
+               "description" : "An array of Types",
+               "items"       : {
+                  "$ref" : "ContextEntry"
+               }
+            }
+         }
+      },
+      "ContextEntry": {
+         "id": "ContextEntry",
+         "properties": {
+            "_property_name": {
+               "type"        : "string",
+               "description" : "Identifier for the context",
+               "required"    : true
+            },
+            "_property_context": {
+               "type"        : "ContextValue",
+               "description" : "The type's semantic context (optional?)",
+               "required"    : true
+            }
+         }
+      },
+      "ContextValue": {
+         "id": "ContextValue",
+         "properties": {
+            "_id": {
+               "type"        : "string",
+               "description" : "Identifier for the context",
+               "required"    : true
+            },
+            "_openi_type": {
+               "type"        : "string",
+               "description" : "The type's semantic context (optional?)",
+               "required"    : true
+            }
+         }
       },
       "StatusArray": {
          "id": "StatusArray",

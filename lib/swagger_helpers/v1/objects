@@ -175,17 +175,22 @@
       "OPENiObject": {
          "id": "OPENiObject",
          "properties": {
-            "openi_type": {
+            "_id":{
+               "type"        :"string",
+               "description" : "The Objects identifier.",
+               "required"    : false
+            },
+            "_openi_type": {
                "type"        : "string",
                "description" : "OPENi Type that this object is an instance of.",
                "required"    : true
             },
-            "data":{
+            "_data":{
                "type"        :"string",
                "description" : "The Objects values.",
-               "required"    : false
+               "required"    : true
             },
-            "revision":{
+            "_revision":{
                "type"        : "string",
                "description" : "Revision number associated with this version of the Object, this number must be presented when updating the object",
                "required"    : false
