@@ -13,9 +13,9 @@
             {
                "method"     : "POST",
                "summary"    : "Creates a type.",
-               "notes"      : "Creates a type on the Cloudlet platform",
+               "notes"      : "<h3>Creates a type on the Cloudlet platform</h3>Creates an OPENi Type on the platform. An OPENi type defines how an OPENi object is structured. A type has a number of required fields including _reference and _context. The _context contains an array of member descriptions that an object requires so that it is compliant with the Type. When an OPENi Object is persisted to the system it is validated against the context as outlined in its OPENiType. <br/><br/>The Types allow for members of the following primitive types to be defined in the OPENi Objects.<br><br><ul><li>boolean</li><li>int</li><li>float</li><li>string</li><li>date(DD-MM-YYYY)</li><li>timestamp(yyyy-MM-dd HH:mm:ss.SSS)</li><li>OPENitype</li></ul>",
                "type"       : "string",
-               "nickname"   : "createType",
+               "nickname"   : "CreateResponse",
                "parameters" : [
                   {
                      "name"         : "data",
@@ -27,19 +27,14 @@
                ],
                "responseMessages": [
                   {
-                     "code": 200,
-                     "message": "Ok",
-                     "responseModel": "string"
-                  },
-                  {
                      "code": 400,
-                     "message": "Type could not be created",
-                     "responseModel": "Error"
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
                   },
                   {
                      "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "Error"
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
                   }
                ]
             },
@@ -47,32 +42,27 @@
                "method"     : "PATCH",
                "summary"    : "Create multiple types in a single request.",
                "notes"      : "Create multiple types to a in one go.",
-               "type"       : "StatusArray",
+               "type"       : "CreateResponseArray",
                "nickname"   : "createTypes",
                "parameters" : [
                   {
                      "name"         : "body",
                      "description"  : "JSON array of the types to be created.",
                      "required"     : true,
-                     "type"         : "TypeArray",
+                     "type"         : "OPENiTypeArray",
                      "paramType"    : "body"
                   }
                ],
                "responseMessages": [
                   {
-                     "code": 200,
-                     "message": "Ok",
-                     "responseModel": "StatusArray"
-                  },
-                  {
                      "code": 400,
-                     "message": "Error adding some types.",
-                     "responseModel": "StatusArray"
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
                   },
                   {
                      "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "StatusArray"
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
                   }
                ]
             }
@@ -98,18 +88,14 @@
                ],
                "responseMessages": [
                   {
-                     "code": 200,
-                     "message": "Ok"
-                  },
-                  {
                      "code": 400,
-                     "message": "Type not found",
-                     "responseModel": "TypeStatus"
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
                   },
                   {
                      "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "TypeStatus"
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
                   }
                ]
             }
@@ -117,18 +103,6 @@
       }
    ],
    "models": {
-      "TypeArray": {
-         "id": "TypeArray",
-         "properties": {
-            "types": {
-               "type"        : "array",
-               "description" : "An array of Types",
-               "items"       : {
-                  "$ref" : "OPENiType"
-               }
-            }
-         }
-      },
       "OPENiType": {
          "id": "OPENiType",
          "properties": {
@@ -151,38 +125,49 @@
             }
          }
       },
-      "TypeStatus": {
-         "id": "TypeStatus",
+      "OPENiTypeArray": {
+         "id": "OPENiTypeArray",
          "properties": {
-            "code": {
+            "types": {
+               "type"        : "array",
+               "description" : "An array of OPENi Types.",
+               "items"       : {
+                  "$ref" : "OPENiType"
+               }
+            }
+         }
+      },
+      "CreateResponse": {
+         "id": "CreateResponse",
+         "properties": {
+            "id": {
                "type"        : "string",
-               "description" : "Response code",
+               "description" : "The id of the newly created OPENi Type",
                "required"    : true
-            },
-            "message":{
-               "type"     :"string",
-               "description" : "Descriptive message",
-               "required" : false
             }
          }
       },
-      "Error": {
-         "id": "Error",
+      "CreateResponseArray": {
+         "id": "CreateResponseArray",
          "properties": {
-            "code": {
-               "type"    : "string",
-               "description" : "Response code",
-               "required"    : true
-            },
-            "message":{
-               "type"     :"string",
-               "description" : "Descriptive message",
-               "required" : false
+            "types": {
+               "type"        : "array",
+               "description" : "An array of create responses",
+               "items"       : {
+                  "$ref" : "CreateResponse"
+               }
             }
          }
       },
-      "Object": {
-         "id": "Object"
+      "CreateErrorResponse": {
+         "id": "CreateErrorResponse",
+         "properties": {
+            "error": {
+               "type"        : "string",
+               "description" : "Description of error that occurred.",
+               "required"    : true
+            }
+         }
       },
       "ContextEntryArray": {
          "id": "ContextEntryArray",
@@ -223,18 +208,6 @@
                "type"        : "string",
                "description" : "The type's semantic context (optional?)",
                "required"    : true
-            }
-         }
-      },
-      "StatusArray": {
-         "id": "StatusArray",
-         "properties": {
-            "types": {
-               "type"        : "array",
-               "description" : "An array of Statuses",
-               "items"       : {
-                  "$ref" : "TypeStatus"
-               }
             }
          }
       }
