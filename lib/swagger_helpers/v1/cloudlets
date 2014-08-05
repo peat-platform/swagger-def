@@ -28,6 +28,11 @@
                "responseClass": "CloudletStatus",
                "responseMessages": [
                   {
+                     "code": 201,
+                     "message": "Created",
+                     "responseModel": "CloudletStatus"
+                  },
+                  {
                      "code": 501,
                      "message": "Not yet Implemented"
                   },
@@ -69,6 +74,10 @@
                   }
                ],
                "responseMessages": [
+                   {
+                     "code": 202,
+                     "message": "Deleted"
+                  },
                   {
                      "code": 501,
                      "message": "Not yet Implemented"
@@ -112,8 +121,9 @@
                ],
                "responseMessages": [
                   {
-                     "code": 501,
-                     "message": "Not yet Implemented"
+                     "code": 200,
+                     "message": "",
+                     "responseModel": "CloudletStatus"
                   },
                   {
                      "code": 400,
@@ -129,6 +139,10 @@
                      "code": 405,
                      "message": "Method Not allowed",
                      "responseModel": "CloudletStatus"
+                  },
+                  {
+                     "code": 501,
+                     "message": "Not yet Implemented"
                   }
                ]
             }
@@ -152,7 +166,7 @@
          }
       },
       "CloudletStatus": {
-         "id": "CloudletStatus",
+         "id": "CloudletStatus",2
          "properties": {
             "value": {
                "type"        : "boolean",
