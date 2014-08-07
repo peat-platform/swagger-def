@@ -166,7 +166,7 @@
          }
       },
       "CloudletStatus": {
-         "id": "CloudletStatus",2
+         "id": "CloudletStatus",
          "properties": {
             "value": {
                "type"        : "boolean",
