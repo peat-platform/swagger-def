@@ -14,7 +14,7 @@
                "method"     : "POST",
                "summary"    : "Create an Object in the Cloudlet",
                "notes"      : "Create an Object in the Cloudlet.",
-               "type"       : "string",
+               "type"       : "ObjectResponse",
                "nickname"   : "createObject",
                "parameters" : [
                   {
@@ -34,24 +34,19 @@
                ],
                "responseMessages": [
                   {
-                     "code": 201,
-                     "message": "Created",
-                     "responseModel": "ObjectStatus"
-                  },
-                  {
                      "code": 400,
                      "message": "Request Error",
-                     "responseModel": "ObjectStatus"
+                     "responseModel": "ObjectErrorResponse"
                   },
                   {
                      "code": 401,
                      "message": "Unauthorised request",
-                     "responseModel": "ObjectStatus"
+                     "responseModel": "ObjectErrorResponse"
                   },
                   {
                      "code": 500,
                      "message": "Data could not be added to the cloudlet",
-                     "responseModel": "ObjectStatus"
+                     "responseModel": "ObjectErrorResponse"
                   }
                ]
             }
@@ -84,19 +79,14 @@
                ],
                "responseMessages": [
                   {
-                     "code": 200,
-                     "message": "Ok",
-                     "responseModel": "Object"
-                  },
-                  {
                      "code": 400,
                      "message": "Object not found",
-                     "responseModel": "ObjectStatus"
+                     "responseModel": "ObjectErrorResponse"
                   },
                   {
                      "code": 401,
                      "message": "Unauthorised request",
-                     "responseModel": "ObjectStatus"
+                     "responseModel": "ObjectErrorResponse"
                   }
                ]
             }]
@@ -109,7 +99,7 @@
                "summary"    : "Updates the properties of on object with the provided properties",
                "notes"      : "Updates the properties of on object with the provided properties.",
                "nickname"   : "setObject",
-               "type"        : "String",
+               "type"        : "ObjectResponse",
                "parameters" : [
                   {
                      "name"        : "cloudletId",
@@ -142,19 +132,14 @@
                ],
                "responseMessages": [
                   {
-                     "code": 200,
-                     "message": "Ok",
-                     "responseModel": "ObjectStatus"
-                  },
-                  {
                      "code": 400,
                      "message": "Object not found",
-                     "responseModel": "ObjectStatus"
+                     "responseModel": "ObjectErrorResponse"
                   },
                   {
                      "code": 401,
                      "message": "Unauthorised request",
-                     "responseModel": "ObjectStatus"
+                     "responseModel": "ObjectErrorResponse"
                   }
                ]
             }
@@ -203,8 +188,25 @@
             }
          }
       },
-      "Object" : {
-         "id": "Object"
+      "ObjectResponse": {
+         "id": "ObjectResponse",
+         "properties": {
+            "id": {
+               "type"        : "string",
+               "description" : "The ID of the OPENi Object acted upon.",
+               "required"    : true
+            }
+         }
+      },
+      "ObjectErrorResponse": {
+         "id": "ObjectErrorResponse",
+         "properties": {
+            "error": {
+               "type"        : "string",
+               "description" : "Description of error that occurred.",
+               "required"    : true
+            }
+         }
       }
    }
 }

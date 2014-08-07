@@ -14,24 +14,18 @@
                "method"     : "POST",
                "summary"    : "Creates a Cloudlet",
                "notes"      : "Provisions a Cloudlet on the Cloudlet Platform. This is an internal API that only the resource service can use.",
-               "type"       : "CloudletStatus",
+               "type"       : "CloudletResponse",
                "nickname"   : "createCloudlet",
                "parameters" : [
                   {
                      "name"          : "data",
                      "description"   : "The Cloudlet data",
                      "required"      : true,
-                     "type"          : "Cloudlet",
+                     "type"          : "OPENiCloudlet",
                      "paramType"     : "body"
                   }
                ],
-               "responseClass": "CloudletStatus",
                "responseMessages": [
-                  {
-                     "code": 201,
-                     "message": "Created",
-                     "responseModel": "CloudletStatus"
-                  },
                   {
                      "code": 501,
                      "message": "Not yet Implemented"
@@ -39,17 +33,17 @@
                   {
                      "code": 400,
                      "message": "Bad Request",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   },
                   {
                      "code": 401,
                      "message": "Unauthorised request",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   },
                   {
                      "code": 405,
                      "message": "Method Not allowed",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   }
                ]
             }
@@ -62,7 +56,7 @@
                "method"     : "DELETE",
                "summary"    : "DELETE Cloudlet by Id",
                "notes"      : "This endpoint allows a user delete their Cloudlet. When called all their data is purged from their Cloudlet and indexes referring to their Cloudlet are removed.",
-               "type"       : "CloudletStatus",
+               "type"       : "CloudletResponse",
                "nickname"   : "deleteCloudletById",
                "parameters" : [
                   {
@@ -74,10 +68,6 @@
                   }
                ],
                "responseMessages": [
-                   {
-                     "code": 202,
-                     "message": "Deleted"
-                  },
                   {
                      "code": 501,
                      "message": "Not yet Implemented"
@@ -85,17 +75,17 @@
                   {
                      "code": 400,
                      "message": "Bad Request",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   },
                   {
                      "code": 401,
                      "message": "Unauthorised request",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   },
                   {
                      "code": 405,
                      "message": "Method Not allowed",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   }
                ]
             }
@@ -108,7 +98,7 @@
                "method"     : "GET",
                "summary"    : "Export Cloudlet data.",
                "notes"      : "This endpoint allows a user export all their data from their Cloudlet. Data is exported in a json file.",
-               "type"       : "Cloudlet",
+               "type"       : "OPENiCloudlet",
                "nickname"   : "exportCloudletById",
                "parameters" : [
                   {
@@ -121,24 +111,19 @@
                ],
                "responseMessages": [
                   {
-                     "code": 200,
-                     "message": "",
-                     "responseModel": "CloudletStatus"
-                  },
-                  {
                      "code": 400,
                      "message": "Bad Request",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   },
                   {
                      "code": 401,
                      "message": "Unauthorised request",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   },
                   {
                      "code": 405,
                      "message": "Method Not allowed",
-                     "responseModel": "CloudletStatus"
+                     "responseModel": "CloudletErrorResponse"
                   },
                   {
                      "code": 501,
@@ -150,9 +135,14 @@
       }
    ],
    "models": {
-      "Cloudlet": {
-         "id": "Cloudlet",
+      "OPENiCloudlet": {
+         "id": "OPENiCloudlet",
          "properties": {
+            "id": {
+               "type"        : "string",
+               "description" : "Unique identifier for the Cloudlet.",
+               "required"    : false
+            },
             "alias": {
                "type"        : "string",
                "description" : "Human readable name for the Cloudlet.",
@@ -162,22 +152,36 @@
                "type"        : "string",
                "description" : "Username of person who owns the Cloudlet.",
                "required"    : true
+            },
+            "date_created": {
+               "type"        : "string",
+               "description" : "Timestamp of creation of the Cloudlet",
+               "required"    : false
+            },
+            "_revision": {
+               "type"        : "string",
+               "description" : "Revision number associated with this version of the Cloudlet",
+               "required"    : false
             }
          }
       },
-      "CloudletStatus": {
-         "id": "CloudletStatus",2
+      "CloudletResponse": {
+         "id": "CloudletResponse",
          "properties": {
-            "value": {
-               "type"        : "boolean",
-               "format"      : "boolean",
-               "description" : "True if request was success, otherwise False.",
+            "id": {
+               "type"        : "string",
+               "description" : "The ID of the Cloudlet acted upon.",
                "required"    : true
-            },
-            "data":{
-               "type"     : "string",
-               "description" : "The id of the Cloudlet.",
-               "required" : false
+            }
+         }
+      },
+      "CloudletErrorResponse": {
+         "id": "CloudletErrorResponse",
+         "properties": {
+            "error": {
+               "type"        : "string",
+               "description" : "Description of error that occurred.",
+               "required"    : true
             }
          }
       }
