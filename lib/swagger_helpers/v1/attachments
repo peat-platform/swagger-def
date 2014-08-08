@@ -19,29 +19,29 @@
 			 "type"       : "AttachmentStatus",
 			 "nickname"   : "createCloudlet",
 			 "parameters" : [
-            {
-               "name"        : "cloudletId",
-               "description" : "The id of the users cloudlet.",
-               "required"    : true,
-               "type"        : "String",
-               "paramType"   : "path"
-            },
-            {
-               "name"        : "objectId",
-               "description" : "The id of the objects.",
-               "required"    : true,
-               "type"          : "String",
-               "paramType"   : "path"
-            },
+            	{
+               		"name"        : "cloudletId",
+               		"description" : "The id of the users cloudlet.",
+               		"required"    : true,
+               		"type"        : "string",
+            	   	"paramType"   : "path"
+            	},
+            	{
+               		"name"        : "objectId",
+               		"description" : "The id of the objects.",
+               		"required"    : true,
+               		"type"          : "string",
+               		"paramType"   : "path"
+            	},
 				{
 				   "name"          : "data",
 				   "description"   : "The data",
 				   "required"      : true,
-				   "type"          : "String",
+				   "type"          : "string",
 				   "paramType"     : "body"
 				}
-			 ],
-			 "responseMessages": [
+			],
+			"responseMessages": [
 				{
 				   "code": 200,
 				   "message": "Ok"
@@ -74,21 +74,21 @@
                "name"        : "cloudletId",
                "description" : "The id of the users cloudlet.",
                "required"    : true,
-               "type"        : "String",
+               "type"        : "string",
                "paramType"   : "path"
             },
             {
                "name"        : "objectId",
                "description" : "The id of the objects.",
                "required"    : true,
-               "type"        : "String",
+               "type"        : "string",
                "paramType"   : "path"
             },
             {
                "name"        : "attachmentId",
                "description" : "The id of the binary data.",
                "required"    : true,
-               "type"        : "String",
+               "type"        : "string",
                "paramType"   : "path"
             },
 				{

@@ -11,12 +11,13 @@
          "path"       : "/cloudlets",
          "operations" : [
             {
-               "method"     : "POST",
-               "summary"    : "Creates a Cloudlet",
-               "notes"      : "Provisions a Cloudlet on the Cloudlet Platform. This is an internal API that only the resource service can use.",
-               "type"       : "CloudletResponse",
-               "nickname"   : "createCloudlet",
-               "parameters" : [
+               "method"        : "POST",
+               "summary"       : "Creates a Cloudlet",
+               "notes"         : "Provisions a Cloudlet on the Cloudlet Platform. This is an internal API that only the resource service can use.",
+               "type"          : "CloudletResponse",
+               "responseClass" : "CloudletResponse",
+               "nickname"      : "createCloudlet",
+               "parameters"    : [
                   {
                      "name"          : "data",
                      "description"   : "The Cloudlet data",
@@ -53,17 +54,18 @@
          "path": "/cloudlets/{cloudletId}",
          "operations": [
             {
-               "method"     : "DELETE",
-               "summary"    : "DELETE Cloudlet by Id",
-               "notes"      : "This endpoint allows a user delete their Cloudlet. When called all their data is purged from their Cloudlet and indexes referring to their Cloudlet are removed.",
-               "type"       : "CloudletResponse",
-               "nickname"   : "deleteCloudletById",
-               "parameters" : [
+               "method"        : "DELETE",
+               "summary"       : "DELETE Cloudlet by Id",
+               "notes"         : "This endpoint allows a user delete their Cloudlet. When called all their data is purged from their Cloudlet and indexes referring to their Cloudlet are removed.",
+               "type"          : "CloudletResponse",
+               "responseClass" : "CloudletResponse",
+               "nickname"      : "deleteCloudletById",
+               "parameters"    : [
                   {
                      "name"        : "cloudletId",
                      "description" : "The id of the Cloudlet that is to be deleted.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   }
                ],
@@ -95,17 +97,18 @@
          "path": "/cloudlets/{cloudletId}",
          "operations": [
             {
-               "method"     : "GET",
+               "method"        : "GET",
                "summary"    : "Export Cloudlet data.",
-               "notes"      : "This endpoint allows a user export all their data from their Cloudlet. Data is exported in a json file.",
-               "type"       : "OPENiCloudlet",
-               "nickname"   : "exportCloudletById",
-               "parameters" : [
+               "notes"         : "This endpoint allows a user export all their data from their Cloudlet. Data is exported in a json file.",
+               "type"          : "OPENiCloudlet",
+               "responseClass" : "OPENiCloudlet",
+               "nickname"      : "exportCloudletById",
+               "parameters"    : [
                   {
                      "name"        : "cloudletId",
                      "description" : "The id of the Cloudlet that is to be exported.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   }
                ],

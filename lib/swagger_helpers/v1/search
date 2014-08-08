@@ -21,7 +21,7 @@
                      "name"        : "cloudletId",
                      "description" : "The id of the Cloudlet that is to be exported.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   },
                   {

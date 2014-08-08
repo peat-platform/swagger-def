@@ -3,7 +3,7 @@
    "swaggerVersion"  : "1.2",
    "basePath"        : "/api/v1",
    "resourcePath"    : "/aggregate",
-   "type"            : "String",
+   "type"            : "string",
    "apis": [ 
       {
          "path": "/aggregate/{typeId}",
@@ -13,7 +13,16 @@
                "summary"   : "",
                "notes"     : "",
                "nickname"  : "getAggregated",
-               "type"      : "String",
+               "type"      : "string",
+               "parameters" : [
+                  {
+                     "name"        : "typeId",
+                     "description" : "The type to be created.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  }
+               ],
                "responseMessages": [
                   {
                      "code": 200,

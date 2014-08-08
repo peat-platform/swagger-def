@@ -82,7 +82,7 @@
                      "name"         : "typeID",
                      "description"  : "The Id of the type.",
                      "required"     : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"    : "path"
                   }
                ],
@@ -119,7 +119,7 @@
                }
             },
             "_reference": {
-               "type"        : "String",
+               "type"        : "string",
                "description" : "The URL of the refernce type.",
                "required"    : true
             }

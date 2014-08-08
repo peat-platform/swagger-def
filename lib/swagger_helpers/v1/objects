@@ -15,13 +15,14 @@
                "summary"    : "Create an Object in the Cloudlet",
                "notes"      : "Create an Object in the Cloudlet.",
                "type"       : "ObjectResponse",
+               "responseClass" : "ObjectResponse",
                "nickname"   : "createObject",
                "parameters" : [
                   {
                      "name"        : "cloudletId",
                      "description" : "The id of the users cloudlet.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   },
                   {
@@ -60,20 +61,21 @@
                "summary"    : "Retrieves an object from the Cloudlet.",
                "notes"      : "Returns an object from the Cloudlet.",
                "type"       : "OPENiObject",
+               "responseClass" : "OPENiObject",
                "nickname"   : "getObject",
                "parameters" : [
                   {
                      "name"        : "cloudletId",
                      "description" : "The id of the users Cloudlet that is to be accessed.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   },
                   {
                      "name"        : "objectId",
                      "description" : "Id of the object to be accessed.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   }
                ],
@@ -100,26 +102,27 @@
                "notes"      : "Updates the properties of on object with the provided properties.",
                "nickname"   : "setObject",
                "type"        : "ObjectResponse",
+               "responseClass" : "ObjectResponse",
                "parameters" : [
                   {
                      "name"        : "cloudletId",
                      "description" : "The id of the users Cloudlet that is to be accessed.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   },
                   {
                      "name"        : "objectId",
                      "description" : "Id of the object to be accessed.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   },
                   {
                      "name"        : "revision",
                      "description" : "revision id of the object to be updated.",
                      "required"    : true,
-                     "type"        : "String",
+                     "type"        : "string",
                      "paramType"   : "path"
                   },
                   {
