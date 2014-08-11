@@ -12,8 +12,8 @@
          "operations": [
             {
                "method"     : "POST",
-               "summary"    : "Create an Object in the Cloudlet",
-               "notes"      : "Create an Object in the Cloudlet.",
+               "summary"    : "Create an Object",
+               "notes"      : "<h3>Creates a object on the Cloudlet platform</h3>Creates an object on the platform. An objects structure is based on the _openi_type of which the object is defined.<br>For each property in the type a field and value should be defined. <br><br> For example, if the type had a 'name' property of type string then data would have the entry {'name':'some string name'}",
                "type"       : "ObjectResponse",
                "responseClass" : "ObjectResponse",
                "nickname"   : "createObject",
@@ -180,7 +180,7 @@
                "required"    : true
             },
             "_data":{
-               "type"        :"string",
+               "type"        :"Object",
                "description" : "The Objects values.",
                "required"    : true
             },
@@ -200,6 +200,10 @@
                "required"    : true
             }
          }
+      },
+      "Object": {
+         "id" : "Object",
+         "properties" : {}
       },
       "ObjectErrorResponse": {
          "id": "ObjectErrorResponse",
