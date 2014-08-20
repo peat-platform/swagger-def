@@ -13,7 +13,7 @@
             {
                "method"     : "POST",
                "summary"    : "Creates a type.",
-               "notes"      : "<h3>Creates a type on the Cloudlet platform</h3>Creates an OPENi Type on the platform. An OPENi type defines how an OPENi object is structured. A type has a number of required fields including _reference and _context. The _context contains an array of member descriptions that an object requires so that it is compliant with the Type. When an OPENi Object is persisted to the system it is validated against the context as outlined in its OPENiType. <br/><br/>The Types allow for members of the following primitive types to be defined in the OPENi Objects.<br><br><ul><li>boolean</li><li>int</li><li>float</li><li>string</li><li>date(DD-MM-YYYY)</li><li>timestamp(yyyy-MM-dd HH:mm:ss.SSS)</li><li>OPENitype</li></ul>",
+               "notes"      : "<h3>Creates a type on the Cloudlet platform</h3>Creates an OPENi Type on the platform. An OPENi type defines how an OPENi object is structured. A type has a number of required fields including _reference and _context. The _context contains an array of member descriptions that an object requires so that it is compliant with the Type. When an OPENi Object is persisted to the system it is validated against the context as outlined in its OPENiType. <br/><br/>The Types allow for members of the following primitive types to be defined in the OPENi Objects.<br><br><ul><li>boolean</li><li>int</li><li>float</li><li>string</li><li>hexadecimal</li><li>base64</li><li>date(DD-MM-YYYY)</li><li>timestamp(yyyy-MM-dd HH:mm:ss.SSS)</li><li>OPENitype</li></ul>",
                "type"       : "CreateResponse",
                "nickname"   : "createType",
                "parameters" : [

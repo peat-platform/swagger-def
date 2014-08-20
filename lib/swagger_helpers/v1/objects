@@ -5,7 +5,7 @@
    "resourcePath"    : "/objects",
    "produces": [
       "application/Json"
-   ], 
+   ],
    "apis": [
       {
          "path": "/objects/{cloudletId}",
