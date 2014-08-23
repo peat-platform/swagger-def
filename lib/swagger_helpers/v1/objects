@@ -94,6 +94,77 @@
             }]
       },
       {
+         "path": "/objects/{cloudletId}",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Retrieves the Cloudlets Objects.",
+               "notes"      : "Returns a Cloudlets objects according to the specified filters. ",
+               "type"       : "OPENiObjectArray",
+               "responseClass" : "OPENiObjectArray",
+               "nickname"   : "getObjects",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the users Cloudlet that is to be accessed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "skip",
+                     "description" : "Pagination feature, the amount of objects to skip.",
+                     "required"    : false,
+                     "type"        : "int",
+                     "paramType"   : "query"
+                  },
+                  {
+                     "name"        : "limit",
+                     "description" : "The amount of objects to return.",
+                     "required"    : false,
+                     "type"        : "int",
+                     "paramType"   : "query"
+                  },
+                  {
+                     "name"          : "type",
+                     "description"   : "Limits Object to those of this type.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : true
+                  },
+                  {
+                     "name"          : "id_only",
+                     "description"   : "If true returns an array of object ids instead of the full objects.",
+                     "required"      : false,
+                     "type"          : "boolean",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
+                  },
+                  {
+                     "name"          : "only_show_properties",
+                     "description"   : "Comma seperated list of properties to include in the objects, all others are removed.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : true
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }]
+      },
+      {
          "path": "/objects/{cloudletId}/{objectId}/{revision}",
          "operations": [
             {
@@ -147,6 +218,46 @@
                ]
             }
          ]
+      },
+      {
+         "path": "/objects/{cloudletId}/{objectId}",
+         "operations": [
+            {
+               "method"     : "DELETE", 
+               "summary"    : "Removes an object from the Cloudlet.",
+               "notes"      : "Removes an object from the Cloudlet.",
+               "type"       : "ObjectResponse",
+               "responseClass" : "ObjectResponse",
+               "nickname"   : "removeObject",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the users Cloudlet.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be removed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }]
       }
    ],
    "models": {
@@ -163,6 +274,18 @@
                "type"     :"string",
                "description" : "Descriptive message",
                "required" : false
+            }
+         }
+      },
+      "OPENiObjectArray": {
+         "id": "OPENiObjectArray",
+         "properties": {
+            "types": {
+               "type"        : "array",
+               "description" : "An array of OPENi Objects.",
+               "items"       : {
+                  "$ref" : "OPENiObject"
+               }
             }
          }
       },
