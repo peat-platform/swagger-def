@@ -69,6 +69,63 @@
          ]
       },
       {
+         "path": "/types",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Retrieves the OPENi types on the system.",
+               "notes"      : "Retrieves the OPENi types on the system.. ",
+               "type"       : "OPENiTypeArray",
+               "responseClass" : "OPENiTypeArray",
+               "nickname"   : "getTypes",
+               "parameters" : [
+                  {
+                     "name"        : "skip",
+                     "description" : "Pagination feature, the amount of objects to skip.",
+                     "required"    : false,
+                     "type"        : "int",
+                     "paramType"   : "query"
+                  },
+                  {
+                     "name"        : "limit",
+                     "description" : "The amount of objects to return.",
+                     "required"    : false,
+                     "type"        : "int",
+                     "paramType"   : "query"
+                  },
+                  {
+                     "name"          : "id_only",
+                     "description"   : "If true returns an array of object ids instead of the full objects.",
+                     "required"      : false,
+                     "type"          : "boolean",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
+                  },
+                  {
+                     "name"          : "content-type",
+                     "description"   : "Supported content-type is application/json-ld.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "enum"          : ["application/json-ld"],
+                     "paramType"     : "query",
+                     "allowMultiple" : true
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }]
+      },
+      {
          "path": "/types/{typeID}",
          "operations": [
             {
@@ -84,6 +141,15 @@
                      "required"     : true,
                      "type"        : "string",
                      "paramType"    : "path"
+                  },
+                  {
+                     "name"          : "content-type",
+                     "description"   : "Supported content-type is application/json-ld.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "enum"          : ["application/json-ld"],
+                     "paramType"     : "query",
+                     "allowMultiple" : true
                   }
                ],
                "responseMessages": [
@@ -100,6 +166,32 @@
                ]
             }
          ]
+      },
+      {
+         "path": "/types/stats",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Retrieves the Types usage stats.",
+               "notes"      : "Retrieves the Types usage stats.",
+               "type"       : "StatArray",
+               "responseClass" : "StatArray",
+               "nickname"   : "getStats",
+               "parameters" : [
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }]
       }
    ],
    "models": {
@@ -134,6 +226,33 @@
                "items"       : {
                   "$ref" : "OPENiType"
                }
+            }
+         }
+      },
+      "StatArray": {
+         "id": "StatArray",
+         "properties": {
+            "types": {
+               "type"        : "array",
+               "description" : "An array of stats",
+               "items"       : {
+                  "$ref" : "Stat"
+               }
+            }
+         }
+      },
+      "Stat": {
+         "id": "Stat",
+         "properties": {
+            "key": {
+               "type"        : "string",
+               "description" : "The stat key",
+               "required"    : true
+            },
+            "value": {
+               "type"        : "int",
+               "description" : "The stat value",
+               "required"    : true
             }
          }
       },
