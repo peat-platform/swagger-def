@@ -75,8 +75,10 @@
                "method"     : "GET",
                "summary"    : "Retrieves the OPENi types on the system.",
                "notes"      : "Retrieves the OPENi types on the system.. ",
-               "type"       : "OPENiTypeArray",
-               "responseClass" : "OPENiTypeArray",
+               "type": "array",
+               "items": {
+                  "$ref" : "OPENiType"
+               },
                "nickname"   : "getTypes",
                "parameters" : [
                   {
