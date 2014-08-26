@@ -98,7 +98,7 @@
          "operations": [
             {
                "method"        : "GET",
-               "summary"    : "Export Cloudlet data.",
+               "summary"       : "Export Cloudlet data.",
                "notes"         : "This endpoint allows a user export all their data from their Cloudlet. Data is exported in a json file.",
                "type"          : "OPENiCloudlet",
                "responseClass" : "OPENiCloudlet",
@@ -143,8 +143,10 @@
                "method"     : "GET",
                "summary"    : "Retrieves all Cloudlets on the platform.",
                "notes"      : "Retrieves all Cloudlets on the platform.",
-               "type"       : "OPENiCloudletArray",
-               "responseClass" : "OPENiCloudletArray",
+               "type": "array",
+               "items": {
+                  "$ref" : "OPENiCloudlet"
+               },
                "nickname"   : "getCloudlets",
                "parameters" : [
                   {
@@ -213,18 +215,6 @@
                "type"        : "string",
                "description" : "Revision number associated with this version of the Cloudlet",
                "required"    : false
-            }
-         }
-      },
-      "OPENiCloudletArray": {
-         "id": "OPENiCloudletArray",
-         "properties": {
-            "types": {
-               "type"        : "array",
-               "description" : "An array of OPENi Cloudlets.",
-               "items"       : {
-                  "$ref" : "OPENiCloudlet"
-               }
             }
          }
       },

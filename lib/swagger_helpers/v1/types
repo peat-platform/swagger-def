@@ -49,7 +49,10 @@
                      "name"         : "body",
                      "description"  : "JSON array of the types to be created.",
                      "required"     : true,
-                     "type"         : "OPENiTypeArray",
+                     "type": "array",
+                     "items": {
+                        "$ref" : "OPENiType"
+                     },
                      "paramType"    : "body"
                   }
                ],
@@ -176,8 +179,10 @@
                "method"     : "GET",
                "summary"    : "Retrieves the Types usage stats.",
                "notes"      : "Retrieves the Types usage stats.",
-               "type"       : "StatArray",
-               "responseClass" : "StatArray",
+               "type"        : "array",
+               "items"       : {
+                  "$ref" : "Stat"
+               },
                "nickname"   : "getStats",
                "parameters" : [
                ],
@@ -216,30 +221,6 @@
                "type"        : "string",
                "description" : "The URL of the refernce type.",
                "required"    : true
-            }
-         }
-      },
-      "OPENiTypeArray": {
-         "id": "OPENiTypeArray",
-         "properties": {
-            "types": {
-               "type"        : "array",
-               "description" : "An array of OPENi Types.",
-               "items"       : {
-                  "$ref" : "OPENiType"
-               }
-            }
-         }
-      },
-      "StatArray": {
-         "id": "StatArray",
-         "properties": {
-            "types": {
-               "type"        : "array",
-               "description" : "An array of stats",
-               "items"       : {
-                  "$ref" : "Stat"
-               }
             }
          }
       },

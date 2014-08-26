@@ -100,8 +100,10 @@
                "method"     : "GET",
                "summary"    : "Retrieves the Cloudlets Objects.",
                "notes"      : "Returns a Cloudlets objects according to the specified filters. ",
-               "type"       : "OPENiObjectArray",
-               "responseClass" : "OPENiObjectArray",
+               "type"        : "array",
+               "items"       : {
+                  "$ref" : "OPENiObject"
+               },
                "nickname"   : "getObjects",
                "parameters" : [
                   {
@@ -277,18 +279,6 @@
             }
          }
       },
-      "OPENiObjectArray": {
-         "id": "OPENiObjectArray",
-         "properties": {
-            "types": {
-               "type"        : "array",
-               "description" : "An array of OPENi Objects.",
-               "items"       : {
-                  "$ref" : "OPENiObject"
-               }
-            }
-         }
-      },
       "OPENiObject": {
          "id": "OPENiObject",
          "properties": {
@@ -303,7 +293,7 @@
                "required"    : true
             },
             "_data":{
-               "type"        :"Object",
+               "type"        :"string",
                "description" : "The Objects values.",
                "required"    : true
             },
