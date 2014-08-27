@@ -3,43 +3,43 @@
    "swaggerVersion"  : "1.2",
    "basePath"        : "/api/v1",
    "resourcePath"    : "/attachments",
-   "produces": [
-      "image/gif",
-      "image/jpg",
-      "image/png"
-   ], 
    "apis": [
 	{
-	   "path"       : "/attachments/{cloudletId}/{objectId}",
+	   "path"       : "/attachments/{cloudletId}",
 	   "operations" : [
 		  {
 			 "method"     : "POST",
 			 "summary"    : "Creates an attachment to the JSON object",
 			 "notes"      : "Creates an attachment to the JSON object. which may be any binary (see couchdb)",
 			 "type"       : "AttachmentStatus",
-			 "nickname"   : "createCloudlet",
+			 "nickname"   : "uploadAttachment",
+          "consumes": [
+              "multipart/form-data"
+           ],
 			 "parameters" : [
-            	{
-               		"name"        : "cloudletId",
-               		"description" : "The id of the users cloudlet.",
-               		"required"    : true,
-               		"type"        : "string",
-            	   	"paramType"   : "path"
-            	},
-            	{
-               		"name"        : "objectId",
-               		"description" : "The id of the objects.",
-               		"required"    : true,
-               		"type"          : "string",
-               		"paramType"   : "path"
-            	},
-				{
-				   "name"          : "data",
-				   "description"   : "The data",
-				   "required"      : true,
-				   "type"          : "string",
-				   "paramType"     : "body"
-				}
+            {
+                  "name"        : "cloudletId",
+                  "description" : "The id of the users cloudlet.",
+                  "required"    : true,
+                  "type"        : "string",
+                  "paramType"   : "path"
+            },
+            {
+               "name"          : "additionalMetadata",
+               "description"   : "The file to upload",
+               "required"      : true,
+               "type"          : "string",
+               "paramType"     : "form",
+               "allowMultiple": false
+            },
+            {
+               "name"          : "file",
+               "description"   : "The file to upload",
+               "required"      : true,
+               "type"          : "File",
+               "paramType"     : "form",
+               "allowMultiple": false
+            }
 			],
 			"responseMessages": [
 				{
@@ -61,25 +61,18 @@
 	   ]
 	},
 	{
-	   "path"       : "/attachments/{cloudletId}/{objectId}/{attachmentId}",
+	   "path"       : "/attachments/{cloudletId}/{attachmentId}",
 	   "operations" : [
 		  {
 			 "method"     : "GET",
 			 "summary"    : "Gets the attachment",
 			 "notes"      : "Gets the attachment",
 			 "type"       : "AttachmentStatus",
-			 "nickname"   : "createCloudlet",
+			 "nickname"   : "getAttachmentCloudlet",
 			 "parameters" : [
             {
                "name"        : "cloudletId",
                "description" : "The id of the users cloudlet.",
-               "required"    : true,
-               "type"        : "string",
-               "paramType"   : "path"
-            },
-            {
-               "name"        : "objectId",
-               "description" : "The id of the objects.",
                "required"    : true,
                "type"        : "string",
                "paramType"   : "path"
@@ -92,11 +85,11 @@
                "paramType"   : "path"
             },
 				{
-				   "name"          : "data",
+				   "name"          : "meta",
 				   "description"   : "The binary data",
 				   "required"      : true,
-				   "type"          : "string",
-				   "paramType"     : "body"
+				   "type"          : "boolean",
+				   "paramType"     : "query"
 				}
 			 ],
 			 "responseMessages": [
