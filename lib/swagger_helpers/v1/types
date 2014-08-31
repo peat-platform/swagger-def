@@ -42,7 +42,10 @@
                "method"     : "PATCH",
                "summary"    : "Create multiple types in a single request.",
                "notes"      : "Create multiple types to a in one go.",
-               "type"       : "CreateResponseArray",
+               "type": "array",
+               "items": {
+                  "$ref" : "CreateResponse"
+               },
                "nickname"   : "createTypes",
                "parameters" : [
                   {
@@ -205,21 +208,31 @@
       "OPENiType": {
          "id": "OPENiType",
          "properties": {
-            "_id": {
+            "@id": {
                "type"        : "string",
                "description" : "Unique identifier for the type",
                "required"    : false
             },
-            "_context": {
+            "@location": {
+               "type"        : "string",
+               "description" : "Unique types URI",
+               "required"    : false
+            },
+            "@context": {
                "type"        : "array",
                "description" : "An array of Types",
                "items"       : {
                   "$ref" : "ContextEntry"
                }
             },
-            "_reference": {
+            "@reference": {
                "type"        : "string",
                "description" : "The URL of the refernce type.",
+               "required"    : true
+            },
+            "_date_created": {
+               "type"        : "Date",
+               "description" : "Date that the Type was created.",
                "required"    : true
             }
          }
@@ -242,7 +255,7 @@
       "CreateResponse": {
          "id": "CreateResponse",
          "properties": {
-            "id": {
+            "@id": {
                "type"        : "string",
                "description" : "The id of the newly created OPENi Type",
                "required"    : true
@@ -274,7 +287,7 @@
       "ContextEntryArray": {
          "id": "ContextEntryArray",
          "properties": {
-            "_context": {
+            "@context": {
                "type"        : "array",
                "description" : "An array of Types",
                "items"       : {
@@ -286,12 +299,12 @@
       "ContextEntry": {
          "id": "ContextEntry",
          "properties": {
-            "_property_name": {
+            "@property_name": {
                "type"        : "string",
                "description" : "Identifier for the context",
                "required"    : true
             },
-            "_property_context": {
+            "@property_context": {
                "type"        : "ContextValue",
                "description" : "The type's semantic context (optional?)",
                "required"    : true
@@ -301,12 +314,12 @@
       "ContextValue": {
          "id": "ContextValue",
          "properties": {
-            "_id": {
+            "@id": {
                "type"        : "string",
                "description" : "Identifier for the context",
                "required"    : true
             },
-            "_openi_type": {
+            "@openi_type": {
                "type"        : "string",
                "description" : "The type's semantic context (optional?)",
                "required"    : true

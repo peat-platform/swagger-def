@@ -196,6 +196,11 @@
                "description" : "Unique identifier for the Cloudlet.",
                "required"    : false
             },
+            "location": {
+               "type"        : "string",
+               "description" : "Cloudlets URI",
+               "required"    : false
+            },
             "alias": {
                "type"        : "string",
                "description" : "Human readable name for the Cloudlet.",
@@ -206,8 +211,8 @@
                "description" : "Username of person who owns the Cloudlet.",
                "required"    : true
             },
-            "date_created": {
-               "type"        : "string",
+            "_date_created": {
+               "type"        : "Date",
                "description" : "Timestamp of creation of the Cloudlet",
                "required"    : false
             },

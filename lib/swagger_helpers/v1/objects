@@ -144,8 +144,24 @@
                      "allowMultiple" : false
                   },
                   {
+                     "name"          : "with_property",
+                     "description"   : "Comma separated list of properties that the object must have.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
+                  },
+                  {
+                     "name"          : "property_filter",
+                     "description"   : "Comma separated list of name value pairs of properties that the object must satisfy. e.g. name=bob",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
+                  },
+                  {
                      "name"          : "only_show_properties",
-                     "description"   : "Comma seperated list of properties to include in the objects, all others are removed.",
+                     "description"   : "Comma separated list of properties to include in the objects, all others are removed.",
                      "required"      : false,
                      "type"          : "string",
                      "paramType"     : "query",
@@ -282,19 +298,39 @@
       "OPENiObject": {
          "id": "OPENiObject",
          "properties": {
-            "_id":{
+            "@id":{
                "type"        :"string",
-               "description" : "The Objects identifier.",
+               "description" : "The Object's identifier.",
                "required"    : false
             },
-            "_openi_type": {
+            "@location":{
+               "type"        :"string",
+               "description" : "The Object's identifier URI.",
+               "required"    : false
+            },
+            "@cloudlet":{
+               "type"        :"string",
+               "description" : "The Object's Cloudlet Id.",
+               "required"    : false
+            },
+            "@openi_type": {
                "type"        : "string",
                "description" : "OPENi Type that this object is an instance of.",
                "required"    : true
             },
-            "_data":{
-               "type"        :"string",
-               "description" : "The Objects values.",
+            "@data":{
+               "type"        :"JSON",
+               "description" : "The Object's values.",
+               "required"    : true
+            },
+            "_date_created": {
+               "type"        : "Date",
+               "description" : "Date that the Type was created.",
+               "required"    : true
+            },
+            "_date_modified": {
+               "type"        : "Date",
+               "description" : "Date that the Type was created.",
                "required"    : true
             },
             "_revision":{
@@ -313,10 +349,6 @@
                "required"    : true
             }
          }
-      },
-      "Object": {
-         "id" : "Object",
-         "properties" : {}
       },
       "ObjectErrorResponse": {
          "id": "ObjectErrorResponse",
