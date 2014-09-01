@@ -15,6 +15,14 @@
          "description": "Controls OPENi Objects"
       },
       {
+         "path": "/api-spec/v1/search",
+         "description": "Searches Platform for objects and cloudlets"
+      },
+      {
+         "path": "/api-spec/v1/attachments",
+         "description": "Serves binary content"
+      },
+      {
          "path": "/api-spec/v1/subscription",
          "description": "Subscription API"
       },

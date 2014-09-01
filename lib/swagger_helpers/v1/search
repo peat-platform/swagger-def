@@ -8,49 +8,31 @@
    ],
    "apis": [
       {
-         "path": "/search/{cloudletId}",
+         "path": "/search",
          "operations": [
             {
                "method"   : "GET",
                "summary"  : "Search for data within a cloudlet.",
                "notes"    : "This endpoint can be used to search within a Cloudlet. Objects can be searched by their types, context and data properties. All parameters support RQL queries <a href='http://www.persvr.org/rql'>http://www.persvr.org/rql</a>. Parameters allow for pagination and result sorting. The response contains an array of data views.",
-               "type"     : "JSON",
+               "type"     : "SearchResult",
                "nickname" : "search",
                "parameters" : [
+
                   {
-                     "name"        : "cloudletId",
-                     "description" : "The id of the Cloudlet that is to be exported.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "path"
+                     "name"          : "with_property",
+                     "description"   : "Comma separated list of properties that the object must have.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
                   },
                   {
-                     "name"         : "data.context",
-                     "description"  : "Search by an objects context.",
-                     "required"     : false,
-                     "type"         : "string",
-                     "paramType"    : "query"
-                  },
-                  {
-                     "name"         : "data.type",
-                     "description"  : "Search by an objects type.",
-                     "required"     : false,
-                     "type"         : "string",
-                     "paramType"    : "query"
-                  },
-                  {
-                     "name"         : "data.property",
-                     "description"  : "Search by an objects properties.",
-                     "required"     : false,
-                     "type"         : "string",
-                     "paramType"    : "query"
-                  },
-                  {
-                     "name"         : "sort",
-                     "description"  : "Sorts results by the given property in order specified by the prefix (+ for ascending, - for descending).",
-                     "required"     : false,
-                     "type"         : "string",
-                     "paramType"    : "query"
+                     "name"          : "property_filter",
+                     "description"   : "Comma separated list of name value pairs of properties that the object must satisfy. e.g. name=bob",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
                   },
                   {
                      "name"         : "from",
@@ -83,22 +65,18 @@
       }
    ],
    "models" : {
-      "JSON" : {
-         "id": "JSON"
-      },
-      "SearchStatus": {
-         "id": "SearchStatus",
+      "SearchResult": {
+         "id": "SearchResult",
          "properties": {
-            "code": {
-               "type"        : "integer",
-	       "format"	     : "int32",
-               "description" : "Response code",
+            "id": {
+               "type"        : "string",
+               "description" : "Object ID",
                "required"    : true
             },
-            "message":{
-               "type"     :"string",
-               "description" : "Descriptive message",
-               "required" : false
+            "cloudlet":{
+               "type"        : "string",
+               "description" : "Cloudlet ID",
+               "required"    : false
             }
          }
       }
