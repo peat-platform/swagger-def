@@ -233,7 +233,7 @@
             "_date_created": {
                "type"        : "Date",
                "description" : "Date that the Type was created.",
-               "required"    : true
+               "required"    : false
             }
          }
       },

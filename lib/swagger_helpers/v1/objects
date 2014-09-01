@@ -326,12 +326,12 @@
             "_date_created": {
                "type"        : "Date",
                "description" : "Date that the Type was created.",
-               "required"    : true
+               "required"    : false
             },
             "_date_modified": {
                "type"        : "Date",
                "description" : "Date that the Type was created.",
-               "required"    : true
+               "required"    : false
             },
             "_revision":{
                "type"        : "string",
