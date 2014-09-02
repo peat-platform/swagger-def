@@ -255,22 +255,10 @@
       "CreateResponse": {
          "id": "CreateResponse",
          "properties": {
-            "@id": {
+            "id": {
                "type"        : "string",
                "description" : "The id of the newly created OPENi Type",
                "required"    : true
-            }
-         }
-      },
-      "CreateResponseArray": {
-         "id": "CreateResponseArray",
-         "properties": {
-            "types": {
-               "type"        : "array",
-               "description" : "An array of create responses",
-               "items"       : {
-                  "$ref" : "CreateResponse"
-               }
             }
          }
       },
