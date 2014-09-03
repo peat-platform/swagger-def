@@ -8,108 +8,22 @@
    ],
    "apis": [
       {
-         "path"       : "/cloudlets",
-         "operations" : [
-            {
-               "method"        : "POST",
-               "summary"       : "Creates a Cloudlet",
-               "notes"         : "Provisions a Cloudlet on the Cloudlet Platform. This is an internal API that only the resource service can use.",
-               "type"          : "CloudletResponse",
-               "responseClass" : "CloudletResponse",
-               "nickname"      : "createCloudlet",
-               "parameters"    : [
-                  {
-                     "name"          : "data",
-                     "description"   : "The Cloudlet data",
-                     "required"      : true,
-                     "type"          : "OPENiCloudlet",
-                     "paramType"     : "body"
-                  }
-               ],
-               "responseMessages": [
-                  {
-                     "code": 501,
-                     "message": "Not yet Implemented"
-                  },
-                  {
-                     "code": 400,
-                     "message": "Bad Request",
-                     "responseModel": "CloudletErrorResponse"
-                  },
-                  {
-                     "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "CloudletErrorResponse"
-                  },
-                  {
-                     "code": 405,
-                     "message": "Method Not allowed",
-                     "responseModel": "CloudletErrorResponse"
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "path": "/cloudlets/{cloudletId}",
-         "operations": [
-            {
-               "method"        : "DELETE",
-               "summary"       : "DELETE Cloudlet by Id",
-               "notes"         : "This endpoint allows a user delete their Cloudlet. When called all their data is purged from their Cloudlet and indexes referring to their Cloudlet are removed.",
-               "type"          : "CloudletResponse",
-               "responseClass" : "CloudletResponse",
-               "nickname"      : "deleteCloudletById",
-               "parameters"    : [
-                  {
-                     "name"        : "cloudletId",
-                     "description" : "The id of the Cloudlet that is to be deleted.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "path"
-                  }
-               ],
-               "responseMessages": [
-                  {
-                     "code": 501,
-                     "message": "Not yet Implemented"
-                  },
-                  {
-                     "code": 400,
-                     "message": "Bad Request",
-                     "responseModel": "CloudletErrorResponse"
-                  },
-                  {
-                     "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "CloudletErrorResponse"
-                  },
-                  {
-                     "code": 405,
-                     "message": "Method Not allowed",
-                     "responseModel": "CloudletErrorResponse"
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "path": "/cloudlets/{cloudletId}",
+         "path": "/cloudlets",
          "operations": [
             {
                "method"        : "GET",
                "summary"       : "Export Cloudlet data.",
-               "notes"         : "This endpoint allows a user export all their data from their Cloudlet. Data is exported in a json file.",
+               "notes"         : "This endpoint returns the cloudlet id associated with the presented token. \n\r\n\r{ \"token\":  { \"user\": \"dmccarthy\" },   \"signature\": \"cVnf/YsH/h+554tlAAh5CvyLr3Y9xrqAK4zxTA/C8PMDWcjcUZistg90H2HiCL/tAL3VZe/53VbJcrFZGyFZDw==\" }",
                "type"          : "OPENiCloudlet",
                "responseClass" : "OPENiCloudlet",
-               "nickname"      : "exportCloudletById",
+               "nickname"      : "getCloudletId",
                "parameters"    : [
                   {
-                     "name"        : "cloudletId",
-                     "description" : "The id of the Cloudlet that is to be exported.",
+                     "name"        : "auth_token",
+                     "description" : "The users auth token. { token:  { user: 'dmccarthy' }, signature: 'cVnf/YsH/h+554tlAAh5CvyLr3Y9xrqAK4zxTA/C8PMDWcjcUZistg90H2HiCL/tAL3VZe/53VbJcrFZGyFZDw==' }",
                      "required"    : true,
                      "type"        : "string",
-                     "paramType"   : "path"
+                     "paramType"   : "header"
                   }
                ],
                "responseMessages": [
@@ -137,7 +51,77 @@
          ]
       },
       {
-         "path": "/cloudlets",
+         "path": "/cloudlets/allow_access",
+         "operations": [
+            {
+               "method"     : "POST",
+               "summary"    : "Grants third part access to cloudlets.",
+               "notes"      : "{ \"token\": { \"user\": \"johannes\" }, \"signature\": \"cYsQM8bctR9JnOinZCO3M46lY/cjfVaNN9GtBM9iQJLOlv2CLkxpa/7biK8iJyQl6z+Fa6HC25Ct7+JreMrlCQ==\" }",
+               "type"       : "Status",
+               "nickname"   : "allowAccess",
+               "parameters" : [
+                  {
+                     "name"        : "auth_token",
+                     "description" : "The users auth token.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"          : "third_party_token",
+                     "description"   : "If true returns an array of object ids instead of the full objects.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "body",
+                     "allowMultiple" : false
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }]
+      },
+      {
+         "path": "/cloudlets/revoke_access",
+         "operations": [
+            {
+               "method"     : "POST",
+               "summary"    : "Revokes access to Cloudlets on the platform.",
+               "notes"      : "Revokes access to Cloudlets on the platform.",
+               "type"       : "Status",
+               "nickname"   : "revokeAccess",
+               "parameters" : [
+                  {
+                     "name"        : "auth_token",
+                     "description" : "The users auth token.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"          : "third_party_token",
+                     "description"   : "If true returns an array of object ids instead of the full objects.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "body",
+                     "allowMultiple" : false
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }]
+      },
+      {
+         "path": "/cloudlets/all",
          "operations": [
             {
                "method"     : "GET",
@@ -196,29 +180,9 @@
                "description" : "Unique identifier for the Cloudlet.",
                "required"    : false
             },
-            "location": {
-               "type"        : "string",
-               "description" : "Cloudlets URI",
-               "required"    : false
-            },
-            "alias": {
-               "type"        : "string",
-               "description" : "Human readable name for the Cloudlet.",
-               "required"    : true
-            },
-            "username": {
-               "type"        : "string",
-               "description" : "Username of person who owns the Cloudlet.",
-               "required"    : true
-            },
             "_date_created": {
                "type"        : "Date",
                "description" : "Timestamp of creation of the Cloudlet",
-               "required"    : false
-            },
-            "_revision": {
-               "type"        : "string",
-               "description" : "Revision number associated with this version of the Cloudlet",
                "required"    : false
             }
          }
@@ -229,6 +193,16 @@
             "id": {
                "type"        : "string",
                "description" : "The ID of the Cloudlet acted upon.",
+               "required"    : true
+            }
+         }
+      },
+      "Status": {
+         "id": "Status",
+         "properties": {
+            "success": {
+               "type"        : "boolean",
+               "description" : "True if action was successful.",
                "required"    : true
             }
          }
