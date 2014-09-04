@@ -20,7 +20,7 @@
                "parameters"    : [
                   {
                      "name"        : "auth_token",
-                     "description" : "The users auth token. { token:  { user: 'dmccarthy' }, signature: 'cVnf/YsH/h+554tlAAh5CvyLr3Y9xrqAK4zxTA/C8PMDWcjcUZistg90H2HiCL/tAL3VZe/53VbJcrFZGyFZDw==' }",
+                     "description" : "",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
