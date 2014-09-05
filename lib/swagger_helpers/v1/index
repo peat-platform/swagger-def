@@ -3,6 +3,14 @@
    "swaggerVersion": "1.1",
    "apis": [
       {
+         "path": "/api-spec/v1/auth",
+         "description": ""
+      },
+      {
+         "path": "/api-spec/v1/users",
+         "description": ""
+      },
+      {
          "path": "/api-spec/v1/cloudlets",
          "description": "Cloudlet Administration API"
       },

@@ -1,0 +1,24 @@
+{
+   "apiVersion": "1.0.0",
+   "swaggerVersion": "1.2",
+   "basePath": "http://185.21.103.162:80",
+   "resourcePath": "/",
+   "apis": [
+      {
+         "path": "/api-spec/v1/auth",
+         "description": ""
+      },
+      {
+         "path": "/api-spec/v1/users",
+         "description": ""
+      }
+   ],
+   "info": {
+      "title": "OPENi Platform Security Framework REST APIs",
+      "description": "",
+      "termsOfService": "",
+      "contact": "help@openi-ict.eu",
+      "license": "MIT",
+      "licenseUrl": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+   }
+}

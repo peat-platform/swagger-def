@@ -1,0 +1,213 @@
+{
+   "apiVersion": "1.0.0",
+   "swaggerVersion": "1.2",
+   "basePath": "/uaa/api/v1",
+   "resourcePath":"/",
+   "produces": ["application/json"],
+   "consumes": ["application/json"],
+   "apis":
+      [
+         {
+            "path": "/login",
+            "operations":
+               [
+                  {
+                     "method": "POST",
+                     "summary":"",
+                     "type":"SessionAndToken",
+                     "nickname": "login",
+                     "authorizations": {},
+                     "parameters":
+                        [
+                           {
+                              "name" : "body",
+                              "description" : "The user's credentials",
+                              "required" : true,
+                              "type" : "Credentials",
+                              "paramType" : "body"
+                           }
+                        ],
+                     "responseMessages":
+                        [
+                           {
+                              "code": 200,
+                              "message": "OK"
+                           },
+                           {
+                              "code": 404,
+                              "message": "Not Found"
+                           },
+                           {
+                              "code": 406,
+                              "message": "Not Acceptable"
+                           }
+                        ]
+                  }
+               ]
+         },
+         {
+            "path": "/logout",
+            "operations":
+               [
+                  {
+                     "method": "POST",
+                     "summary":"",
+                     "type":"void",
+                     "nickname": "logout",
+                     "authorizations": {},
+                     "parameters":
+                        [
+                           {
+                              "name" : "body",
+                              "description" : "The user's session",
+                              "required" : true,
+                              "type" : "Session",
+                              "paramType" : "body"
+                           }
+                        ],
+                     "responseMessages":
+                        [
+                           {
+                              "code": 200,
+                              "message": "Success"
+                           },
+                           {
+                              "code": 406,
+                              "message": "Not Acceptable"
+                           }
+                        ]
+                  }
+               ]
+         },
+         {
+            "path": "/oauth/authorize",
+            "operations":
+               [
+                  {
+                     "method": "POST",
+                     "summary":"",
+                     "type":"Token",
+                     "nickname": "authorizeClient",
+                     "authorizations": {},
+                     "parameters":
+                        [
+                           {
+                              "name" : "body",
+                              "description" : "The user's auth request",
+                              "required" : true,
+                              "type" : "AuthorizationRequest",
+                              "paramType" : "body"
+                           }
+                        ],
+                     "responseMessages":
+                        [
+                           {
+                              "code": 200,
+                              "message": "Success"
+                           },
+                           {
+                              "code": 404,
+                              "message": "Not Found"
+                           },
+                           {
+                              "code": 406,
+                              "message": "Not Acceptable"
+                           }
+                        ]
+                  }
+               ]
+         }
+      ],
+   "models":
+   {
+      "Credentials":
+      {
+         "id": "Credentials",
+         "properties":
+         {
+            "name":
+            {
+               "type" : "string",
+               "description" : "The user's username",
+               "required" : true
+            },
+            "password":
+            {
+               "type" :"string",
+               "description" : "The user's password",
+               "required" : true
+            }
+         }
+      },
+      "SessionAndToken":
+      {
+         "id": "SessionAndToken",
+         "properties":
+         {
+            "session":
+            {
+               "type" : "string",
+               "description" : "The user's session",
+               "required" : true
+            },
+            "token":
+            {
+               "type" :"string",
+               "description" : "The user's OpenID Connect token",
+               "required" : true
+            }
+         }
+      },
+      "Session":
+      {
+         "id": "Session",
+         "properties":
+         {
+            "session":
+            {
+               "type" : "string",
+               "description" : "The user's session",
+               "required" : true
+            }
+         }
+      },
+      "Token":
+      {
+         "id": "Token",
+         "properties":
+         {
+            "token":
+            {
+               "type" :"string",
+               "description" : "The user's OpenID Connect token",
+               "required" : true
+            }
+         }
+      },
+      "AuthorizationRequest":
+      {
+         "id": "AuthorizationRequest",
+         "properties":
+         {
+            "session":
+            {
+               "type" :"string",
+               "description" : "The user's session",
+               "required" : true
+            },
+            "client":
+            {
+               "type" :"string",
+               "description" : "The client's id",
+               "required" : true
+            },
+            "scopes":
+            {
+               "type" :"string",
+               "description" : "The scopes requested",
+               "required" : true
+            }
+         }
+      }
+   }
+}

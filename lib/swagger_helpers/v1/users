@@ -1,0 +1,96 @@
+{
+   "apiVersion": "1.0.0",
+   "swaggerVersion": "1.2",
+   "basePath": "/uaa/api/v1",
+   "resourcePath":"/",
+   "produces": ["application/json"],
+   "consumes": ["application/json"],
+   "apis":
+      [
+         {
+            "path": "/Users",
+            "operations":
+               [
+                  {
+                     "method": "POST",
+                     "summary":"",
+                     "type":"UserInformationResponse",
+                     "nickname": "createUser",
+                     "authorizations": {},
+                     "parameters":
+                        [
+                           {
+                              "name" : "body",
+                              "description" : "The user's information",
+                              "required" : true,
+                              "type" : "UserInformationRequest",
+                              "paramType" : "body"
+                           }
+                        ],
+                     "responseMessages":
+                        [
+                           {
+                              "code": 200,
+                              "message": "OK"
+                           },
+                           {
+                              "code": 404,
+                              "message": "Not Found"
+                           }
+                        ]
+                  }
+               ]
+         }
+      ],
+   "models":
+   {
+      "UserInformationRequest":
+      {
+         "id": "UserInformationRequest",
+         "properties":
+         {
+            "schemas":
+            {
+               "type": "array",
+               "items": {"type": "string"},
+               "defaultValue": ["urn:scim:schemas:core:1.0"],
+               "description": "The scim schemata",
+               "required": true
+            },
+            "userName":
+            {
+               "type" :"string",
+               "description" : "The user's username",
+               "defaultValue": "foo",
+               "required" : true
+            }
+         }
+      },
+      "UserInformationResponse":
+      {
+         "id": "UserInformationResponse",
+         "properties":
+         {
+            "schemas":
+            {
+               "type": "array",
+               "items": {"type": "string"},
+               "description": "The scim schemata",
+               "required": true
+            },
+            "id":
+            {
+               "type" :"string",
+               "description" : "The user's id",
+               "required" : true
+            },
+            "userName":
+            {
+               "type" :"string",
+               "description" : "The user's username",
+               "required" : true
+            }
+         }
+      }
+   }
+}
