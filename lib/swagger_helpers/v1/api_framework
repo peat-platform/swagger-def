@@ -21,7 +21,7 @@
          "path": "/api/doc/schema/card"
       },
       {
-         "path": "/api/doc/schema/cbsconnector"
+         "path": "/api/doc/schema/socialapp"
       },
       {
          "path": "/api/doc/schema/checkin"
