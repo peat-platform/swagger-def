@@ -1,8 +1,8 @@
 {
    "apiVersion": "1.0.0",
    "swaggerVersion": "1.2",
-   "basePath": "http://185.21.103.162:80",
-   "resourcePath": "/",
+   "basePath"        : "/api/v1/uaa",
+   "resourcePath"    : "/",
    "apis": [
       {
          "path": "/api-spec/v1/auth",
