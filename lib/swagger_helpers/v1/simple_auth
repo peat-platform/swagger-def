@@ -8,7 +8,7 @@
    "apis":
    [
       {
-         "path": "/login",
+         "path": "/session",
          "operations":
             [
                {
@@ -46,11 +46,11 @@
             ]
       },
       {
-         "path": "/logout",
+         "path": "/session",
          "operations":
             [
                {
-                  "method": "POST",
+                  "method": "DELETE",
                   "summary":"",
                   "type":"void",
                   "nickname": "logout",
