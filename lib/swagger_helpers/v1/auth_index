@@ -5,11 +5,7 @@
    "resourcePath"    : "/",
    "apis": [
       {
-         "path": "/api-spec/v1/auth",
-         "description": ""
-      },
-      {
-         "path": "/api-spec/v1/users",
+         "path": "/api-spec/v1/simple_auth",
          "description": ""
       }
    ],
