@@ -13,13 +13,13 @@
             {
                "method"        : "GET",
                "summary"       : "Export Cloudlet data.",
-               "notes"         : "This endpoint returns the cloudlet id associated with the presented token. \n\r\n\r{ \"token\":  { \"user\": \"dmccarthy\" },   \"signature\": \"cVnf/YsH/h+554tlAAh5CvyLr3Y9xrqAK4zxTA/C8PMDWcjcUZistg90H2HiCL/tAL3VZe/53VbJcrFZGyFZDw==\" }",
+               "notes"         : "This endpoint returns the cloudlet id associated with the presented token.",
                "type"          : "OPENiCloudlet",
                "responseClass" : "OPENiCloudlet",
                "nickname"      : "getCloudletId",
                "parameters"    : [
                   {
-                     "name"        : "auth_token",
+                     "name"        : "Authorization",
                      "description" : "",
                      "required"    : true,
                      "type"        : "string",
@@ -49,76 +49,6 @@
                ]
             }
          ]
-      },
-      {
-         "path": "/cloudlets/allow_access",
-         "operations": [
-            {
-               "method"     : "POST",
-               "summary"    : "Grants third part access to cloudlets.",
-               "notes"      : "{ \"token\": { \"user\": \"johannes\" }, \"signature\": \"cYsQM8bctR9JnOinZCO3M46lY/cjfVaNN9GtBM9iQJLOlv2CLkxpa/7biK8iJyQl6z+Fa6HC25Ct7+JreMrlCQ==\" }",
-               "type"       : "Status",
-               "nickname"   : "allowAccess",
-               "parameters" : [
-                  {
-                     "name"        : "auth_token",
-                     "description" : "The users auth token.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "header"
-                  },
-                  {
-                     "name"          : "third_party_token",
-                     "description"   : "If true returns an array of object ids instead of the full objects.",
-                     "required"      : false,
-                     "type"          : "string",
-                     "paramType"     : "body",
-                     "allowMultiple" : false
-                  }
-               ],
-               "responseMessages": [
-                  {
-                     "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "ObjectErrorResponse"
-                  }
-               ]
-            }]
-      },
-      {
-         "path": "/cloudlets/revoke_access",
-         "operations": [
-            {
-               "method"     : "POST",
-               "summary"    : "Revokes access to Cloudlets on the platform.",
-               "notes"      : "Revokes access to Cloudlets on the platform.",
-               "type"       : "Status",
-               "nickname"   : "revokeAccess",
-               "parameters" : [
-                  {
-                     "name"        : "auth_token",
-                     "description" : "The users auth token.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "header"
-                  },
-                  {
-                     "name"          : "third_party_token",
-                     "description"   : "If true returns an array of object ids instead of the full objects.",
-                     "required"      : false,
-                     "type"          : "string",
-                     "paramType"     : "body",
-                     "allowMultiple" : false
-                  }
-               ],
-               "responseMessages": [
-                  {
-                     "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "ObjectErrorResponse"
-                  }
-               ]
-            }]
       },
       {
          "path": "/cloudlets/all",
