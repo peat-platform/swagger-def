@@ -3,91 +3,91 @@
    "swaggerVersion": "1.1",
    "apis": [
       {
-         "path": "/api/doc/schema/account"
+         "path": "/api/doc/schema/Account"
       },
       {
-         "path": "/api/doc/schema/application"
+         "path": "/api/doc/schema/Application"
       },
       {
-         "path": "/api/doc/schema/article"
+         "path": "/api/doc/schema/Article"
       },
       {
-         "path": "/api/doc/schema/audio"
+         "path": "/api/doc/schema/Audio"
       },
       {
-         "path": "/api/doc/schema/badge"
+         "path": "/api/doc/schema/Badge"
       },
       {
-         "path": "/api/doc/schema/card"
+         "path": "/api/doc/schema/Card"
       },
       {
-         "path": "/api/doc/schema/socialapp"
+         "path": "/api/doc/schema/Socialapp"
       },
       {
-         "path": "/api/doc/schema/checkin"
+         "path": "/api/doc/schema/Checkin"
       },
       {
-         "path": "/api/doc/schema/contact"
+         "path": "/api/doc/schema/Contact"
       },
       {
-         "path": "/api/doc/schema/context"
+         "path": "/api/doc/schema/Context"
       },
       {
-         "path": "/api/doc/schema/device"
+         "path": "/api/doc/schema/Device"
       },
       {
-         "path": "/api/doc/schema/event"
+         "path": "/api/doc/schema/Event"
       },
       {
-         "path": "/api/doc/schema/file"
+         "path": "/api/doc/schema/File"
       },
       {
-         "path": "/api/doc/schema/game"
+         "path": "/api/doc/schema/Game"
       },
       {
-         "path": "/api/doc/schema/measurement"
+         "path": "/api/doc/schema/Measurement"
       },
       {
-         "path": "/api/doc/schema/note"
+         "path": "/api/doc/schema/Note"
       },
       {
-         "path": "/api/doc/schema/nutrition"
+         "path": "/api/doc/schema/Nutrition"
       },
       {
-         "path": "/api/doc/schema/photo"
+         "path": "/api/doc/schema/Photo"
       },
       {
-         "path": "/api/doc/schema/place"
+         "path": "/api/doc/schema/Place"
       },
       {
-         "path": "/api/doc/schema/product"
+         "path": "/api/doc/schema/Product"
       },
       {
-         "path": "/api/doc/schema/question"
+         "path": "/api/doc/schema/Question"
       },
       {
-         "path": "/api/doc/schema/route"
+         "path": "/api/doc/schema/Route"
       },
       {
-         "path": "/api/doc/schema/service"
+         "path": "/api/doc/schema/Service"
       },
       {
-         "path": "/api/doc/schema/shop"
+         "path": "/api/doc/schema/Shop"
       },
       {
-         "path": "/api/doc/schema/sleep"
+         "path": "/api/doc/schema/Sleep"
       },
       {
-         "path": "/api/doc/schema/status"
+         "path": "/api/doc/schema/Status"
       },
       {
-         "path": "/api/doc/schema/user"
+         "path": "/api/doc/schema/User"
       },
       {
-         "path": "/api/doc/schema/video"
+         "path": "/api/doc/schema/Video"
       },
       {
-         "path": "/api/doc/schema/workout"
+         "path": "/api/doc/schema/Workout"
       }
    ],
    "info": {
