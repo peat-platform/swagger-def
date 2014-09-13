@@ -34,6 +34,9 @@
          "path": "/api/doc/schema/Account"
       },
       {
+         "path": "/api/doc/schema/SocialAccount"
+      },
+      {
          "path": "/api/doc/schema/Application"
       },
       {
@@ -82,6 +85,9 @@
          "path": "/api/doc/schema/Nutrition"
       },
       {
+         "path": "/api/doc/schema/Order"
+      },
+      {
          "path": "/api/doc/schema/Photo"
       },
       {
@@ -97,6 +103,9 @@
          "path": "/api/doc/schema/Route"
       },
       {
+         "path": "/api/doc/schema/Registeredapplication"
+      },
+      {
          "path": "/api/doc/schema/Service"
       },
       {
@@ -104,6 +113,12 @@
       },
       {
          "path": "/api/doc/schema/Sleep"
+      },
+      {
+         "path": "/api/doc/schema/SocialToken"
+      },
+      {
+         "path": "/api/doc/schema/Socialapp"
       },
       {
          "path": "/api/doc/schema/Status"

@@ -6,6 +6,9 @@
          "path": "/api/doc/schema/Account"
       },
       {
+         "path": "/api/doc/schema/SocialAccount"
+      },
+      {
          "path": "/api/doc/schema/Application"
       },
       {
