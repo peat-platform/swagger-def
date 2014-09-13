@@ -11,10 +11,6 @@
          "description": "Cloudlet Administration API"
       },
       {
-         "path": "/api-spec/v1/cloudlets",
-         "description": "Cloudlet Administration API"
-      },
-      {
          "path": "/api-spec/v1/types",
          "description": "Controls OPENi types"
       },
