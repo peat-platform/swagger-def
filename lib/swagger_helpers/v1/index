@@ -31,106 +31,103 @@
          "description": "Subscription API"
       },
       {
-         "path": "/api/doc/schema/Account"
+         "path": "/api-spec/apis/v1/Account"
       },
       {
-         "path": "/api/doc/schema/SocialAccount"
+         "path": "/api-spec/apis/v1/Application"
       },
       {
-         "path": "/api/doc/schema/Application"
+         "path": "/api-spec/apis/v1/Article"
       },
       {
-         "path": "/api/doc/schema/Article"
+         "path": "/api-spec/apis/v1/Audio"
       },
       {
-         "path": "/api/doc/schema/Audio"
+         "path": "/api-spec/apis/v1/Badge"
       },
       {
-         "path": "/api/doc/schema/Badge"
+         "path": "/api-spec/apis/v1/Card"
       },
       {
-         "path": "/api/doc/schema/Card"
+         "path": "/api-spec/apis/v1/Checkin"
       },
       {
-         "path": "/api/doc/schema/Socialapp"
+         "path": "/api-spec/apis/v1/Contact"
       },
       {
-         "path": "/api/doc/schema/Checkin"
+         "path": "/api-spec/apis/v1/Context"
       },
       {
-         "path": "/api/doc/schema/Contact"
+         "path": "/api-spec/apis/v1/Device"
       },
       {
-         "path": "/api/doc/schema/Context"
+         "path": "/api-spec/apis/v1/Event"
       },
       {
-         "path": "/api/doc/schema/Device"
+         "path": "/api-spec/apis/v1/File"
       },
       {
-         "path": "/api/doc/schema/Event"
+         "path": "/api-spec/apis/v1/Game"
       },
       {
-         "path": "/api/doc/schema/File"
+         "path": "/api-spec/apis/v1/Measurement"
       },
       {
-         "path": "/api/doc/schema/Game"
+         "path": "/api-spec/apis/v1/Note"
       },
       {
-         "path": "/api/doc/schema/Measurement"
+         "path": "/api-spec/apis/v1/Nutrition"
       },
       {
-         "path": "/api/doc/schema/Note"
+         "path": "/api-spec/apis/v1/Order"
       },
       {
-         "path": "/api/doc/schema/Nutrition"
+         "path": "/api-spec/apis/v1/Photo"
       },
       {
-         "path": "/api/doc/schema/Order"
+         "path": "/api-spec/apis/v1/Place"
       },
       {
-         "path": "/api/doc/schema/Photo"
+         "path": "/api-spec/apis/v1/Product"
       },
       {
-         "path": "/api/doc/schema/Place"
+         "path": "/api-spec/apis/v1/Question"
       },
       {
-         "path": "/api/doc/schema/Product"
+         "path": "/api-spec/apis/v1/Registeredapplication"
       },
       {
-         "path": "/api/doc/schema/Question"
+         "path": "/api-spec/apis/v1/Route"
       },
       {
-         "path": "/api/doc/schema/Route"
+         "path": "/api-spec/apis/v1/Service"
       },
       {
-         "path": "/api/doc/schema/Registeredapplication"
+         "path": "/api-spec/apis/v1/Shop"
       },
       {
-         "path": "/api/doc/schema/Service"
+         "path": "/api-spec/apis/v1/Sleep"
       },
       {
-         "path": "/api/doc/schema/Shop"
+         "path": "/api-spec/apis/v1/SocialAccount"
       },
       {
-         "path": "/api/doc/schema/Sleep"
+         "path": "/api-spec/apis/v1/SocialToken"
       },
       {
-         "path": "/api/doc/schema/SocialToken"
+         "path": "/api-spec/apis/v1/Socialapp"
       },
       {
-         "path": "/api/doc/schema/Socialapp"
+         "path": "/api-spec/apis/v1/Status"
       },
       {
-         "path": "/api/doc/schema/Status"
+         "path": "/api-spec/apis/v1/User"
       },
       {
-         "path": "/api/doc/schema/User"
+         "path": "/api-spec/apis/v1/Video"
       },
       {
-         "path": "/api/doc/schema/Video"
-      },
-      {
-         "path": "/api/doc/schema/Workout"
+         "path": "/api-spec/apis/v1/Workout"
       }
    ],
    "info": {
