@@ -56,7 +56,7 @@
                              "name": "subscriptions",
                              "description": "",
                              "required": true,
-                             "type": "SubsBlock",
+                             "type": "Subscription",
                              "paramType": "body"
                          },
                          {
@@ -179,28 +179,12 @@
                 }
             }
         },
-        "SubsBlock": {
-            "id": "SubsBlock",
-            "properties": {
-                "app_Id": {
-                    "type": "string",
-                    "required": true
-                },
-                "subscriptions": {
-                    "type": "Array",
-                    "required": true,
-                    "items": {
-                        "type": "Subscription"
-                    }
-                }
-            }
-        },
         "Subscription": {
             "id": "Subscription",
             "properties": {
-                "cloudletid": {
+                "objectid": {
                     "type": "string",
-                    "description" : "The id of the Cloudlet.",
+                    "description" : "The id of the subscribed Object.",
                     "required": true
                 },
                 "data": {
