@@ -71,11 +71,11 @@
             ]
         },
         {
-            "path": "/subscription/{cloudletId}/{objectId}",
+            "path": "/subscription/{cloudletId}/{subscriptionId}",
             "operations": [
                 {
                     "method": "GET",
-                    "summary": "List subscription settings for {objectId}",
+                    "summary": "List subscription settings for {subscriptionId}",
                     "notes": "",
                     "nickname": "getSubscriptionsByCloudletAndObject",
                      "type"   : "string",
@@ -109,7 +109,7 @@
                 },
                 {
                     "method": "PUT",
-                    "summary": "Update Subscription settings for {objectId}",
+                    "summary": "Update Subscription settings for {subscriptionId}",
                     "notes": "",
                     "nickname": "setSubscriptionForObject",
                     "type"        : "string",
@@ -133,7 +133,7 @@
                             "paramType": "path"
                         },
                         {
-                            "name": "objectId",
+                            "name": "subscriptionId",
                             "description": "Subscription Object to be returned in JSON representation",
                             "required": true,
                              "type"        : "string",
