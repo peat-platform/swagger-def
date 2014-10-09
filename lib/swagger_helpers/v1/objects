@@ -77,6 +77,13 @@
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "resolve",
+                     "description" : "If set to true all sub objects are resolved and placed in the parent object.",
+                     "required"    : true,
+                     "type"        : "boolean",
+                     "paramType"   : "query"
                   }
                ],
                "responseMessages": [
