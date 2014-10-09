@@ -42,8 +42,8 @@
                      "type"        : "string",
                      "responseMessages": [
                          {
-                             "code": 200,
-                             "message": "ok"
+                             "code": 201,
+                             "message": "created"
                          },
                          {
                              "code": 400,
@@ -99,8 +99,8 @@
                             "paramType": "path"
                         },
                         {
-                            "name": "objectId",
-                            "description": "Subscription Object to be returned in JSON representation",
+                            "name": "subscriptionId",
+                            "description": "Subscription Object",
                             "required": true,
                             "type"        : "string",
                             "paramType": "path"
@@ -108,7 +108,7 @@
                     ]
                 },
                 {
-                    "method": "POST",
+                    "method": "PUT",
                     "summary": "Update Subscription settings for {objectId}",
                     "notes": "",
                     "nickname": "setSubscriptionForObject",
