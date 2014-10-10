@@ -1,0 +1,329 @@
+{
+	"apiVersion": "1.0.0",
+	"swaggerVersion": "1.2",
+	"basePath": "/uaa",
+	"resourcePath":"/",
+	"produces": ["application/json"],
+	"consumes": ["application/json"],
+	"apis":
+	[
+		{
+			"path": "/Groups",
+			"operations":
+			[
+				{
+					"method": "POST",
+					"summary":"",
+					"type":"GroupInformation",
+					"nickname": "createGroup",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "body",
+							"type" : "GroupInformation",
+							"description" : "The user's password and new password as JSON",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				},
+				{
+					"method": "GET",
+					"summary":"",
+					"type":"GroupQuery",
+					"nickname": "queryGroup",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "filter",
+							"type" : "string",
+							"description" : "The group query filter (See SCIM 1.0)",
+							"required" : true,
+							"paramType" : "path"
+						},
+						{
+							"name" : "attributes",
+							"type" : "string",
+							"description" : "The group query attributes (See SCIM 1.0)",
+							"required" : true,
+							"paramType" : "path"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/Groups/{group_id}",
+			"operations":
+			[
+				{
+					"method": "PUT",
+					"summary":"",
+					"type":"GroupInformation",
+					"nickname": "updateGroup",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "group_id",
+							"type" : "string",
+							"description" : "The group's id",
+							"required" : true,
+							"paramType" : "path"
+						},
+						{
+							"name" : "body",
+							"type" : "GroupInformation",
+							"description" : "The user's password and new password as JSON",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				},
+				{
+					"method": "DELETE",
+					"summary":"",
+					"type":"void",
+					"nickname": "deleteGroup",
+					"authorizations": {},
+					"parameters":
+					[
+						{
+							"name" : "group_id",
+							"type" : "string",
+							"description" : "The group's id",
+							"required" : true,
+							"paramType" : "path"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/Groups/External",
+			"operations":
+			[
+				{
+					"method": "GET",
+					"summary":"",
+					"type":"void",
+					"nickname": "listExternalGroup",
+					"authorizations": {},
+					"parameters": [],
+					"responseMessages": []
+				},
+				{
+					"method": "POST",
+					"summary":"",
+					"type":"void",
+					"nickname": "createExternalGroupMap",
+					"authorizations": {},
+					"parameters": [],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/Groups/External/groupId/{groupId}/externalGroup/{externalGroup}",
+			"operations":
+			[
+				{
+					"method": "DELETE",
+					"summary":"",
+					"type":"void",
+					"nickname": "deleteExternalGroupMap",
+					"authorizations": {},
+					"parameters": [],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/Groups/External/displayName/{displayName}/externalGroup/{externalGroup}",
+			"operations":
+			[
+				{
+					"method": "DELETE",
+					"summary":"",
+					"type":"void",
+					"nickname": "deleteExternalGroupMapByName",
+					"authorizations": {},
+					"parameters": [],
+					"responseMessages": []
+				}
+			]
+		}
+	],
+	"models":
+	{
+		"Error":
+		{
+			"id": "Error",
+			"properties":
+			{
+				"error":
+				{
+					"type": "string",
+					"description": "The error's name",
+					"required": false
+				},
+				"error_description":
+				{
+					"type": "string",
+					"description": "The error's message",
+					"required": false
+				}
+			},
+			"subTypes": ["GroupInformation", "GroupQuery"]
+		},
+		"GroupInformation":
+		{
+			"id": "GroupInformation",
+			"properties":
+			{
+				"schemas":
+				{
+					"type": "array",
+					"items": "string",
+					"description": "The SCIM schema version URI",
+					"required": true
+				},
+				"id":
+				{
+					"type": "string",
+					"description": "The group's id",
+					"required": true
+				},
+				"displayName":
+				{
+					"type": "string",
+					"description": "The group's (displayed) name",
+					"required": true
+				},
+				"members":
+				{
+					"type": "array",
+					"items": "string",
+					"description": "The group members",
+					"required": true
+				},
+				"meta":
+				{
+					"$ref": "GroupMeta",
+					"description": "The SCIM schema version URI",
+					"required": true
+				}
+			}
+		},
+		"GroupMember":
+		{
+			"id": "GroupMember",
+			"properties":
+			{
+				"type":
+				{
+					"type": "string",
+					"description": "The type of the resource to be added to the group e.g. USER",
+					"required": false
+				},
+				"authorities":
+				{
+					"type": "array",
+					"items": "string",
+					"description": "The authorities (rights) the resource has in this group",
+					"required": false
+				},
+				"value":
+				{
+					"type": "string",
+					"description": "The resources (user) id",
+					"required": false
+				}
+			}
+		},
+		"GroupMeta":
+		{
+			"id": "GroupMeta",
+			"properties":
+			{
+				"created":
+				{
+					"type": "string",
+					"format": "date-time",
+					"description": "DateTime the Resource was added",
+					"required": false
+				},
+				"lastModified":
+				{
+					"type": "string",
+					"format": "date-time",
+					"description": "Most recent DateTime the Resource was updated",
+					"required": false
+				},
+				"location":
+				{
+					"type": "string",
+					"description": "URI of the Resource being returned",
+					"required": false
+				},
+				"version":
+				{
+					"type": "string",
+					"description": "Version of the Resource being returned",
+					"required": false
+				},
+				"attributes":
+				{
+					"type": "string",
+					"description": "Names of the attributes to be removed during a PATCH operation",
+					"required": false
+				}
+			}
+		},
+		"GroupQuery":
+		{
+			"id": "GroupQuery",
+			"properties":
+			{
+				"schemas":
+				{
+					"type": "array",
+					"items": "string",
+					"description": "The SCIM schema version URI",
+					"required": true
+				},
+				"resources":
+				{
+					"type" :"array",
+					"items": "UserInformation",
+					"description" : "The group's information",
+					"required" : true
+				},
+				"startIndex":
+				{
+					"type" :"integer",
+					"description" : "The paging start index",
+					"required" : true
+				},
+				"itemsPerPage":
+				{
+					"type" :"integer",
+					"description" : "The items per page",
+					"required" : true
+				},
+				"totalResults":
+				{
+					"type" :"integer",
+					"description" : "The results for this query",
+					"required" : true
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,520 @@
+{
+	"apiVersion": "1.0.0",
+	"swaggerVersion": "1.2",
+	"basePath": "http://134.119.17.225:8887/uaa",
+	"resourcePath":"/",
+	"produces": ["application/json"],
+	"consumes": ["application/json"],
+	"apis":
+	[
+		{
+			"path": "/oauth/clients",
+			"operations":
+			[
+				{
+					"method": "GET",
+					"summary":"",
+					"type": "ClientQuery",
+					"nickname": "listClients",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "attributes",
+							"type" : "string",
+							"description" : "The query attributes (see SCIM 1.0)",
+							"required" : true,
+							"paramType" : "path"
+						},
+						{
+							"name" : "filter",
+							"type" : "string",
+							"description" : "The query filter (see SCIM 1.0)",
+							"required" : true,
+							"paramType" : "path"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/oauth/clients/{client_id}",
+			"operations":
+			[
+				{
+					"method": "GET",
+					"summary":"",
+					"type":"ClientInformation",
+					"nickname": "inspectClient",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "client_id",
+							"type" : "string",
+							"description" : "The client's id",
+							"required" : true,
+							"paramType" : "path"
+						},
+						{
+							"name" : "body",
+							"type" : "ClientInformation",
+							"description" : "The client's information",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				},
+				{
+					"method": "POST",
+					"summary":"",
+					"type":"ClientInformation",
+					"nickname": "registerClient",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "client_id",
+							"type" : "string",
+							"description" : "The client's id",
+							"required" : true,
+							"paramType" : "path"
+						},
+						{
+							"name" : "body",
+							"type" : "ClientInformation",
+							"description" : "The client's information",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				},
+				{
+					"method": "PUT",
+					"summary":"",
+					"type":"ClientInformation",
+					"nickname": "updateClient",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "client_id",
+							"type" : "string",
+							"description" : "The client's id",
+							"required" : true,
+							"paramType" : "path"
+						},
+						{
+							"name" : "body",
+							"type" : "ClientInformation",
+							"description" : "The client's information",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				},
+				{
+					"method": "DELETE",
+					"summary":"",
+					"type":"ClientInformation",
+					"nickname": "deleteClient",
+					"authorizations": {},
+					"parameters":
+					[
+						{
+							"name" : "client_id",
+							"type" : "string",
+							"description" : "The client's id",
+							"required" : true,
+							"paramType" : "path"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/oauth/clients/{client_id}/secret",
+			"operations":
+			[
+				{
+					"method": "PUT",
+					"summary":"",
+					"type":"string",
+					"nickname": "changeSecret",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "body",
+							"type" : "ClientSecret",
+							"description" : "The client's secret",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/oauth/clients/tx",
+			"operations":
+			[
+				{
+					"method": "POST",
+					"summary":"",
+					"type":"array",
+					"items": {"type": "ClientInformation"},
+					"nickname": "registerClients",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "body",
+							"type": "array",
+							"items": {"type": "ClientInformation"},
+							"description" : "The client's information",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				},
+				{
+					"method": "PUT",
+					"summary":"",
+					"type":"array",
+					"items": {"type": "ClientInformation"},
+					"nickname": "updateClients",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "body",
+							"type": "array",
+							"items": {"type": "ClientInformation"},
+							"description" : "The client's information",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/oauth/clients/tx/modify",
+			"operations":
+			[
+				{
+					"method": "POST",
+					"summary":"",
+					"type":"ClientInformationModify",
+					"nickname": "modifyClients",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "body",
+							"type": "array",
+							"items": {"type": "ClientInformationModify"},
+							"description" : "The client's information",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/oauth/clients/tx/secret",
+			"operations":
+			[
+				{
+					"method": "POST",
+					"summary":"",
+					"type":"array",
+					"items": {"type": "string"},
+					"nickname": "changeSecrets",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "body",
+							"type":"array",
+							"items": {"type": "ClientSecret"},
+							"description" : "The client's secrets",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		},
+		{
+			"path": "/oauth/clients/tx/delete",
+			"operations":
+			[
+				{
+					"method": "POST",
+					"summary":"",
+					"type":"ClientInformation",
+					"nickname": "deleteClients",
+					"authorizations": {},
+					"parameters": 
+					[
+						{
+							"name" : "body",
+							"type": "array",
+							"items": {"type": "ClientInformation"},
+							"description" : "The client's information",
+							"required" : true,
+							"paramType" : "body"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		}
+	],
+	"models":
+	{
+		"Error":
+		{
+			"id": "Error",
+			"properties":
+			{
+				"error":
+				{
+					"type": "string",
+					"description": "The error's name",
+					"required": false
+				},
+				"error_description":
+				{
+					"type": "string",
+					"description": "The error's message",
+					"required": false
+				}
+			},
+			"subTypes": ["ClientInformation", "ClientQuery"]
+		},
+		"ClientQuery":
+		{
+			"id": "ClientQuery",
+			"properties":
+			{
+				"schemas":
+				{
+					"type": "array",
+					"items": "string",
+					"description": "The SCIM schema version URI",
+					"required": true
+				},
+				"resources":
+				{
+					"type" :"array",
+					"items": "ClientInformation",
+					"description" : "The clients information",
+					"required" : true
+				},
+				"startIndex":
+				{
+					"type" :"integer",
+					"description" : "The paging start index",
+					"required" : true
+				},
+				"itemsPerPage":
+				{
+					"type" :"integer",
+					"description" : "The items per page",
+					"required" : true
+				},
+				"totalResults":
+				{
+					"type" :"integer",
+					"description" : "The results for this query",
+					"required" : true
+				}
+			}
+		},
+		"ClientInformation":
+		{
+			"id": "ClientInformation",
+			"properties":
+			{
+				"client_id":
+				{
+					"type": "string",
+					"description": "The client's id",
+					"required": true
+				},
+				"client_secret":
+				{
+					"type" :"string",
+					"description" : "The client's secret (password)",
+					"required" : false
+				},
+				"scope":
+				{
+					"type" :"string",
+					"description" : "The client's access scopes (permissions). This defines the default as well as the maximum requestable values.",
+					"required" : true
+				},
+				"resource_ids":
+				{
+					"type" :"string",
+					"description" : "The client's white list of resource ids to be included in the decoded tokens granted to this client (should be none).",
+					"required" : true
+				},
+				"authorities":
+				{
+					"type" :"string",
+					"description" : "The client's authorities (scopes to be granted when token is issued for an app not a user). This only applies to token requested with the grant type client_credentials",
+					"required" : true
+				},
+				"authorized_grant_types":
+				{
+					"type" :"string",
+					"description" : "The client's options to recieve tokens. One of client_credentials, password, implicit, refresh_token, authorization_code. If in doubt use authorization_code and refresh_token.",
+					"required" : true
+				},
+				"access_token_validit":
+				{
+					"type" :"string",
+					"description" : "The client's access token lifetime.",
+					"required" : false
+				},
+				"refresh_token_validity":
+				{
+					"type" :"string",
+					"description" : "The client's refresh token lifetime.",
+					"required" : false
+				},
+				"redirect_uri":
+				{
+					"type" :"string",
+					"description" : "The client's options to recieve tokens. One of client_credentials, password, implicit, refresh_token, authorization_code. If in doubt use authorization_code and refresh_token.",
+					"required" : true
+				},
+				"signup_redirect_url":
+				{
+					"type" :"string",
+					"description" : "The client's access token lifetime.",
+					"required" : false
+				},
+				"autoapprove":
+				{
+					"type" :"string",
+					"description" : "The client's refresh token lifetime.",
+					"required" : false
+				}
+			}
+		},
+		"ClientInformationModify":
+		{
+			"id": "ClientInformation",
+			"properties":
+			{
+				"client_id":
+				{
+					"type": "string",
+					"description": "The client's id",
+					"required": true
+				},
+				"client_secret":
+				{
+					"type" :"string",
+					"description" : "The client's secret (password)",
+					"required" : false
+				},
+				"scope":
+				{
+					"type" :"string",
+					"description" : "The client's access scopes (permissions). This defines the default as well as the maximum requestable values.",
+					"required" : true
+				},
+				"resource_ids":
+				{
+					"type" :"string",
+					"description" : "The client's white list of resource ids to be included in the decoded tokens granted to this client (should be none).",
+					"required" : true
+				},
+				"authorities":
+				{
+					"type" :"string",
+					"description" : "The client's authorities (scopes to be granted when token is issued for an app not a user). This only applies to token requested with the grant type client_credentials",
+					"required" : true
+				},
+				"authorized_grant_types":
+				{
+					"type" :"string",
+					"description" : "The client's options to recieve tokens. One of client_credentials, password, implicit, refresh_token, authorization_code. If in doubt use authorization_code and refresh_token.",
+					"required" : true
+				},
+				"access_token_validit":
+				{
+					"type" :"string",
+					"description" : "The client's access token lifetime",
+					"required" : false
+				},
+				"refresh_token_validity":
+				{
+					"type" :"string",
+					"description" : "The client's refresh token lifetime",
+					"required" : false
+				},
+				"redirect_uri":
+				{
+					"type" :"string",
+					"description" : "The client's options to recieve tokens. One of client_credentials, password, implicit, refresh_token, authorization_code. If in doubt use authorization_code and refresh_token.",
+					"required" : true
+				},
+				"signup_redirect_url":
+				{
+					"type" :"string",
+					"description" : "The client's access token lifetime.",
+					"required" : false
+				},
+				"autoapprove":
+				{
+					"type" :"string",
+					"description" : "The client's refresh token lifetime.",
+					"required" : false
+				},
+				"action":
+				{
+					"type" :"string",
+					"description" : "The modify action to be taken",
+					"required" : true
+				}
+			}
+		},
+		"ClientSecret":
+		{
+			"id": "ClientSecret",
+			"properties":
+			{
+				"oldSecret":
+				{
+					"type" :"string",
+					"description" : "The client's old secret.",
+					"required" : true
+				},
+				"secret":
+				{
+					"type" :"string",
+					"description" : "The client's new secret.",
+					"required" : true
+				}
+			}
+		}
+	}
+}

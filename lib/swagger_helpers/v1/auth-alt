@@ -1,0 +1,214 @@
+{
+	"apiVersion": "1.0.0",
+	"swaggerVersion": "1.2",
+	"basePath": "http://134.119.13.208:8887/uaa",
+	"resourcePath":"/",
+	"produces": ["application/x-www-form-urlencoded"],
+	"produces": ["application/x-www-form-urlencoded"],
+	"apis":
+	[
+		{
+			"path": "/session",
+			"operations":
+			[
+				{
+					"method": "POST",
+					"summary":"",
+					"type":"string",
+					"nickname": "login",
+					"authorizations": {},
+					"parameters":
+					[
+						{
+							"name" : "username",
+							"description" : "The user's user name",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "form"
+						},
+						{
+							"name" : "password",
+							"description" : "The user's password",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "form"
+						}
+					],
+					"responseMessages":
+					[
+						{
+							"code": 200,
+							"message": "OK"
+						},
+						{
+							"code": 400,
+							"message": "Bad Request"
+						},
+						{
+							"code": 406,
+							"message": "Not Acceptable"
+						}
+					]
+				},
+				{
+					"method": "DELETE",
+					"summary":"",
+					"type":"void",
+					"nickname": "logout",
+					"authorizations": {},
+					"parameters":
+					[
+						{
+							"name" : "session",
+							"description" : "The user's session",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "form"
+						},
+						{
+							"name" : "redirect",
+							"description" : "The redirect url after a logout",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "query"
+						}
+					],
+					"responseMessages":
+					[
+						{
+							"code": 200,
+							"message": "OK"
+						},
+						{
+							"code": 406,
+							"message": "Not Acceptable"
+						}
+					]
+				}
+			]
+		},
+		{
+			"path": "/oauth/authorize",
+			"operations":
+			[
+				{
+					"produces": ["application/json"],
+					"method": "POST",
+					"summary":"",
+					"type":"string",
+					"nickname": "authorizeClient",
+					"authorizations": {},
+					"parameters":
+					[
+						{
+							"name" : "session",
+							"description" : "",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "form"
+						},
+						{
+							"name" : "response_type",
+							"description" : "",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "query"
+						},
+						{
+							"name" : "client_id",
+							"description" : "",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "query"
+						},
+						{
+							"name" : "scope",
+							"description" : "",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "query"
+						},
+						{
+							"name" : "redirect_uri",
+							"description" : "",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "query"
+						},
+						{
+							"name" : "credentials",
+							"description" : "",
+							"required" : true,
+							"type" : "Credentials",
+							"paramType" : "form"
+						},
+						{
+							"name" : "user_oauth_approval",
+							"description" : "",
+							"defaultValue" : "true",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "form"
+						},
+						{
+							"name" : "scopes",
+							"description" : "",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "form"
+						}
+					],
+					"responseMessages": []
+				},
+				{
+					"produces": ["application/json"],
+					"method": "GET",
+					"summary":"",
+					"type":"string",
+					"nickname": "approveClientDialog",
+					"authorizations": {},
+					"parameters":
+					[
+						{
+							"name" : "session",
+							"description" : "",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "query"
+						},
+						{
+							"name" : "response_type",
+							"description" : "",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "query"
+						},
+						{
+							"name" : "client_id",
+							"description" : "",
+							"required" : true,
+							"type" : "string",
+							"paramType" : "query"
+						},
+						{
+							"name" : "scope",
+							"description" : "",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "query"
+						},
+						{
+							"name" : "redirect_uri",
+							"description" : "",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "query"
+						}
+					],
+					"responseMessages": []
+				}
+			]
+		}
+	],
+	"models": {}
+}
