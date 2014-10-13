@@ -14,7 +14,10 @@
                "method"   : "GET",
                "summary"  : "Search for data within a cloudlet.",
                "notes"    : "This endpoint can be used to search within a Cloudlet. Objects can be searched by their types, context and data properties. All parameters support RQL queries <a href='http://www.persvr.org/rql'>http://www.persvr.org/rql</a>. Parameters allow for pagination and result sorting. The response contains an array of data views.",
-               "type"     : "SearchResult",
+               "type"     : "array",
+               "items"       : {
+                  "$ref" : "SearchResult"
+               },
                "nickname" : "search",
                "parameters" : [
 
@@ -67,12 +70,12 @@
       "SearchResult": {
          "id": "SearchResult",
          "properties": {
-            "id": {
+            "object_id": {
                "type"        : "string",
                "description" : "Object ID",
                "required"    : true
             },
-            "cloudlet":{
+            "cloudlet_id":{
                "type"        : "string",
                "description" : "Cloudlet ID",
                "required"    : false
