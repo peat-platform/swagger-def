@@ -11,9 +11,6 @@
     "type": "git",
     "url": "git@github.com:OPENi-ict/swagger-def.git"
   },
-  "bugs": {
-    "url": ""
-  },
   "main": "lib/main",
   "engines": {
     "node": ">= 0.8.0"
