@@ -169,7 +169,7 @@
 					"method": "POST",
 					"summary":"",
 					"type":"array",
-					"items": {"type": "ClientInformation"},
+					"items": {"$ref": "ClientInformation"},
 					"nickname": "registerClients",
 					"authorizations": {},
 					"parameters": 
@@ -177,7 +177,7 @@
 						{
 							"name" : "body",
 							"type": "array",
-							"items": {"type": "ClientInformation"},
+							"items": {"$ref": "ClientInformation"},
 							"description" : "The client's information",
 							"required" : true,
 							"paramType" : "body"
@@ -189,7 +189,7 @@
 					"method": "PUT",
 					"summary":"",
 					"type":"array",
-					"items": {"type": "ClientInformation"},
+					"items": {"$ref": "ClientInformation"},
 					"nickname": "updateClients",
 					"authorizations": {},
 					"parameters": 
@@ -197,7 +197,7 @@
 						{
 							"name" : "body",
 							"type": "array",
-							"items": {"type": "ClientInformation"},
+							"items": {"$ref": "ClientInformation"},
 							"description" : "The client's information",
 							"required" : true,
 							"paramType" : "body"
@@ -222,7 +222,7 @@
 						{
 							"name" : "body",
 							"type": "array",
-							"items": {"type": "ClientInformationModify"},
+							"items": {"$ref": "ClientInformationModify"},
 							"description" : "The client's information",
 							"required" : true,
 							"paramType" : "body"
@@ -240,7 +240,7 @@
 					"method": "POST",
 					"summary":"",
 					"type":"array",
-					"items": {"type": "string"},
+					"items": {"$ref": "string"},
 					"nickname": "changeSecrets",
 					"authorizations": {},
 					"parameters": 
@@ -273,7 +273,9 @@
 						{
 							"name" : "body",
 							"type": "array",
-							"items": {"type": "ClientInformation"},
+							"items": {
+							   "$ref": "ClientInformation"
+							   },
 							"description" : "The client's information",
 							"required" : true,
 							"paramType" : "body"
@@ -314,14 +316,18 @@
 				"schemas":
 				{
 					"type": "array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description": "The SCIM schema version URI",
 					"required": true
 				},
 				"resources":
 				{
 					"type" :"array",
-					"items": "ClientInformation",
+					"items": {
+                  "$ref":"ClientInformation"
+               },
 					"description" : "The clients information",
 					"required" : true
 				},

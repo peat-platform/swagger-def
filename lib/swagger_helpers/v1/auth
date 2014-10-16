@@ -152,14 +152,18 @@
 				"aud":
 				{
 					"type" :"array",
-					"items" :"string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "",
 					"required" : false
 				},
 				"scope":
 				{
 					"type" :"array",
-					"items" :"string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "",
 					"required" : false
 				},
@@ -358,14 +362,18 @@
 				"scope":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "",
 					"required" : true
 				},
 				"resourceIds":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "",
 					"required" : true
 				},
@@ -378,6 +386,9 @@
 				"authorities":
 				{
 					"type" :"array",
+					"items": {
+                  "$ref":"Authority"
+               },
 					"items": "Authority",
 					"description" : "",
 					"required" : true
@@ -403,7 +414,9 @@
 				"responseTypes":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "",
 					"required" : true
 				},
@@ -595,14 +608,18 @@
 				"scopes":
 				{
 					"type" :"array",
-					"items": "Scope",
+					"items": {
+                  "$ref":"Scope"
+               },
 					"description" : "",
 					"required" : true
 				},
 				"undecided_scopes":
 				{
 					"type" :"array",
-					"items": "Scope",
+					"items": {
+                  "$ref":"Scope"
+               },
 					"description" : "",
 					"required" : true
 				},
@@ -627,14 +644,18 @@
 				"denied_scopes":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "",
 					"required" : true
 				},
 				"approved_scopes":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "",
 					"required" : true
 				},

@@ -223,7 +223,9 @@
 				"schemas":
 				{
 					"type": "array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description": "The SCIM schema version URI",
 					"required": true
 				},
@@ -352,28 +354,36 @@
 				"groups":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "A list of groups that the user belongs to, either thorough direct membership, nested groups, or dynamically calculated",
 					"required" : false
 				},
 				"entitlements":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "The user's groups",
 					"required" : false
 				},
 				"roles":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "A list of roles for the User that collectively represent who the User is; e.g., Student, Faculty",
 					"required" : false
 				},
 				"x509Certificates":
 				{
 					"type" :"array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description" : "A list of certificates issued to the User",
 					"required" : false
 				}
@@ -512,7 +522,9 @@
 				"schemas":
 				{
 					"type": "array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description": "The SCIM schema version URI",
 					"required": true
 				},
@@ -557,14 +569,18 @@
 				"schemas":
 				{
 					"type": "array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description": "The SCIM schema version URI",
 					"required": true
 				},
 				"resources":
 				{
 					"type" :"array",
-					"items": "UserInformation",
+					"items": {
+                  "$ref":"UserInformation"
+               },
 					"description" : "The user's information",
 					"required" : true
 				},

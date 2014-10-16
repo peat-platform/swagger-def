@@ -190,7 +190,9 @@
 				"schemas":
 				{
 					"type": "array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description": "The SCIM schema version URI",
 					"required": true
 				},
@@ -209,7 +211,9 @@
 				"members":
 				{
 					"type": "array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description": "The group members",
 					"required": true
 				},
@@ -235,7 +239,9 @@
 				"authorities":
 				{
 					"type": "array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description": "The authorities (rights) the resource has in this group",
 					"required": false
 				},
@@ -294,14 +300,18 @@
 				"schemas":
 				{
 					"type": "array",
-					"items": "string",
+					"items": {
+                  "$ref":"string"
+               },
 					"description": "The SCIM schema version URI",
 					"required": true
 				},
 				"resources":
 				{
 					"type" :"array",
-					"items": "UserInformation",
+					"items": {
+                  "$ref":"UserInformation"
+               },
 					"description" : "The group's information",
 					"required" : true
 				},
