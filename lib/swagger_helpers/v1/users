@@ -1,8 +1,8 @@
 {
 	"apiVersion": "1.0.0",
 	"swaggerVersion": "1.2",
-	"basePath": "http://134.119.17.225:8887/uaa",
-	"resourcePath":"/",
+   "basePath" : "/uaa",
+   "resourcePath" : "/uaa",
 	"produces": ["application/json"],
 	"consumes": ["application/json"],
 	"apis":
