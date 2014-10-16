@@ -159,38 +159,6 @@
 					"responseMessages": []
 				}
 			]
-		},
-		{
-			"path": "/password/score",
-			"operations":
-			[
-				{
-					"consumes": ["multipart/form-data"],
-					"method": "POST",
-					"summary":"",
-					"type":"PasswordScore",
-					"nickname": "scorePassword",
-					"authorizations": {},
-					"parameters":
-					[
-						{
-							"name" : "password",
-							"type" : "string",
-							"description" : "The user's password to score",
-							"required" : true,
-							"paramType" : "body"
-						},
-						{
-							"name" : "userData",
-							"type" : "string",
-							"description" : "The user data which may affect the score",
-							"required" : true,
-							"paramType" : "body"
-						}
-					],
-					"responseMessages": []
-				}
-			]
 		}
 	],
 	"models":
@@ -549,13 +517,13 @@
 			{
 				"score":
 				{
-					"type": "integer",
+					"type": "Integer",
 					"description": "The password score",
 					"required": true
 				},
 				"requiredScore":
 				{
-					"type" :"integer",
+					"type" :"Integer",
 					"description" : "The required password score",
 					"required" : true
 				}
@@ -586,19 +554,19 @@
 				},
 				"startIndex":
 				{
-					"type" :"integer",
+					"type" :"Integer",
 					"description" : "The paging start index",
 					"required" : true
 				},
 				"itemsPerPage":
 				{
-					"type" :"integer",
+					"type" :"Integer",
 					"description" : "The items per page",
 					"required" : true
 				},
 				"totalResults":
 				{
-					"type" :"integer",
+					"type" :"Integer",
 					"description" : "The results for this query",
 					"required" : true
 				}

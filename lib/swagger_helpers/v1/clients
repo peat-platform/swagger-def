@@ -333,19 +333,19 @@
 				},
 				"startIndex":
 				{
-					"type" :"integer",
+					"type" :"Integer",
 					"description" : "The paging start index",
 					"required" : true
 				},
 				"itemsPerPage":
 				{
-					"type" :"integer",
+					"type" :"Integer",
 					"description" : "The items per page",
 					"required" : true
 				},
 				"totalResults":
 				{
-					"type" :"integer",
+					"type" :"Integer",
 					"description" : "The results for this query",
 					"required" : true
 				}

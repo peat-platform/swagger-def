@@ -140,7 +140,7 @@
 							"description" : "",
 							"required" : true,
 							"type" : "Credentials",
-							"paramType" : "form"
+							"paramType" : "body"
 						},
 						{
 							"name" : "user_oauth_approval",
@@ -210,5 +210,25 @@
 			]
 		}
 	],
-	"models": {}
+	"models": {
+	   "Credentials":
+      {
+         "id": "Credentials",
+         "properties":
+         {
+            "username":
+            {
+               "type" :"string",
+               "description" : "",
+               "required" : true
+            },
+            "password":
+            {
+               "type" :"string",
+               "description" : "",
+               "required" : true
+            }
+         }
+      }
+	}
 }
