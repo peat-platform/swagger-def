@@ -1,8 +1,8 @@
 {
 	"apiVersion": "1.0.0",
 	"swaggerVersion": "1.2",
-   "basePath" : "/uaa",
-   "resourcePath" : "/uaa",
+	"basePath" : "/uaa",
+	"resourcePath" : "/uaa",
 	"produces": ["application/json"],
 	"consumes": ["application/json"],
 	"apis":
@@ -190,9 +190,7 @@
 				"schemas":
 				{
 					"type": "array",
-					"items": {
-                  "$ref":"string"
-               },
+					"items": {"$ref": "string"},
 					"description": "The SCIM schema version URI",
 					"required": true
 				},
@@ -211,9 +209,7 @@
 				"members":
 				{
 					"type": "array",
-					"items": {
-                  "$ref":"string"
-               },
+					"items": {"$ref": "string"},
 					"description": "The group members",
 					"required": true
 				},
@@ -239,9 +235,7 @@
 				"authorities":
 				{
 					"type": "array",
-					"items": {
-                  "$ref":"string"
-               },
+					"items": {"$ref": "string"},
 					"description": "The authorities (rights) the resource has in this group",
 					"required": false
 				},
@@ -300,18 +294,14 @@
 				"schemas":
 				{
 					"type": "array",
-					"items": {
-                  "$ref":"string"
-               },
+					"items": {"$ref": "string"},
 					"description": "The SCIM schema version URI",
 					"required": true
 				},
 				"resources":
 				{
 					"type" :"array",
-					"items": {
-                  "$ref":"UserInformation"
-               },
+					"items": {"$ref": "UserInformation"},
 					"description" : "The group's information",
 					"required" : true
 				},
