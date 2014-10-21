@@ -1,86 +1,137 @@
-{ 
-   "apiVersion"      : "1.0.0",
-   "swaggerVersion"  : "1.2",
-   "basePath"        : "/api/v1",
-   "resourcePath"    : "/search",
-   "produces"        : [
-      "application/json"
-   ],
-   "apis": [
-      {
-         "path": "/search",
-         "operations": [
-            {
-               "method"   : "GET",
-               "summary"  : "Search for data within a cloudlet.",
-               "notes"    : "This endpoint can be used to search within a Cloudlet. Objects can be searched by their types, context and data properties. All parameters support RQL queries <a href='http://www.persvr.org/rql'>http://www.persvr.org/rql</a>. Parameters allow for pagination and result sorting. The response contains an array of data views.",
-               "type"     : "array",
-               "items"       : {
-                  "$ref" : "SearchResult"
-               },
-               "nickname" : "search",
-               "parameters" : [
-
-                  {
-                     "name"          : "with_property",
-                     "description"   : "Comma separated list of properties that the object must have.",
-                     "required"      : false,
-                     "type"          : "string",
-                     "paramType"     : "query",
-                     "allowMultiple" : false
-                  },
-                  {
-                     "name"          : "property_filter",
-                     "description"   : "Comma separated list of name value pairs of properties that the object must satisfy. e.g. name=bob",
-                     "required"      : false,
-                     "type"          : "string",
-                     "paramType"     : "query",
-                     "allowMultiple" : false
-                  },
-                  {
-                     "name"         : "from",
-                     "description"  : "A pagination parameter, from specifies the start index of the result Array.",
-                     "required"     : false,
-                     "type"         : "string",
-                     "paramType"    : "query"
-                  },
-                  {
-                     "name"         : "limit",
-                     "description"  : "A pagination parameter, limit specifies the amount of results the result array contains.",
-                     "required"     : false,
-                     "type"         : "string",
-                     "paramType"    : "query"
-                  }
-               ],
-               "responseMessages": [
-                  {
-                     "code": 200,
-                     "message": "Ok"
-                  },
-                  {
-                     "code": 401,
-                     "message": "Unauthorised request"
-                  }
-               ]
-            }
-         ]
-      }
-   ],
-   "models" : {
-      "SearchResult": {
-         "id": "SearchResult",
-         "properties": {
-            "object_id": {
-               "type"        : "string",
-               "description" : "Object ID",
-               "required"    : true
-            },
-            "cloudlet_id":{
-               "type"        : "string",
-               "description" : "Cloudlet ID",
-               "required"    : false
-            }
-         }
-      }
-   }
+{
+	"apiVersion" : "1.0.0",
+	"swaggerVersion" : "1.2",
+	"basePath" : "/api/v1",
+	"resourcePath" : "/search",
+	"produces" : [
+		"application/json"
+	],
+	"apis" : [{
+			"path" : "/search",
+			"operations" : [{
+					"method" : "GET",
+					"summary" : "Search for data within a cloudlet.",
+					"notes" : "This endpoint can be used to search within a Cloudlet. Objects can be searched by their types, context and data properties. All parameters support RQL queries <a href='http://www.persvr.org/rql'>http://www.persvr.org/rql</a>. Parameters allow for pagination and result sorting. The response contains an array of data views.",
+					"type" : "array",
+					"items" : {
+						"$ref" : "OPENiObject"
+					},
+					"nickname" : "search",
+					"parameters" : [
+						{
+							"name" : "with_property",
+							"description" : "Comma separated list of properties that the object must have.",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "query",
+							"allowMultiple" : false
+						}, {
+							"name" : "property_filter",
+							"description" : "Comma separated list of name value pairs of properties that the object must satisfy. e.g. name=bob",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "query",
+							"allowMultiple" : false
+						}, {
+							"name" : "type",
+							"description" : "Limits Object to those of this type.",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "query",
+							"allowMultiple" : true
+						}, {
+							"name" : "id_only",
+							"description" : "If true returns an array of object ids instead of the full objects.",
+							"required" : false,
+							"type" : "boolean",
+							"paramType" : "query",
+							"allowMultiple" : false
+						}, {
+							"name" : "from",
+							"description" : "A pagination parameter, from specifies the start index of the result Array.",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "query"
+						}, {
+							"name" : "limit",
+							"description" : "A pagination parameter, limit specifies the amount of results the result array contains.",
+							"required" : false,
+							"type" : "string",
+							"paramType" : "query"
+						}
+					],
+					"responseMessages" : [{
+							"code" : 200,
+							"message" : "Ok"
+						}, {
+							"code" : 401,
+							"message" : "Unauthorised request"
+						}
+					]
+				}
+			]
+		}
+	],
+	"models" : {
+		"SearchResult" : {
+			"id" : "SearchResult",
+			"properties" : {
+				"object_id" : {
+					"type" : "string",
+					"description" : "Object ID",
+					"required" : true
+				},
+				"cloudlet_id" : {
+					"type" : "string",
+					"description" : "Cloudlet ID",
+					"required" : false
+				}
+			}
+		},
+		"OPENiObject" : {
+			"id" : "OPENiObject",
+			"properties" : {
+				"@id" : {
+					"type" : "string",
+					"description" : "The Object's identifier.",
+					"required" : false
+				},
+				"@location" : {
+					"type" : "string",
+					"description" : "The Object's identifier URI.",
+					"required" : false
+				},
+				"@cloudlet" : {
+					"type" : "string",
+					"description" : "The Object's Cloudlet Id.",
+					"required" : false
+				},
+				"@openi_type" : {
+					"type" : "string",
+					"description" : "OPENi Type that this object is an instance of.",
+					"required" : true
+				},
+				"@data" : {
+					"type" : "JSON",
+					"description" : "The Object's values.",
+					"required" : true
+				},
+				"_date_created" : {
+					"type" : "Date",
+					"description" : "Date that the Type was created.",
+					"required" : false
+				},
+				"_date_modified" : {
+					"type" : "Date",
+					"description" : "Date that the Type was created.",
+					"required" : false
+				},
+				"_revision" : {
+					"type" : "string",
+					"description" : "Revision number associated with this version of the Object, this number must be presented when updating the object",
+					"required" : false
+				}
+			}
+		}
+	}
 }
