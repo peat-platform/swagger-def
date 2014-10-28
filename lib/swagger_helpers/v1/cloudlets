@@ -64,8 +64,8 @@
                "nickname"   : "getCloudlets",
                "parameters" : [
                   {
-                     "name"        : "skip",
-                     "description" : "Pagination feature, the amount of objects to skip.",
+                     "name"        : "offset",
+                     "description" : "Pagination feature, the amount of objects to offset.",
                      "required"    : false,
                      "type"        : "int",
                      "paramType"   : "query"
@@ -76,14 +76,6 @@
                      "required"    : false,
                      "type"        : "int",
                      "paramType"   : "query"
-                  },
-                  {
-                     "name"          : "id_only",
-                     "description"   : "If true returns an array of object ids instead of the full objects.",
-                     "required"      : false,
-                     "type"          : "boolean",
-                     "paramType"     : "query",
-                     "allowMultiple" : false
                   }
                ],
                "responseMessages": [
