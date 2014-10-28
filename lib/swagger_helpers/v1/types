@@ -81,15 +81,12 @@
                "method"     : "GET",
                "summary"    : "Retrieves the OPENi types on the system.",
                "notes"      : "Retrieves the OPENi types on the system.. ",
-               "type": "array",
-               "items": {
-                  "$ref" : "OPENiType"
-               },
+               "type": "OPENiTypeList",
                "nickname"   : "getTypes",
                "parameters" : [
                   {
-                     "name"        : "skip",
-                     "description" : "Pagination feature, the amount of objects to skip.",
+                     "name"        : "offset",
+                     "description" : "Pagination feature, the amount of objects to offset.",
                      "required"    : false,
                      "type"        : "int",
                      "paramType"   : "query"
@@ -237,6 +234,53 @@
             }
          }
       },
+      "OPENiTypeList" :{
+         "id": "OPENiTypeList",
+         "properties": {
+            "meta" : {
+               "type" : "Meta"
+            },
+            "result" : {
+               "type"        : "array",
+               "items"       : {
+                  "$ref" : "OPENiType"
+               }
+            }
+         }
+      },
+      "Meta" : {
+         "id" : "Meta",
+         "properties" : {
+            "limit": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "limit",
+               "required"    : true
+            },
+            "offset": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "offset",
+               "required"    : true
+            },
+            "total_count": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "total_count",
+               "required"    : true
+            },
+            "prev": {
+               "type"        : "string",
+               "description" : "prev",
+               "required"    : true
+            },
+            "next": {
+               "type"        : "string",
+               "description" : "next",
+               "required"    : true
+            }
+         }
+      },
       "Stat": {
          "id": "Stat",
          "properties": {
@@ -272,18 +316,6 @@
             }
          }
       },
-      "ContextEntryArray": {
-         "id": "ContextEntryArray",
-         "properties": {
-            "@context": {
-               "type"        : "array",
-               "description" : "An array of Types",
-               "items"       : {
-                  "$ref" : "ContextEntry"
-               }
-            }
-         }
-      },
       "ContextEntry": {
          "id": "ContextEntry",
          "properties": {
@@ -292,24 +324,32 @@
                "description" : "Identifier for the context",
                "required"    : true
             },
-            "@property_context": {
-               "type"        : "ContextValue",
-               "description" : "The type's semantic context (optional?)",
-               "required"    : true
-            }
-         }
-      },
-      "ContextValue": {
-         "id": "ContextValue",
-         "properties": {
-            "@id": {
-               "type"        : "string",
-               "description" : "Identifier for the context",
-               "required"    : true
-            },
             "@openi_type": {
                "type"        : "string",
                "description" : "The type's semantic context (optional?)",
+               "required"    : true
+            },
+            "@required": {
+               "type"        : "boolean",
+               "description" : "Is this property required or optional",
+               "required"    : true
+            },
+            "@multiple": {
+               "type"        : "boolean",
+               "description" : "Is this entry a single value or an array with multiple values",
+               "required"    : true
+            },
+            "@allowed_values": {
+               "type"        : "array",
+               "description" : "This property can only be set to the values listed in the allowed_values array.",
+               "items"       : {
+                  "$ref" : "string"
+               },
+               "required"    : false
+            },
+            "@context_id": {
+               "type"        : "string",
+               "description" : "Identifier for the context",
                "required"    : true
             }
          }

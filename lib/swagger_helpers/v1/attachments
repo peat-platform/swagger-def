@@ -25,12 +25,19 @@
                   "paramType"   : "path"
             },
             {
-               "name"          : "additionalMetadata",
-               "description"   : "The file to upload",
-               "required"      : true,
+               "name"          : "objectId",
+               "description"   : "The object id and the property that should be set to this attachment",
+               "required"      : false,
                "type"          : "string",
                "paramType"     : "form",
                "allowMultiple": false
+            },
+            {
+               "name"        : "property",
+               "description" : "The name of the property to set this attachment to.",
+               "required"    : false,
+               "type"        : "string",
+               "paramType"   : "form"
             },
             {
                "name"          : "file",

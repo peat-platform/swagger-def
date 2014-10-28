@@ -98,7 +98,148 @@
                      "responseModel": "ObjectErrorResponse"
                   }
                ]
+            },
+            {
+               "method"     : "PUT",
+               "summary"    : "Updates the properties of on object with the provided properties",
+               "notes"      : "Updates the properties of on object with the provided properties.",
+               "nickname"   : "setObject",
+               "type"        : "ObjectResponse",
+               "responseClass" : "ObjectResponse",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the users Cloudlet that is to be accessed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be accessed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "data",
+                     "description" : "Object with properties that are to be overwritten.",
+                     "required"    : true,
+                     "type"        : "OPENiObject",
+                     "paramType"   : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            },
+            {
+               "method"     : "DELETE",
+               "summary"    : "Removes an object from the Cloudlet.",
+               "notes"      : "Removes an object from the Cloudlet.",
+               "type"       : "ObjectResponse",
+               "responseClass" : "ObjectResponse",
+               "nickname"   : "removeObject",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the users Cloudlet.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be removed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
             }]
+      },
+      {
+         "path": "/objects/{cloudletId}/{objectId}/{property}",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Retrieves a property of an object from the Cloudlet.",
+               "notes"      : "Returns a property of an object from the Cloudlet.",
+               "type"       : "Map",
+               "responseClass" : "Map",
+               "nickname"   : "getObjectProperty",
+               "parameters" : [
+                  {
+                     "name"        : "cloudletId",
+                     "description" : "The id of the users Cloudlet that is to be accessed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be accessed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "property",
+                     "description" : "Id of the object to be accessed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "resolve",
+                     "description" : "If set to true all sub objects are resolved and placed in the parent object.",
+                     "required"    : true,
+                     "type"        : "boolean",
+                     "paramType"   : "query"
+                  },
+                  {
+                     "name"        : "meta",
+                     "description" : "If the property is an attachment return the meta or actual data.",
+                     "required"    : true,
+                     "type"        : "boolean",
+                     "paramType"   : "query"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }
+         ]
       },
       {
          "path": "/objects/{cloudletId}",
@@ -107,10 +248,7 @@
                "method"     : "GET",
                "summary"    : "Retrieves the Cloudlets Objects.",
                "notes"      : "Returns a Cloudlets objects according to the specified filters. ",
-               "type"        : "array",
-               "items"       : {
-                  "$ref" : "OPENiObject"
-               },
+               "type"       : "OPENiObjectList",
                "nickname"   : "getObjects",
                "parameters" : [
                   {
@@ -121,8 +259,8 @@
                      "paramType"   : "path"
                   },
                   {
-                     "name"        : "skip",
-                     "description" : "Pagination feature, the amount of objects to skip.",
+                     "name"        : "offset",
+                     "description" : "Pagination feature, the amount of objects to offset.",
                      "required"    : false,
                      "type"        : "int",
                      "paramType"   : "query"
@@ -188,101 +326,6 @@
                   }
                ]
             }]
-      },
-      {
-         "path": "/objects/{cloudletId}/{objectId}/{revision}",
-         "operations": [
-            {
-               "method"     : "PUT",
-               "summary"    : "Updates the properties of on object with the provided properties",
-               "notes"      : "Updates the properties of on object with the provided properties.",
-               "nickname"   : "setObject",
-               "type"        : "ObjectResponse",
-               "responseClass" : "ObjectResponse",
-               "parameters" : [
-                  {
-                     "name"        : "cloudletId",
-                     "description" : "The id of the users Cloudlet that is to be accessed.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "path"
-                  },
-                  {
-                     "name"        : "objectId",
-                     "description" : "Id of the object to be accessed.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "path"
-                  },
-                  {
-                     "name"        : "revision",
-                     "description" : "revision id of the object to be updated.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "path"
-                  },
-                  {
-                     "name"        : "data",
-                     "description" : "Object with properties that are to be overwritten.",
-                     "required"    : true,
-                     "type"        : "OPENiObject",
-                     "paramType"   : "body"
-                  }
-               ],
-               "responseMessages": [
-                  {
-                     "code": 400,
-                     "message": "Object not found",
-                     "responseModel": "ObjectErrorResponse"
-                  },
-                  {
-                     "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "ObjectErrorResponse"
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "path": "/objects/{cloudletId}/{objectId}",
-         "operations": [
-            {
-               "method"     : "DELETE", 
-               "summary"    : "Removes an object from the Cloudlet.",
-               "notes"      : "Removes an object from the Cloudlet.",
-               "type"       : "ObjectResponse",
-               "responseClass" : "ObjectResponse",
-               "nickname"   : "removeObject",
-               "parameters" : [
-                  {
-                     "name"        : "cloudletId",
-                     "description" : "The id of the users Cloudlet.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "path"
-                  },
-                  {
-                     "name"        : "objectId",
-                     "description" : "Id of the object to be removed.",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "path"
-                  }
-               ],
-               "responseMessages": [
-                  {
-                     "code": 400,
-                     "message": "Object not found",
-                     "responseModel": "ObjectErrorResponse"
-                  },
-                  {
-                     "code": 401,
-                     "message": "Unauthorised request",
-                     "responseModel": "ObjectErrorResponse"
-                  }
-               ]
-            }]
       }
    ],
    "models": {
@@ -299,6 +342,53 @@
                "type"     :"string",
                "description" : "Descriptive message",
                "required" : false
+            }
+         }
+      },
+      "OPENiObjectList" :{
+         "id": "OPENiObjectList",
+         "properties": {
+            "Meta" : {
+               "type" : "Meta"
+            },
+            "result" : {
+               "type"        : "array",
+               "items"       : {
+                  "$ref" : "OPENiObject"
+               }
+            }
+         }
+      },
+      "Meta" : {
+         "id" : "Meta",
+         "properties" : {
+            "limit": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "limit",
+               "required"    : true
+            },
+            "offset": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "offset",
+               "required"    : true
+            },
+            "total_count": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "total_count",
+               "required"    : true
+            },
+            "prev": {
+               "type"        : "string",
+               "description" : "prev",
+               "required"    : true
+            },
+            "next": {
+               "type"        : "string",
+               "description" : "next",
+               "required"    : true
             }
          }
       },

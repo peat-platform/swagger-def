@@ -12,10 +12,7 @@
 					"method" : "GET",
 					"summary" : "Search for data within a cloudlet.",
 					"notes" : "This endpoint can be used to search within a Cloudlet. Objects can be searched by their types, context and data properties. All parameters support RQL queries <a href='http://www.persvr.org/rql'>http://www.persvr.org/rql</a>. Parameters allow for pagination and result sorting. The response contains an array of data views.",
-					"type" : "array",
-					"items" : {
-						"$ref" : "OPENiObject"
-					},
+					"type" : "OPENiObjectList",
 					"nickname" : "search",
 					"parameters" : [
 						{
@@ -47,7 +44,7 @@
 							"paramType" : "query",
 							"allowMultiple" : false
 						}, {
-							"name" : "from",
+							"name" : "offset",
 							"description" : "A pagination parameter, from specifies the start index of the result Array.",
 							"required" : false,
 							"type" : "string",
@@ -88,6 +85,53 @@
 				}
 			}
 		},
+      "OPENiObjectList" :{
+         "id": "OPENiObjectList",
+         "properties": {
+            "meta" : {
+               "type" : "Meta"
+            },
+            "result" : {
+               "type"        : "array",
+               "items"       : {
+                  "$ref" : "OPENiObject"
+               }
+            }
+         }
+      },
+      "Meta" : {
+         "id" : "Meta",
+         "properties" : {
+            "limit": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "limit",
+               "required"    : true
+            },
+            "offset": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "offset",
+               "required"    : true
+            },
+            "total_count": {
+               "type"        : "int",
+               "format"      : "int32",
+               "description" : "total_count",
+               "required"    : true
+            },
+            "prev": {
+               "type"        : "string",
+               "description" : "prev",
+               "required"    : true
+            },
+            "next": {
+               "type"        : "string",
+               "description" : "next",
+               "required"    : true
+            }
+         }
+      },
 		"OPENiObject" : {
 			"id" : "OPENiObject",
 			"properties" : {
