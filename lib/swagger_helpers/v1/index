@@ -68,22 +68,52 @@
          "path": "/api-spec/apis/v1/Checkin"
       },
       {
-         "path": "/api-spec/apis/v1/Contact"
+         "path": "/api-spec/apis/v1/Comment"
       },
       {
          "path": "/api-spec/apis/v1/Context"
       },
       {
-         "path": "/api-spec/apis/v1/Device"
+         "path": "/api-spec/apis/v1/Delivery"
+      },
+      {
+         "path": "/api-spec/apis/v1/Dislike"
+      },
+      {
+         "path": "/api-spec/apis/v1/Duration"
       },
       {
          "path": "/api-spec/apis/v1/Event"
       },
       {
+         "path": "/api-spec/apis/v1/Favorite"
+      },
+      {
          "path": "/api-spec/apis/v1/File"
       },
       {
+         "path": "/api-spec/apis/v1/Folder"
+      },
+      {
+         "path": "/api-spec/apis/v1/Friendship"
+      },
+      {
+         "path": "/api-spec/apis/v1/From"
+      },
+      {
          "path": "/api-spec/apis/v1/Game"
+      },
+      {
+         "path": "/api-spec/apis/v1/Group"
+      },
+      {
+         "path": "/api-spec/apis/v1/Invoice"
+      },
+      {
+         "path": "/api-spec/apis/v1/Like"
+      },
+      {
+         "path": "/api-spec/apis/v1/Location"
       },
       {
          "path": "/api-spec/apis/v1/Measurement"
@@ -92,10 +122,25 @@
          "path": "/api-spec/apis/v1/Note"
       },
       {
+         "path": "/api-spec/apis/v1/Notebook"
+      },
+      {
          "path": "/api-spec/apis/v1/Nutrition"
       },
       {
+         "path": "/api-spec/apis/v1/Offer"
+      },
+      {
          "path": "/api-spec/apis/v1/Order"
+      },
+      {
+         "path": "/api-spec/apis/v1/Page"
+      },
+      {
+         "path": "/api-spec/apis/v1/Payment"
+      },
+      {
+         "path": "/api-spec/apis/v1/PersonModel"
       },
       {
          "path": "/api-spec/apis/v1/Photo"
@@ -104,19 +149,40 @@
          "path": "/api-spec/apis/v1/Place"
       },
       {
+         "path": "/api-spec/apis/v1/Playlist"
+      },
+      {
          "path": "/api-spec/apis/v1/Product"
       },
       {
          "path": "/api-spec/apis/v1/Question"
       },
       {
+         "path": "/api-spec/apis/v1/QuestionOption"
+      },
+      {
+         "path": "/api-spec/apis/v1/RSVP"
+      },
+      {
+         "path": "/api-spec/apis/v1/Refund"
+      },
+      {
          "path": "/api-spec/apis/v1/Registeredapplication"
+      },
+      {
+         "path": "/api-spec/apis/v1/Review"
       },
       {
          "path": "/api-spec/apis/v1/Route"
       },
       {
+         "path": "/api-spec/apis/v1/Score"
+      },
+      {
          "path": "/api-spec/apis/v1/Service"
+      },
+      {
+         "path": "/api-spec/apis/v1/Shipping"
       },
       {
          "path": "/api-spec/apis/v1/Shop"
@@ -137,10 +203,22 @@
          "path": "/api-spec/apis/v1/Status"
       },
       {
+         "path": "/api-spec/apis/v1/Tag"
+      },
+      {
+         "path": "/api-spec/apis/v1/Time"
+      },
+      {
+         "path": "/api-spec/apis/v1/Travel"
+      },
+      {
          "path": "/api-spec/apis/v1/User"
       },
       {
          "path": "/api-spec/apis/v1/Video"
+      },
+      {
+         "path": "/api-spec/apis/v1/Wallet"
       },
       {
          "path": "/api-spec/apis/v1/Workout"
