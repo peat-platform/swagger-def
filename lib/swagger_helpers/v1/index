@@ -3,23 +3,7 @@
    "swaggerVersion": "1.2",
    "apis": [
       {
-         "path": "/api-spec/v1/auth",
-         "description": ""
-      },
-      {
-         "path": "/api-spec/v1/auth-alt",
-         "description": ""
-      },
-      {
-         "path": "/api-spec/v1/users",
-         "description": ""
-      },
-      {
-         "path": "/api-spec/v1/groups",
-         "description": ""
-      },
-      {
-         "path": "/api-spec/v1/clients",
+         "path": "/api-spec/v1/simple_auth",
          "description": ""
       },
       {
