@@ -31,6 +31,59 @@
                      "required"    : true,
                      "type"        : "OPENiObject",
                      "paramType"   : "body"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Request Error",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 500,
+                     "message": "Data could not be added to the cloudlet",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path": "/objects",
+         "operations": [
+            {
+               "method"     : "POST",
+               "summary"    : "Create an Object",
+               "notes"      : "<h3>Creates a object on the Cloudlet platform</h3>Creates an object on the platform. An objects structure is based on the _openi_type of which the object is defined.<br>For each property in the type a field and value should be defined. <br><br> For example, if the type had a 'name' property of type string then data would have the entry {'name':'some string name'}",
+               "type"       : "ObjectResponse",
+               "responseClass" : "ObjectResponse",
+               "nickname"   : "createObjectWithAuth",
+               "parameters" : [
+                  {
+                     "name"        : "object",
+                     "description" : "Object to be created in the cloudlet.",
+                     "required"    : true,
+                     "type"        : "OPENiObject",
+                     "paramType"   : "body"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
                   }
                ],
                "responseMessages": [
@@ -84,6 +137,13 @@
                      "required"    : true,
                      "type"        : "boolean",
                      "paramType"   : "query"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
                   }
                ],
                "responseMessages": [
@@ -127,6 +187,13 @@
                      "required"    : true,
                      "type"        : "OPENiObject",
                      "paramType"   : "body"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
                   }
                ],
                "responseMessages": [
@@ -163,6 +230,139 @@
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }]
+      },
+      {
+         "path": "/objects/{objectId}",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Retrieves an object from the Cloudlet.",
+               "notes"      : "Returns an object from the Cloudlet.",
+               "type"       : "OPENiObject",
+               "responseClass" : "OPENiObject",
+               "nickname"   : "getObjectByAuthToken",
+               "parameters" : [
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be accessed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "resolve",
+                     "description" : "If set to true all sub objects are resolved and placed in the parent object.",
+                     "required"    : true,
+                     "type"        : "boolean",
+                     "paramType"   : "query"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            },
+            {
+               "method"     : "PUT",
+               "summary"    : "Updates the properties of on object with the provided properties",
+               "notes"      : "Updates the properties of on object with the provided properties.",
+               "nickname"   : "setObjectByAuthToken",
+               "type"        : "ObjectResponse",
+               "responseClass" : "ObjectResponse",
+               "parameters" : [
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be accessed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "data",
+                     "description" : "Object with properties that are to be overwritten.",
+                     "required"    : true,
+                     "type"        : "OPENiObject",
+                     "paramType"   : "body"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            },
+            {
+               "method"     : "DELETE",
+               "summary"    : "Removes an object from the Cloudlet.",
+               "notes"      : "Removes an object from the Cloudlet.",
+               "type"       : "ObjectResponse",
+               "responseClass" : "ObjectResponse",
+               "nickname"   : "removeObjectByAuth",
+               "parameters" : [
+                  {
+                     "name"        : "objectId",
+                     "description" : "Id of the object to be removed.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
                   }
                ],
                "responseMessages": [
@@ -224,6 +424,13 @@
                      "required"    : true,
                      "type"        : "boolean",
                      "paramType"   : "query"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
                   }
                ],
                "responseMessages": [
@@ -311,6 +518,99 @@
                      "type"          : "string",
                      "paramType"     : "query",
                      "allowMultiple" : true
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Object not found",
+                     "responseModel": "ObjectErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "ObjectErrorResponse"
+                  }
+               ]
+            }]
+      },
+      {
+         "path": "/objects",
+         "operations": [
+            {
+               "method"     : "GET",
+               "summary"    : "Retrieves the Cloudlets Objects.",
+               "notes"      : "Returns a Cloudlets objects according to the specified filters. ",
+               "type"       : "OPENiObjectList",
+               "nickname"   : "getObjectsWithAuthToken",
+               "parameters" : [
+                  {
+                     "name"        : "offset",
+                     "description" : "Pagination feature, the amount of objects to offset.",
+                     "required"    : false,
+                     "type"        : "int",
+                     "paramType"   : "query"
+                  },
+                  {
+                     "name"        : "limit",
+                     "description" : "The amount of objects to return.",
+                     "required"    : false,
+                     "type"        : "int",
+                     "paramType"   : "query"
+                  },
+                  {
+                     "name"          : "type",
+                     "description"   : "Limits Object to those of this type.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : true
+                  },
+                  {
+                     "name"          : "id_only",
+                     "description"   : "If true returns an array of object ids instead of the full objects.",
+                     "required"      : false,
+                     "type"          : "boolean",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
+                  },
+                  {
+                     "name"          : "with_property",
+                     "description"   : "Comma separated list of properties that the object must have.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
+                  },
+                  {
+                     "name"          : "property_filter",
+                     "description"   : "Comma separated list of name value pairs of properties that the object must satisfy. e.g. name=bob",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : false
+                  },
+                  {
+                     "name"          : "only_show_properties",
+                     "description"   : "Comma separated list of properties to include in the objects, all others are removed.",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "query",
+                     "allowMultiple" : true
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
                   }
                ],
                "responseMessages": [
