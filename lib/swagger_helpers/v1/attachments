@@ -4,6 +4,164 @@
    "basePath"        : "/api/v1",
    "resourcePath"    : "/attachments",
    "apis": [
+
+      {
+         "path"       : "/attachments",
+         "operations" : [
+            {
+               "method"     : "POST",
+               "summary"    : "Creates an attachment to the JSON object",
+               "notes"      : "Creates an attachment to the JSON object. which may be any binary (see couchdb)",
+               "type"       : "Attachment",
+               "nickname"   : "uploadAttachmentWithAuthToken",
+               "consumes": [
+                  "multipart/form-data"
+               ],
+               "parameters" : [
+                  {
+                     "name"          : "objectId",
+                     "description"   : "The object id and the property that should be set to this attachment",
+                     "required"      : false,
+                     "type"          : "string",
+                     "paramType"     : "form",
+                     "allowMultiple": false
+                  },
+                  {
+                     "name"        : "property",
+                     "description" : "The name of the property to set this attachment to.",
+                     "required"    : false,
+                     "type"        : "string",
+                     "paramType"   : "form"
+                  },
+                  {
+                     "name"          : "file",
+                     "description"   : "The file to upload",
+                     "required"      : true,
+                     "type"          : "File",
+                     "paramType"     : "form",
+                     "allowMultiple": false
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "Attachment"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "Attachment"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path"       : "/attachments/{attachmentId}/meta",
+         "operations" : [
+            {
+               "method"     : "GET",
+               "summary"    : "Gets the attachment meta data",
+               "notes"      : "Gets the attachment meta data",
+               "type"       : "Attachment",
+               "nickname"   : "getAttachmentMetaWithAuthToken",
+               "produces":[
+                  "application/json"
+               ],
+               "parameters" : [
+                  {
+                     "name"        : "attachmentId",
+                     "description" : "The id of the binary data.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "Attachment"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "Attachment"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path"       : "/attachments/{attachmentId}",
+         "operations" : [
+            {
+               "method"     : "GET",
+               "summary"    : "Gets the attachment",
+               "notes"      : "Gets the attachment",
+               "type"       : "file",
+               "nickname"   : "getAttachmentWithAuthToken",
+               "produces":[
+                  "application/octet-stream"
+               ],
+               "parameters" : [
+                  {
+                     "name"        : "attachmentId",
+                     "description" : "The id of the binary data.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "Attachment"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Unauthorised request",
+                     "responseModel": "Attachment"
+                  }
+               ]
+            }
+         ]
+      },
 	{
 	   "path"       : "/attachments/{cloudletId}",
 	   "operations" : [
@@ -11,7 +169,7 @@
 			 "method"     : "POST",
 			 "summary"    : "Creates an attachment to the JSON object",
 			 "notes"      : "Creates an attachment to the JSON object. which may be any binary (see couchdb)",
-			 "type"       : "AttachmentStatus",
+			 "type"       : "Attachment",
 			 "nickname"   : "uploadAttachment",
           "consumes": [
               "multipart/form-data"
@@ -46,6 +204,13 @@
                "type"          : "File",
                "paramType"     : "form",
                "allowMultiple": false
+            },
+            {
+               "name"        : "Authorization",
+               "description" : "OPENi Auth Token",
+               "required"    : true,
+               "type"        : "string",
+               "paramType"   : "header"
             }
 			],
 			"responseMessages": [
@@ -56,26 +221,29 @@
 				{
 				   "code": 400,
 				   "message": "Bad Request",
-				   "responseModel": "AttachmentStatus"
+				   "responseModel": "Attachment"
 				},
 				{
 				   "code": 401,
 				   "message": "Unauthorised request",
-				   "responseModel": "AttachmentStatus"
+				   "responseModel": "Attachment"
 				}
 			 ]
 		  }
 	   ]
 	},
 	{
-	   "path"       : "/attachments/{cloudletId}/{attachmentId}",
+	   "path"       : "/attachments/{cloudletId}/{attachmentId}/meta",
 	   "operations" : [
 		  {
 			 "method"     : "GET",
-			 "summary"    : "Gets the attachment",
-			 "notes"      : "Gets the attachment",
-			 "type"       : "AttachmentStatus",
-			 "nickname"   : "getAttachmentCloudlet",
+			 "summary"    : "Gets the attachment meta data",
+			 "notes"      : "Gets the attachment meta data",
+			 "type"       : "Attachment",
+			 "nickname"   : "getAttachmentMeta",
+           "produces":[
+              "application/json"
+           ],
 			 "parameters" : [
             {
                "name"        : "cloudletId",
@@ -91,13 +259,13 @@
                "type"        : "string",
                "paramType"   : "path"
             },
-				{
-				   "name"          : "meta",
-				   "description"   : "The binary data",
-				   "required"      : true,
-				   "type"          : "boolean",
-				   "paramType"     : "query"
-				}
+            {
+               "name"        : "Authorization",
+               "description" : "OPENi Auth Token",
+               "required"    : true,
+               "type"        : "string",
+               "paramType"   : "header"
+            }
 			 ],
 			 "responseMessages": [
 				{
@@ -107,33 +275,111 @@
 				{
 				   "code": 400,
 				   "message": "Bad Request",
-				   "responseModel": "AttachmentStatus"
+				   "responseModel": "Attachment"
 				},
 				{
 				   "code": 401,
 				   "message": "Unauthorised request",
-				   "responseModel": "AttachmentStatus"
+				   "responseModel": "Attachment"
 				}
 			 ]
 		  }
 	   ]
-	}
+	},
+   {
+      "path"       : "/attachments/{cloudletId}/{attachmentId}",
+      "operations" : [
+         {
+            "method"     : "GET",
+            "summary"    : "Gets the attachment",
+            "notes"      : "Gets the attachment",
+            "type"       : "file",
+            "nickname"   : "getAttachment",
+            "produces":[
+               "application/octet-stream"
+            ],
+            "parameters" : [
+               {
+                  "name"        : "cloudletId",
+                  "description" : "The id of the users cloudlet.",
+                  "required"    : true,
+                  "type"        : "string",
+                  "paramType"   : "path"
+               },
+               {
+                  "name"        : "attachmentId",
+                  "description" : "The id of the binary data.",
+                  "required"    : true,
+                  "type"        : "string",
+                  "paramType"   : "path"
+               },
+               {
+                  "name"        : "Authorization",
+                  "description" : "OPENi Auth Token",
+                  "required"    : true,
+                  "type"        : "string",
+                  "paramType"   : "header"
+               }
+            ],
+            "responseMessages": [
+               {
+                  "code": 200,
+                  "message": "Ok"
+               },
+               {
+                  "code": 400,
+                  "message": "Bad Request",
+                  "responseModel": "Attachment"
+               },
+               {
+                  "code": 401,
+                  "message": "Unauthorised request",
+                  "responseModel": "Attachment"
+               }
+            ]
+         }
+      ]
+   }
    ],
 
    "models" : {
-		"AttachmentStatus" : {
-			"id" : "AttachmentStatus",
+		"Attachment" : {
+			"id" : "Attachment",
 			"properties" : {
-				"code" : {
-					"type" : "integer",
-					"format": "int32",
-					"description" : "Response code",
+				"@id" : {
+					"type" : "string",
+					"description" : "Attachment id",
                "required"    : true
 				},
-				"message":{
-               "type"     :"string",
-               "description" : "Descriptive message",
-               "required" : false
+            "location" : {
+               "type" : "string",
+               "description" : "location",
+               "required"    : false
+            },
+            "filename" : {
+               "type" : "string",
+               "description" : "filename",
+               "required"    : false
+            },
+            "content-length" : {
+               "type" : "string",
+               "description" : "content-length",
+               "required"    : false
+            },
+            "Content-Type" : {
+               "type" : "string",
+               "description" : "Content-Type",
+               "required"    : false
+            },
+            "_date_created" : {
+               "type" : "string",
+               "description" : "_date_created",
+               "required"    : false
+            },
+            "_date_modified" : {
+               "type" : "string",
+               "description" : "_date_modified",
+               "required"    : false
             }
 			}
 		}
