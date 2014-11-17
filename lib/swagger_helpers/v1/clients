@@ -16,7 +16,20 @@
 					"summary":"",
 					"type": "ClientQuery",
 					"nickname": "listClients",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							},
+							{
+								"scope": "clients.write",
+								"description": "Write clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -35,19 +48,26 @@
 						}
 					],
 					"responseMessages": []
-				}
-			]
-		},
-		{
-			"path": "/oauth/clients/{client_id}",
-			"operations":
-			[
+				},
 				{
-					"method": "GET",
+					"method": "POST",
 					"summary":"",
 					"type":"ClientInformation",
-					"nickname": "inspectClient",
-					"authorizations": {},
+					"nickname": "registerClient",
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							},
+							{
+								"scope": "clients.write",
+								"description": "Write clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -66,13 +86,28 @@
 						}
 					],
 					"responseMessages": []
-				},
+				}
+			]
+		},
+		{
+			"path": "/oauth/clients/{client_id}",
+			"operations":
+			[
 				{
-					"method": "POST",
+					"method": "GET",
 					"summary":"",
 					"type":"ClientInformation",
-					"nickname": "registerClient",
-					"authorizations": {},
+					"nickname": "inspectClient",
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.read",
+								"description": "Read clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -97,7 +132,20 @@
 					"summary":"",
 					"type":"ClientInformation",
 					"nickname": "updateClient",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							},
+							{
+								"scope": "clients.write",
+								"description": "Write clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -122,7 +170,20 @@
 					"summary":"",
 					"type":"ClientInformation",
 					"nickname": "deleteClient",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							},
+							{
+								"scope": "clients.write",
+								"description": "Write clients"
+							}
+						]
+					},
 					"parameters":
 					[
 						{
@@ -146,7 +207,16 @@
 					"summary":"",
 					"type":"string",
 					"nickname": "changeSecret",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.secret",
+								"description": "Set client secret"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -171,7 +241,16 @@
 					"type":"array",
 					"items": {"$ref": "ClientInformation"},
 					"nickname": "registerClients",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -191,7 +270,16 @@
 					"type":"array",
 					"items": {"$ref": "ClientInformation"},
 					"nickname": "updateClients",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -216,7 +304,16 @@
 					"summary":"",
 					"type":"ClientInformationModify",
 					"nickname": "modifyClients",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -242,7 +339,16 @@
 					"type":"array",
 					"items": {"$ref": "string"},
 					"nickname": "changeSecrets",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -267,7 +373,16 @@
 					"summary":"",
 					"type":"ClientInformation",
 					"nickname": "deleteClients",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "clients.admin",
+								"description": "Admin clients"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
