@@ -16,7 +16,20 @@
 					"summary":"",
 					"type":"UserInformation",
 					"nickname": "createUser",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.create",
+								"description": "Create users"
+							},
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -34,7 +47,16 @@
 					"summary":"",
 					"type":"UserQuery",
 					"nickname": "queryUser",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.read",
+								"description": "Read users"
+							}
+						]
+					},
 					"parameters":
 					[
 						{
@@ -65,7 +87,16 @@
 					"summary":"",
 					"type":"UserInformation",
 					"nickname": "updateUser",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Create users"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -90,7 +121,16 @@
 					"summary":"",
 					"type":"void",
 					"nickname": "deleteUser",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -114,7 +154,16 @@
 					"summary":"",
 					"type":"UserPassword",
 					"nickname": "changePassword",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "password.write",
+								"description": "Set the users password"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -145,7 +194,16 @@
 					"summary":"",
 					"type":"string",
 					"nickname": "verifyUser",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{

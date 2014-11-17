@@ -14,7 +14,7 @@
 				{
 					"method": "POST",
 					"summary":"",
-					"type":"Json",
+					"type":"string",
 					"nickname": "login",
 					"authorizations": {},
 					"parameters":
@@ -88,63 +88,14 @@
 					"consumes": ["application/x-www-form-urlencoded"],
 					"method": "POST",
 					"summary":"",
-					"type":"Json",
-					"nickname": "refreshToken",
-					"authorizations": {},
-					"parameters":
-					[
-						{
-							"name" : "grant_type",
-							"defaultValue": "refresh_token",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "refresh_token",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "redirect_uri",
-							"defaultValue": "",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "authorization",
-							"defaultValue": "",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						}
-					],
-					"responseMessages": []
-				}
-			]
-		},
-		{
-			"path": "/oauth/token",
-			"operations":
-			[
-				{
-					"consumes": ["application/x-www-form-urlencoded"],
-					"method": "POST",
-					"summary":"",
-					"type":"Json",
+					"type":"Tokens",
 					"nickname": "getTokenFromCode",
 					"authorizations": {},
 					"parameters":
 					[
 						{
 							"name" : "grant_type",
-							"defaultValue": "authorization_code",
+							"defaultValue": "code",
 							"description" : "",
 							"required" : true,
 							"type" : "string",
@@ -159,10 +110,10 @@
 							"paramType" : "form"
 						},
 						{
-							"name" : "redirect_uri",
+							"name" : "scope",
 							"defaultValue": "",
 							"description" : "",
-							"required" : true,
+							"required" : false,
 							"type" : "string",
 							"paramType" : "form"
 						},
@@ -170,7 +121,7 @@
 							"name" : "authorization",
 							"defaultValue": "",
 							"description" : "",
-							"required" : true,
+							"required" : false,
 							"type" : "string",
 							"paramType" : "form"
 						}
@@ -186,8 +137,8 @@
 				{
 					"method": "POST",
 					"summary":"",
-					"type":"Json",
-					"nickname": "getToken",
+					"type":"string",
+					"nickname": "authorize",
 					"authorizations": {},
 					"parameters":
 					[
@@ -200,7 +151,6 @@
 						},
 						{
 							"name" : "response_type",
-							"defaultValue": "token",
 							"description" : "",
 							"required" : true,
 							"type" : "string",
@@ -223,99 +173,7 @@
 						{
 							"name" : "redirect_uri",
 							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						}
-					],
-					"responseMessages": []
-				}
-			]
-		},
-		{
-			"path": "/oauth/authorize",
-			"operations":
-			[
-				{
-					"method": "POST",
-					"summary":"",
-					"type":"Json",
-					"nickname": "userApprove",
-					"authorizations": {},
-					"parameters":
-					[
-						{
-							"name" : "session",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "user_oauth_approval",
-							"defaultValue": "true",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "scopes",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						}
-					],
-					"responseMessages": []
-				}
-			]
-		},
-		{
-			"path": "/oauth/authorize",
-			"operations":
-			[
-				{
-					"method": "POST",
-					"summary":"",
-					"type":"Json",
-					"nickname": "getAuthorizationCode",
-					"authorizations": {},
-					"parameters":
-					[
-						{
-							"name" : "session",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "response_type",
-							"defaultValue": "code",
-							"description" : "token",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "client_id",
-							"description" : "",
-							"required" : true,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "scope",
-							"description" : "",
 							"required" : false,
-							"type" : "string",
-							"paramType" : "form"
-						},
-						{
-							"name" : "redirect_uri",
-							"description" : "",
-							"required" : true,
 							"type" : "string",
 							"paramType" : "form"
 						}
@@ -325,12 +183,25 @@
 			]
 		}
 	],
-	"models":
-	{
-		"Json":
-		{
-			"id": "Json",
-			"properties": {}
-		}
+	"models": {
+	   "Credentials":
+      {
+         "id": "Credentials",
+         "properties":
+         {
+            "username":
+            {
+               "type" :"string",
+               "description" : "",
+               "required" : true
+            },
+            "password":
+            {
+               "type" :"string",
+               "description" : "",
+               "required" : true
+            }
+         }
+      }
 	}
 }

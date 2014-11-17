@@ -16,7 +16,16 @@
 					"summary":"",
 					"type":"GroupInformation",
 					"nickname": "createGroup",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -34,7 +43,16 @@
 					"summary":"",
 					"type":"GroupQuery",
 					"nickname": "queryGroup",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.read",
+								"description": "Read users"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -65,7 +83,20 @@
 					"summary":"",
 					"type":"GroupInformation",
 					"nickname": "updateGroup",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							},
+							{
+								"scope": "groups.update",
+								"description": "Update groups"
+							}
+						]
+					},
 					"parameters": 
 					[
 						{
@@ -90,7 +121,16 @@
 					"summary":"",
 					"type":"void",
 					"nickname": "deleteGroup",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							}
+						]
+					},
 					"parameters":
 					[
 						{
@@ -114,7 +154,16 @@
 					"summary":"",
 					"type":"void",
 					"nickname": "listExternalGroup",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.read",
+								"description": "Read users"
+							}
+						]
+					},
 					"parameters": [],
 					"responseMessages": []
 				},
@@ -123,7 +172,16 @@
 					"summary":"",
 					"type":"void",
 					"nickname": "createExternalGroupMap",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							}
+						]
+					},
 					"parameters": [],
 					"responseMessages": []
 				}
@@ -138,7 +196,16 @@
 					"summary":"",
 					"type":"void",
 					"nickname": "deleteExternalGroupMap",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							}
+						]
+					},
 					"parameters": [],
 					"responseMessages": []
 				}
@@ -153,7 +220,16 @@
 					"summary":"",
 					"type":"void",
 					"nickname": "deleteExternalGroupMapByName",
-					"authorizations": {},
+					"authorizations":
+					{
+						"oauth2":
+						[
+							{
+								"scope": "scim.write",
+								"description": "Write users"
+							}
+						]
+					},
 					"parameters": [],
 					"responseMessages": []
 				}
