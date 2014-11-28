@@ -2,21 +2,21 @@
 
 module.exports = function(grunt) {
 
-    var lib         = 'lib/**/*.js';
+   var lib         = 'lib/**/*.js';
 
+   grunt.initConfig({
+      pkg: grunt.file.readJSON('package.json'),
+      jshint: {
+         all: [lib],
+         options: {
+            reporter: require('jshint-stylish'),
+            jshintrc: '.jshintrc'
+         }
+      }
+   });
 
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        jshint: {
-            all: [lib],
-            options: grunt.file.readJSON('.jshintrc')
-        }
-    });
+   grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-
-  // Default task(s).
-  grunt.registerTask('default',  ['jshint']);
+   grunt.registerTask('default',  ['jshint' ]);
 
 };
