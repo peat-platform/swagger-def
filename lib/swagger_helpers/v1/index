@@ -28,6 +28,10 @@
          "description": "Serves binary content"
       },
       {
+         "path": "/api-spec/v1/permissions",
+         "description": "Permissions API"
+      },
+      {
          "path": "/api-spec/v1/subscription",
          "description": "Subscription API"
       },
