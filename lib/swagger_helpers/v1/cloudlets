@@ -97,14 +97,9 @@
       "OPENiCloudlet": {
          "id": "OPENiCloudlet",
          "properties": {
-            "id": {
+            "@id": {
                "type"        : "string",
                "description" : "Unique identifier for the Cloudlet.",
-               "required"    : false
-            },
-            "_date_created": {
-               "type"        : "Date",
-               "description" : "Timestamp of creation of the Cloudlet",
                "required"    : false
             }
          }
