@@ -1,140 +1,135 @@
 {
-   "apiVersion"      : "1.0.0",
-   "swaggerVersion"  : "1.2",
-   "basePath"        : "/api/v1",
-   "resourcePath"    : "/permissions",
-   "produces": [
-      "application/Json"
-   ],
-   "apis": [
-      {
-         "path": "/permissions/check",
-         "operations": [
-            {
-               "method"        : "POST",
-               "summary"       : "Validate that user agrees with permissions.",
-               "notes"         : "",
-               "type"          : "PermissionsCheckResponse",
-               "responseClass" : "PermissionsCheckResponse",
-               "nickname"      : "checkPermissions",
-               "parameters" : [
-                  {
-                     "name"        : "permissions",
-                     "description" : "The id of the users cloudlet.",
-                     "required"    : true,
-                     "type"        : "array",
-                     "items"       : {
-                        "$ref" : "Permissions"
-                     },
-                     "paramType"   : "body"
-                  },
-                  {
-                     "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "header"
-                  }
-               ]
+    "apiVersion": "1.0.0",
+    "swaggerVersion": "1.2",
+    "basePath": "/api/v1",
+    "resourcePath": "/permissions",
+    "produces": [
+        "application/Json"
+    ],
+    "apis": [
+        {
+            "path": "/permissions",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Update permissions.",
+                    "notes": "",
+                    "type": "PermissionsResponse",
+                    "responseClass": "PermissionsResponse",
+                    "nickname": "updatePermissions",
+                    "parameters": [
+                        {
+                            "name": "permission",
+                            "description": "App permissions.",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "Permissions"
+                            },
+                            "paramType": "body"
+                        },
+                        {
+                            "name": "Authorization",
+                            "description": "OPENi Auth Token",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "header"
+                        }
+                    ]
+                },
+                {
+                    "method": "GET",
+                    "summary": "Read permissions.",
+                    "notes": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "Permissions"
+                    },
+                    "nickname": "getPermissions",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "OPENi Auth Token",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "header"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "Permissions": {
+            "id": "Permissions",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Permission type",
+                    "required": true
+                },
+                "ref": {
+                    "type": "string",
+                    "description": "Permission reference id",
+                    "required": true
+                },
+                "access_type": {
+                    "type": "string",
+                    "description": "Permission access type",
+                    "required": true,
+                    "enum": [
+                        "create",
+                        "read",
+                        "update",
+                        "delete"
+                    ]
+                },
+                "access_level": {
+                    "type": "string",
+                    "description": "Permission access level",
+                    "required": true,
+                    "enum": [
+                        "app",
+                        "cloudlet"
+                    ]
+                }
             }
-         ]
-      },
-      {
-         "path": "/permissions",
-         "operations": [
-            {
-               "method"        : "POST",
-               "summary"       : "Update permissions.",
-               "notes"         : "",
-               "type"          : "PermissionsResponse",
-               "responseClass" : "PermissionsResponse",
-               "nickname"      : "updatePermissions",
-               "parameters" : [
-                  {
-                     "name"        : "permission",
-                     "description" : "App permissions.",
-                     "required"    : true,
-                     "type"        : "array",
-                     "items"       : {
-                        "$ref" : "Permissions"
-                     },
-                     "paramType"   : "body"
-                  },
-                  {
-                     "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
-                     "required"    : true,
-                     "type"        : "string",
-                     "paramType"   : "header"
-                  }
-               ]
+        },
+        "PermissionsCheckResponse": {
+            "id": "PermissionsCheckResponse",
+            "properties": {
+                "processed": {
+                    "type": "boolean",
+                    "required": true
+                },
+                "user_agree": {
+                    "type": "boolean",
+                    "required": true
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Permissions"
+                    },
+                    "required": true
+                },
+                "types": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "OPENiType"
+                    },
+                    "required": false
+                }
             }
-         ]
-      }
-   ],
-   "models": {
-      "Permissions": {
-         "id": "Permissions",
-         "properties": {
-            "type": {
-               "type"        : "string",
-               "description" : "Permission type",
-               "required"    : true
-            },
-            "ref": {
-               "type"        : "string",
-               "description" : "Permission reference id",
-               "required"    : true
-            },
-            "access_type": {
-               "type"        : "string",
-               "description" : "Permission access type",
-               "required"    : true
-            },
-            "access_level": {
-               "type"        : "string",
-               "description" : "Permission access level",
-               "required"    : true
+        },
+        "PermissionsResponse": {
+            "id": "PermissionsResponse",
+            "properties": {
+                "status": {
+                    "type": "boolean",
+                    "required": true
+                }
             }
-         }
-      },
-      "PermissionsCheckResponse" :{
-         "id": "PermissionsCheckResponse",
-         "properties": {
-            "processed" : {
-               "type" : "boolean",
-               "required" : true
-            },
-            "user_agree" : {
-               "type" : "boolean",
-               "required" : true
-            },
-            "permissions" : {
-               "type"    : "array",
-               "items"   : {
-                  "$ref" : "Permissions"
-               },
-               "required" : true
-            },
-            "types" : {
-               "type"    : "array",
-               "items"   : {
-                  "$ref" : "OPENiType"
-               },
-               "required" : false
-            }
-         }
-      },
-
-       "PermissionsResponse" :{
-          "id": "PermissionsResponse",
-          "properties": {
-             "status" : {
-                "type" : "boolean",
-                "required" : true
-             }
-          }
-       }
-   }
+        }
+    }
 }
-
