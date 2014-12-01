@@ -130,7 +130,7 @@
           "id": "PermissionsResponse",
           "properties": {
              "status" : {
-                "type" : "boolean",
+                "type" : "string",
                 "required" : true
              }
           }
