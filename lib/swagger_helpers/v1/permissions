@@ -95,41 +95,15 @@
                 }
             }
         },
-        "PermissionsCheckResponse": {
-            "id": "PermissionsCheckResponse",
-            "properties": {
-                "processed": {
-                    "type": "boolean",
-                    "required": true
-                },
-                "user_agree": {
-                    "type": "boolean",
-                    "required": true
-                },
-                "permissions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "Permissions"
-                    },
-                    "required": true
-                },
-                "types": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "OPENiType"
-                    },
-                    "required": false
-                }
-            }
-        },
-        "PermissionsResponse": {
-            "id": "PermissionsResponse",
-            "properties": {
-                "status": {
-                    "type": "boolean",
-                    "required": true
-                }
-            }
-        }
-    }
+       "PermissionsResponse" :{
+          "id": "PermissionsResponse",
+          "properties": {
+             "status" : {
+                "type" : "string",
+                "required" : true
+             }
+          }
+       }
+   }
 }
+
