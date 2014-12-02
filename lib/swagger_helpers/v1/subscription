@@ -1,208 +1,225 @@
-{ 
-    "apiVersion": "1.0.0",
-    "swaggerVersion": "1.2",
-    "basePath": "/api/v1",
-    "resourcePath": "/notification",
-    "apis": [
-        {
-            "path": "/subscription/{cloudletId}",
-            "operations": [
-                {
-                    "method": "GET",
-                    "summary": "List All Subscriptions",
-                    "notes": "",
-                    "nickname": "getSubscriptionsByCloudlet",
-                    "type"        : "string",
-                    "responseMessages": [
-                        {
-                            "code": 200,
-                            "message": "ok"
-                        },
-                        {
-                            "code": 400,
-                            "message": "Bad Request",
-                            "responseModel": "SubscriptionStatus"
-                        }
-                    ],
-                    "parameters": [
-                        {
-                            "name": "cloudletId",
-                            "description": "The Cloudlet Id for the User",
-                            "required": true,
-                            "type": "string",
-                            "paramType": "path"
-                        }
-                    ]
-                },
-                {
-                     "method": "POST",
-                     "summary": "Add Subscriptions",
-                     "notes": "",
-                     "nickname": "addSubscription",
-                     "type"        : "string",
-                     "responseMessages": [
-                         {
-                             "code": 201,
-                             "message": "created"
-                         },
-                         {
-                             "code": 400,
-                             "message": "Bad Request",
-                             "responseModel": "SubscriptionStatus"
-                         }
-                     ],
-                     "parameters": [
-                         {
-                             "name": "subscriptions",
-                             "description": "",
-                             "required": true,
-                             "type": "Subscription",
-                             "paramType": "body"
-                         },
-                         {
-                             "name": "cloudletId",
-                             "description": "The Cloudlet Id for the User",
-                             "required": true,
-                             "type": "string",
-                             "paramType": "path"
-                         }
-                     ]
-                 }
-            ]
-        },
-        {
-            "path": "/subscription/{cloudletId}/{subscriptionId}",
-            "operations": [
-                {
-                    "method": "GET",
-                    "summary": "List subscription settings for {subscriptionId}",
-                    "notes": "",
-                    "nickname": "getSubscriptionsByCloudletAndObject",
-                     "type"   : "string",
-                    "responseMessages": [
-                        {
-                            "code": 200,
-                            "message": "ok"
-                        },
-                        {
-                            "code": 400,
-                            "message": "Bad Request",
-                            "responseModel": "SubscriptionStatus"
-                        }
-                    ],
-                    "parameters": [
-                        {
-                            "name": "cloudletId",
-                            "description": "The Cloudlet Id for the User",
-                            "required": true,
-                            "type": "string",
-                            "paramType": "path"
-                        },
-                        {
-                            "name": "subscriptionId",
-                            "description": "Subscription Object",
-                            "required": true,
-                            "type"        : "string",
-                            "paramType": "path"
-                        }
-                    ]
-                },
-                {
-                    "method": "PUT",
-                    "summary": "Update Subscription settings for {subscriptionId}",
-                    "notes": "",
-                    "nickname": "setSubscriptionForObject",
-                    "type"        : "string",
-                    "responseMessages": [
-                        {
-                            "code": 200,
-                            "message": "ok"
-                        },
-                        {
-                            "code": 400,
-                            "message": "Bad Request",
-                            "responseModel": "SubscriptionStatus"
-                        }
-                    ],
-                    "parameters": [
-                        {
-                            "name": "cloudletId",
-                            "description": "The Cloudlet Id for the User",
-                            "required": true,
-                            "type": "string",
-                            "paramType": "path"
-                        },
-                        {
-                            "name": "subscriptionId",
-                            "description": "Subscription Object to be returned in JSON representation",
-                            "required": true,
-                             "type"        : "string",
-                            "paramType": "path"
-                        },
-                        {
-                            "name": "subscriptionInfo",
-                            "description": "Updated Subscription info",
-                            "required": true,
-                            "type": "Subscription",
-                            "paramType": "body"
-                        }
-                    ]
-                },
-                {
-                    "method": "DELETE",
-                    "summary": "??",
-                    "notes": "",
-                    "nickname": "removeSubscription",
-                    "type"        : "string",
-                    "responseMessages": [
-                        {
-                            "code": 501,
-                            "message": "Not yet Implemented"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "models": {
-        "SubscriptionStatus": {
-            "id": "SubscriptionStatus",
-            "properties": {
-                "value": {
-                    "type": "boolean",
-                    "description": "Response was OK",
-                    "required": true
-                },
-                "viewId": {
-                    "type": "string",
-                    "required": false
-                }
+{
+   "apiVersion"    : "1.0.0",
+   "swaggerVersion": "1.2",
+   "basePath"      : "/api/v1",
+   "resourcePath"  : "/notification",
+   "apis"          : [
+      {
+         "path"      : "/subscription/{cloudletId}",
+         "operations": [
+            {
+               "method"          : "GET",
+               "summary"         : "List All Subscriptions",
+               "notes"           : "",
+               "nickname"        : "getSubscriptionsByCloudlet",
+               "type"            : "string",
+               "responseMessages": [
+                  {
+                     "code"   : 200,
+                     "message": "ok"
+                  },
+                  {
+                     "code"         : 400,
+                     "message"      : "Bad Request",
+                     "responseModel": "SubscriptionStatus"
+                  }
+               ],
+               "parameters"      : [
+                  {
+                     "name"       : "cloudletId",
+                     "description": "The Cloudlet Id for the User",
+                     "required"   : true,
+                     "type"       : "string",
+                     "paramType"  : "path"
+                  }
+               ]
+            },
+            {
+               "method"          : "POST",
+               "summary"         : "Add Subscriptions",
+               "notes"           : "",
+               "nickname"        : "addSubscription",
+               "type"            : "string",
+               "responseMessages": [
+                  {
+                     "code"   : 201,
+                     "message": "created"
+                  },
+                  {
+                     "code"         : 400,
+                     "message"      : "Bad Request",
+                     "responseModel": "SubscriptionStatus"
+                  }
+               ],
+               "parameters"      : [
+                  {
+                     "name"       : "subscriptions",
+                     "description": "",
+                     "required"   : true,
+                     "type"       : "Subscription",
+                     "paramType"  : "body"
+                  },
+                  {
+                     "name"       : "cloudletId",
+                     "description": "The Cloudlet Id for the User",
+                     "required"   : true,
+                     "type"       : "string",
+                     "paramType"  : "path"
+                  }
+               ]
             }
-        },
-        "Subscription": {
-            "id": "Subscription",
-            "properties": {
-                "objectid": {
-                    "type": "string",
-                    "description" : "The id of the subscribed Object.",
-                    "required": true
-                },
-                "data": {
-                    "type": "string",
-                    "description" : "The Object/Data to watch for changes",
-                    "required": true
-                },
-                "type": {
-                    "type": "string",
-                    "description" : "The Notification type. [Email, SMS, NOTIFICATION]",
-                    "required": true
-                },
-                "endpoint": {
-                    "type": "string",
-                    "description" : "Where to send the notification",
-                    "required": false
-                }
+         ]
+      },
+      {
+         "path"      : "/subscription/{cloudletId}/{subscriptionId}",
+         "operations": [
+            {
+               "method"          : "GET",
+               "summary"         : "List subscription settings for {subscriptionId}",
+               "notes"           : "",
+               "nickname"        : "getSubscriptionsByCloudletAndObject",
+               "type"            : "string",
+               "responseMessages": [
+                  {
+                     "code"   : 200,
+                     "message": "ok"
+                  },
+                  {
+                     "code"         : 400,
+                     "message"      : "Bad Request",
+                     "responseModel": "SubscriptionStatus"
+                  }
+               ],
+               "parameters"      : [
+                  {
+                     "name"       : "cloudletId",
+                     "description": "The Cloudlet Id for the User",
+                     "required"   : true,
+                     "type"       : "string",
+                     "paramType"  : "path"
+                  },
+                  {
+                     "name"       : "subscriptionId",
+                     "description": "Subscription Object",
+                     "required"   : true,
+                     "type"       : "string",
+                     "paramType"  : "path"
+                  }
+               ]
+            },
+            {
+               "method"          : "DELETE",
+               "summary"         : "??",
+               "notes"           : "",
+               "nickname"        : "removeSubscription",
+               "type"            : "string",
+               "responseMessages": [
+                  {
+                     "code"   : 501,
+                     "message": "Not yet Implemented"
+                  }
+               ]
             }
-        }
-    }
+         ]
+      },
+      {
+         "path"      : "/subscription/{cloudletId}/{subscriptionId}/{revision}",
+         "operations": [
+            {
+               "method"          : "PUT",
+               "summary"         : "Update Subscription settings for {subscriptionId}",
+               "notes"           : "",
+               "nickname"        : "setSubscriptionForObject",
+               "type"            : "string",
+               "responseMessages": [
+                  {
+                     "code"   : 200,
+                     "message": "ok"
+                  },
+                  {
+                     "code"         : 400,
+                     "message"      : "Bad Request",
+                     "responseModel": "SubscriptionStatus"
+                  }
+               ],
+               "parameters"      : [
+                  {
+                     "name"       : "cloudletId",
+                     "description": "The Cloudlet Id for the User",
+                     "required"   : true,
+                     "type"       : "string",
+                     "paramType"  : "path"
+                  },
+                  {
+                     "name"       : "subscriptionId",
+                     "description": "Subscription Object to be returned in JSON representation",
+                     "required"   : true,
+                     "type"       : "string",
+                     "paramType"  : "path"
+                  },
+                  {
+                     "name"       : "revision",
+                     "description": "Revision number for the Subscription to be updated",
+                     "required"   : true,
+                     "type"       : "string",
+                     "paramType"  : "path"
+                  },
+                  {
+                     "name"       : "subscriptionInfo",
+                     "description": "Updated Subscription info",
+                     "required"   : true,
+                     "type"       : "Subscription",
+                     "paramType"  : "body"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "models"        : {
+      "SubscriptionStatus": {
+         "id"        : "SubscriptionStatus",
+         "properties": {
+            "value" : {
+               "type"       : "boolean",
+               "description": "Response was OK",
+               "required"   : true
+            },
+            "viewId": {
+               "type"    : "string",
+               "required": false
+            }
+         }
+      },
+      "Subscription"      : {
+         "id"        : "Subscription",
+         "properties": {
+            "cloudletid": {
+                "type"       : "string",
+                "description": "The id of the cloudlet the subscribed object belongs too.",
+                "required"   : true
+            },
+            "objectid": {
+               "type"       : "string",
+               "description": "The id of the subscribed Object.",
+               "required"   : true
+            },
+            "data"    : {
+               "type"       : "string",
+               "description": "The Object/Data to watch for changes",
+               "required"   : true
+            },
+            "type"    : {
+               "type"       : "string",
+               "description": "The Notification type. [Email, SMS, NOTIFICATION]",
+               "required"   : true
+            },
+            "endpoint": {
+               "type"       : "string",
+               "description": "Where to send the notification",
+               "required"   : false
+            }
+         }
+      }
+   }
 }
