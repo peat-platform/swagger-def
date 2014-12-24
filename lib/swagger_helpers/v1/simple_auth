@@ -1,262 +1,272 @@
 {
-"apiVersion": "1.0.0",
-"swaggerVersion": "1.2",
-"basePath": "/uaa",
-"resourcePath": "/uaa",
-"produces": [
-"application/json"
-],
-"consumes": [
-"application/json"
-],
-"apis": [
-{
-"path": "/session",
-"operations": [
-{
-"method": "POST",
-"summary": "",
-"type": "Session",
-"nickname": "login",
-"authorizations": {},
-"parameters": [
-{
-"name": "body",
-"description": "The user's credentials",
-"required": true,
-"type": "Credentials",
-"paramType": "body"
-}
-],
-"responseMessages": [
-{
-"code": 200,
-"message": "OK"
-},
-{
-"code": 400,
-"message": "Bad Request"
-},
-{
-"code": 406,
-"message": "Not Acceptable"
-}
-]
-}
-]
-},
-{
-"path": "/session",
-"operations": [
-{
-"method": "DELETE",
-"summary": "",
-"type": "void",
-"nickname": "logout",
-"authorizations": {},
-"parameters": [
-{
-"name": "body",
-"description": "The user's session",
-"required": true,
-"type": "Session",
-"paramType": "body"
-}
-],
-"responseMessages": [
-{
-"code": 200,
-"message": "OK"
-},
-{
-"code": 406,
-"message": "Not Acceptable"
-}
-]
-}
-]
-},
-{
-"path": "/authorize",
-"operations": [
-{
-"method": "POST",
-"summary": "",
-"type": "Token",
-"nickname": "authorizeClient",
-"authorizations": {},
-"parameters": [
-{
-"name": "body",
-"description": "The user's auth request",
-"required": true,
-"type": "AuthorizationRequest",
-"paramType": "body"
-}
-],
-"responseMessages": [
-{
-"code": 200,
-"message": "OK"
-},
-{
-"code": 400,
-"message": "Bad Request"
-},
-{
-"code": 406,
-"message": "Not Acceptable"
-}
-]
-}
-]
-},
-{
-"path": "/clients",
-"operations": [
-{
-"method": "POST",
-"summary": "",
-"type": "void",
-"nickname": "createClient",
-"authorizations": {},
-"parameters": [
-{
-"name": "body",
-"description": "The client's information",
-"required": true,
-"type": "ClientRegisterRequest",
-"paramType": "body"
-}
-],
-"responseMessages": [
-{
-"code": 200,
-"message": "OK"
-},
-{
-"code": 400,
-"message": "Bad Request"
-}
-]
-}
-]
-},
-{
-"path": "/users",
-"operations": [
-{
-"method": "POST",
-"summary": "",
-"type": "void",
-"nickname": "createUser",
-"authorizations": {},
-"parameters": [
-{
-"name": "body",
-"description": "The user's information",
-"required": true,
-"type": "UserRegisterRequest",
-"paramType": "body"
-}
-],
-"responseMessages": [
-{
-"code": 200,
-"message": "OK"
-},
-{
-"code": 400,
-"message": "Bad Request"
-}
-]
-}
-]
-}
-],
-"models": {
-"UserRegisterRequest": {
-"id": "UserRegisterRequest",
-"properties": {
-"name": {
-"type": "string",
-"description": "The user's username",
-"required": true
-},
-"password": {
-"type": "string",
-"description": "The user's password",
-"required": true
-}
-}
-},
-"ClientRegisterRequest": {
-"id": "ClientRegisterRequest",
-"properties": {
-"client_id": {
-"type": "string",
-"description": "The client's username",
-"required": true
-}
-}
-},
-"Credentials": {
-"id": "Credentials",
-"properties": {
-"name": {
-"type": "string",
-"description": "The user's username",
-"required": true
-},
-"password": {
-"type": "string",
-"description": "The user's password",
-"required": true
-}
-}
-},
-"Session": {
-"id": "Session",
-"properties": {
-"session": {
-"type": "string",
-"description": "The user's session",
-"required": true
-}
-}
-},
-"Token": {
-"id": "Token",
-"properties": {
-"token": {
-"type": "string",
-"description": "The user's OpenID Connect token",
-"required": true
-}
-}
-},
-"AuthorizationRequest": {
-"id": "AuthorizationRequest",
-"properties": {
-"session": {
-"type": "string",
-"description": "The user's session",
-"required": true
-},
-"client_id": {
-"type": "string",
-"description": "The client's id",
-"required": true
-}
-}
-}
-},
-"info": {
-"title": "OPENi Platform Security Framework REST APIs",
-"description": "",
-"termsOfService": "",
-"contact": "help@openi-ict.eu",
-"license": "MIT",
-"licenseUrl": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
-}
+   "apiVersion"      : "1.0.0",
+   "swaggerVersion"  : "1.2",
+   "basePath"        : "/api/v1/auth",
+   "resourcePath"    : "/auth",
+   "produces":[
+      "application/json"
+   ],
+   "consumes":[
+      "application/json"
+   ],
+   "apis":[
+      {
+         "path":"/sessions",
+         "operations":[
+            {
+               "method":"POST",
+               "summary":"",
+               "type":"Session",
+               "nickname":"login",
+               "authorizations":{
+
+               },
+               "parameters":[
+                  {
+                     "name":"body",
+                     "description":"The user's credentials",
+                     "required":true,
+                     "type":"Credentials",
+                     "paramType":"body"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":400,
+                     "message":"Bad Request"
+                  },
+                  {
+                     "code":406,
+                     "message":"Not Acceptable"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path":"/sessions/{id}",
+         "operations":[
+            {
+               "method":"DELETE",
+               "summary":"",
+               "type":"void",
+               "nickname":"logout",
+               "authorizations":{
+
+               },
+               "parameters":[
+                  {
+                     "name":"id",
+                     "description":"The user's session",
+                     "required":true,
+                     "type":"Session",
+                     "paramType":"path"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":406,
+                     "message":"Not Acceptable"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path":"/authorizations",
+         "operations":[
+            {
+               "method":"POST",
+               "summary":"",
+               "type":"Token",
+               "nickname":"authorizeClient",
+               "authorizations":{
+
+               },
+               "parameters":[
+                  {
+                     "name":"body",
+                     "description":"The user's auth request",
+                     "required":true,
+                     "type":"AuthorizationRequest",
+                     "paramType":"body"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":400,
+                     "message":"Bad Request"
+                  },
+                  {
+                     "code":406,
+                     "message":"Not Acceptable"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path":"/clients",
+         "operations":[
+            {
+               "method":"POST",
+               "summary":"",
+               "type":"void",
+               "nickname":"createClient",
+               "authorizations":{
+
+               },
+               "parameters":[
+                  {
+                     "name":"body",
+                     "description":"The client's information",
+                     "required":true,
+                     "type":"ClientRegisterRequest",
+                     "paramType":"body"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":400,
+                     "message":"Bad Request"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path":"/users",
+         "operations":[
+            {
+               "method":"POST",
+               "summary":"",
+               "type":"void",
+               "nickname":"createUser",
+               "authorizations":{
+
+               },
+               "parameters":[
+                  {
+                     "name":"body",
+                     "description":"The user's information",
+                     "required":true,
+                     "type":"UserRegisterRequest",
+                     "paramType":"body"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":400,
+                     "message":"Bad Request"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "models":{
+      "UserRegisterRequest":{
+         "id":"UserRegisterRequest",
+         "properties":{
+            "username":{
+               "type":"string",
+               "description":"The user's username",
+               "required":true
+            },
+            "password":{
+               "type":"string",
+               "description":"The user's password",
+               "required":true
+            }
+         }
+      },
+      "ClientRegisterRequest":{
+         "id":"ClientRegisterRequest",
+         "properties":{
+            "client":{
+               "type":"string",
+               "description":"The client's username",
+               "required":true
+            }
+         }
+      },
+      "Credentials":{
+         "id":"Credentials",
+         "properties":{
+            "username":{
+               "type":"string",
+               "description":"The user's username",
+               "required":true
+            },
+            "password":{
+               "type":"string",
+               "description":"The user's password",
+               "required":true
+            }
+         }
+      },
+      "Session":{
+         "id":"Session",
+         "properties":{
+            "session":{
+               "type":"string",
+               "description":"The user's session",
+               "required":true
+            }
+         }
+      },
+      "Token":{
+         "id":"Token",
+         "properties":{
+            "token":{
+               "type":"string",
+               "description":"The user's OpenID Connect token",
+               "required":true
+            }
+         }
+      },
+      "AuthorizationRequest":{
+         "id":"AuthorizationRequest",
+         "properties":{
+            "session":{
+               "type":"string",
+               "description":"The user's session",
+               "required":true
+            },
+            "client":{
+               "type":"string",
+               "description":"The client's id",
+               "required":true
+            }
+         }
+      }
+   },
+   "info":{
+      "title":"OPENi Platform Security Framework REST APIs",
+      "description":"",
+      "termsOfService":"",
+      "contact":"help@openi-ict.eu",
+      "license":"MIT",
+      "licenseUrl":"http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+   }
 }
