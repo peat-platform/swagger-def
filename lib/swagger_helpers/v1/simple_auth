@@ -44,12 +44,7 @@
                      "message":"Not Acceptable"
                   }
                ]
-            }
-         ]
-      },
-      {
-         "path":"/sessions/{id}",
-         "operations":[
+            },
             {
                "method":"DELETE",
                "summary":"",
@@ -60,11 +55,39 @@
                },
                "parameters":[
                   {
-                     "name":"id",
+                     "name":"body",
                      "description":"The user's session",
                      "required":true,
                      "type":"Session",
-                     "paramType":"path"
+                     "paramType":"body"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":406,
+                     "message":"Not Acceptable"
+                  }
+               ]
+            },
+            {
+               "method":"PUT",
+               "summary":"",
+               "type":"Session",
+               "nickname":"refreshSession",
+               "authorizations":{
+
+               },
+               "parameters":[
+                  {
+                     "name":"body",
+                     "description":"The user's session",
+                     "required":true,
+                     "type":"Session",
+                     "paramType":"body"
                   }
                ],
                "responseMessages":[
@@ -84,6 +107,43 @@
          "path":"/authorizations",
          "operations":[
             {
+               "method":"GET",
+               "summary":"",
+               "type":"string",
+               "nickname":"listAuthorizedClients",
+               "authorizations":{
+
+               },
+               "parameters":[
+                  {
+                     "name":"Authorization",
+                     "description":"The user's deauthorization request",
+                     "required":true,
+                     "type":"string",
+                     "paramType":"header"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":400,
+                     "message":"Bad Request"
+                  },
+                  {
+                     "code":406,
+                     "message":"Not Acceptable"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "path":"/authorizations/{id}",
+         "operations":[
+            {
                "method":"POST",
                "summary":"",
                "type":"Token",
@@ -91,13 +151,62 @@
                "authorizations":{
 
                },
+               "consumes":[
+                  "application/json"
+               ],
                "parameters":[
                   {
-                     "name":"body",
-                     "description":"The user's auth request",
+                     "name":"Authorization",
+                     "description":"The user's session",
                      "required":true,
-                     "type":"AuthorizationRequest",
-                     "paramType":"body"
+                     "type":"string",
+                     "paramType":"header"
+                  },
+                  {
+                     "name":"id",
+                     "description":"The user's authorization client",
+                     "required":true,
+                     "type":"string",
+                     "paramType":"path"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":400,
+                     "message":"Bad Request"
+                  },
+                  {
+                     "code":406,
+                     "message":"Not Acceptable"
+                  }
+               ]
+            },
+            {
+               "method":"DELETE",
+               "summary":"",
+               "type":"Token",
+               "nickname":"deauthorizeClient",
+               "authorizations":{
+
+               },
+               "parameters":[
+                  {
+                     "name":"Authorization",
+                     "description":"The user's deauthorization request",
+                     "required":true,
+                     "type":"string",
+                     "paramType":"header"
+                  },
+                  {
+                     "name":"id",
+                     "description":"The user's deauthorization client",
+                     "required":true,
+                     "type":"string",
+                     "paramType":"path"
                   }
                ],
                "responseMessages":[
@@ -207,6 +316,11 @@
                "type":"string",
                "description":"The client's username",
                "required":true
+            },
+            "secret":{
+               "type":"string",
+               "description":"The client's secret",
+               "required":false
             }
          }
       },

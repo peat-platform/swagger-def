@@ -31,7 +31,396 @@
                      "paramType"   : "path"
                   },
                   {
-                     "name"         : "data",
+                     "name"         : "body",
+                     "description"  : "Object to be created",
+                     "required"     : true,
+                     "type"         : "Object",
+                     "paramType"    : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      { 
+         "path": "/crud/query",
+         "operations": [
+            {
+               "method"     : "POST",
+               "type"       : "CRUDObject",
+               "nickname"   : "query",
+               "summary"    : "Creates the Object",
+               "parameters" : [
+                  {
+                     "name"        : "authorization",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"         : "body",
+                     "description"  : "Quoted N1QL query string",
+                     "required"     : true,
+                     "type"         : "string",
+                     "paramType"    : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      { 
+         "path": "/crud/create/{db}",
+         "operations": [
+            {
+               "method"     : "POST",
+               "type"       : "CRUDObject",
+               "nickname"   : "createNamedAlt",
+               "summary"    : "Creates the Object",
+               "parameters" : [
+                  {
+                     "name"        : "authorization",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"        : "db",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"         : "body",
+                     "description"  : "Object to be created",
+                     "required"     : true,
+                     "type"         : "Object",
+                     "paramType"    : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      { 
+         "path": "/crud/create/{db}/{id}",
+         "operations": [
+            {
+               "method"     : "POST",
+               "type"       : "CRUDObject",
+               "nickname"   : "createAlt",
+               "summary"    : "Creates the Object",
+               "parameters" : [
+                  {
+                     "name"        : "authorization",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"        : "db",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "id",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"         : "body",
+                     "description"  : "Object to be created",
+                     "required"     : true,
+                     "type"         : "Object",
+                     "paramType"    : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      { 
+         "path": "/crud/read/{db}/{id}",
+         "operations": [
+            {
+               "method"     : "POST",
+               "type"       : "CRUDObject",
+               "nickname"   : "readAlt",
+               "summary"    : "Read the Object",
+               "parameters" : [
+                  {
+                     "name"        : "authorization",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"        : "db",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "id",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      { 
+         "path": "/crud/update/{db}/{id}",
+         "operations": [
+            {
+               "method"     : "POST",
+               "type"       : "CRUDObject",
+               "nickname"   : "updateAlt",
+               "summary"    : "Update the Object",
+               "parameters" : [
+                  {
+                     "name"        : "authorization",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"        : "db",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "id",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"         : "body",
+                     "description"  : "Object to be created",
+                     "required"     : true,
+                     "type"         : "Object",
+                     "paramType"    : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      { 
+         "path": "/crud/delete/{db}/{id}",
+         "operations": [
+            {
+               "method"     : "POST",
+               "type"       : "CRUDObject",
+               "nickname"   : "deleteAlt",
+               "summary"    : "Delete the Object",
+               "parameters" : [
+                  {
+                     "name"        : "authorization",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"        : "db",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "id",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      { 
+         "path": "/crud/patch/{db}/{id}",
+         "operations": [
+            {
+               "method"     : "POST",
+               "type"       : "CRUDObject",
+               "nickname"   : "patchAlt",
+               "summary"    : "Patch the Object",
+               "parameters" : [
+                  {
+                     "name"        : "authorization",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"        : "db",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "id",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"         : "body",
+                     "description"  : "Object to be created",
+                     "required"     : true,
+                     "type"         : "Object",
+                     "paramType"    : "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 400,
+                     "message": "Bad Request",
+                     "responseModel": "CreateErrorResponse"
+                  },
+                  {
+                     "code": 401,
+                     "message": "Not Authorised",
+                     "responseModel": "CreateErrorResponse"
+                  }
+               ]
+            }
+         ]
+      },
+      { 
+         "path": "/crud/upsert/{db}/{id}",
+         "operations": [
+            {
+               "method"     : "POST",
+               "type"       : "CRUDObject",
+               "nickname"   : "upsertAlt",
+               "summary"    : "Upsert the Object",
+               "parameters" : [
+                  {
+                     "name"        : "authorization",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"        : "db",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"        : "id",
+                     "description" : "",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "path"
+                  },
+                  {
+                     "name"         : "body",
                      "description"  : "Object to be created",
                      "required"     : true,
                      "type"         : "Object",
@@ -84,7 +473,7 @@
                      "paramType"   : "path"
                   },
                   {
-                     "name"         : "data",
+                     "name"         : "body",
                      "description"  : "Object to be created",
                      "required"     : true,
                      "type"         : "Object",
@@ -173,7 +562,7 @@
                      "paramType"   : "path"
                   },
                   {
-                     "name"         : "data",
+                     "name"         : "body",
                      "description"  : "Object to be created",
                      "required"     : true,
                      "type"         : "Object",
@@ -221,7 +610,7 @@
                      "paramType"   : "path"
                   },
                   {
-                     "name"         : "data",
+                     "name"         : "body",
                      "description"  : "Object to be created",
                      "required"     : true,
                      "type"         : "Object",
