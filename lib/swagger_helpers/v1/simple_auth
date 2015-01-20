@@ -107,107 +107,28 @@
          "path":"/authorizations",
          "operations":[
             {
-               "method":"GET",
-               "summary":"",
-               "type":"string",
-               "nickname":"listAuthorizedClients",
-               "authorizations":{
-
-               },
-               "parameters":[
-                  {
-                     "name":"Authorization",
-                     "description":"The user's deauthorization request",
-                     "required":true,
-                     "type":"string",
-                     "paramType":"header"
-                  }
-               ],
-               "responseMessages":[
-                  {
-                     "code":200,
-                     "message":"OK"
-                  },
-                  {
-                     "code":400,
-                     "message":"Bad Request"
-                  },
-                  {
-                     "code":406,
-                     "message":"Not Acceptable"
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "path":"/authorizations/{id}",
-         "operations":[
-            {
                "method":"POST",
                "summary":"",
-               "type":"Token",
-               "nickname":"authorizeClient",
-               "authorizations":{
-
-               },
-               "consumes":[
-                  "application/json"
-               ],
-               "parameters":[
-                  {
-                     "name":"Authorization",
-                     "description":"The user's session",
-                     "required":true,
-                     "type":"string",
-                     "paramType":"header"
-                  },
-                  {
-                     "name":"id",
-                     "description":"The user's authorization client",
-                     "required":true,
-                     "type":"string",
-                     "paramType":"path"
-                  }
-               ],
-               "responseMessages":[
-                  {
-                     "code":200,
-                     "message":"OK"
-                  },
-                  {
-                     "code":400,
-                     "message":"Bad Request"
-                  },
-                  {
-                     "code":406,
-                     "message":"Not Acceptable"
-                  }
-               ]
-            },
-            {
-               "method":"DELETE",
-               "summary":"",
-               "type":"Token",
-               "nickname":"deauthorizeClient",
+               "type":"Session",
+               "nickname":"getAuthToken",
                "authorizations":{
 
                },
                "parameters":[
                   {
-                     "name":"Authorization",
-                     "description":"The user's deauthorization request",
+                     "name":"AuthCredentials",
+                     "description":"The user and apps credentials",
                      "required":true,
-                     "type":"string",
-                     "paramType":"header"
+                     "type":"Auth_Credentials",
+                     "paramType":"body"
                   },
-                  {
-                     "name":"id",
-                     "description":"The user's deauthorization client",
-                     "required":true,
-                     "type":"string",
-                     "paramType":"path"
-                  }
+                {
+                   "name"        : "Authorization",
+                   "description" : "OPENi session Token",
+                   "required"    : true,
+                   "type"        : "string",
+                   "paramType"   : "header"
+                }
                ],
                "responseMessages":[
                   {
@@ -232,7 +153,7 @@
             {
                "method":"POST",
                "summary":"",
-               "type":"void",
+               "type":"ClientRegisterResponse",
                "nickname":"createClient",
                "authorizations":{
 
@@ -312,16 +233,47 @@
       "ClientRegisterRequest":{
          "id":"ClientRegisterRequest",
          "properties":{
-            "client":{
+            "name":{
                "type":"string",
-               "description":"The client's username",
+               "description":"The client's name",
+               "required":true
+            },
+            "description":{
+               "type":"string",
+               "description":"The client's description",
+               "required":false
+            }
+         }
+      },
+      "ClientRegisterResponse":{
+         "id":"ClientRegisterResponse",
+         "properties":{
+            "name":{
+               "type":"string",
+               "description":"The client's name",
+               "required":true
+            },
+            "description":{
+               "type":"string",
+               "description":"The client's description",
+               "required":false
+            },
+            "cloudlet":{
+               "type":"string",
+               "description":"Developers Cloudlet associated with Client (Used for permissions).",
+               "required":true
+            },
+            "api_key":{
+               "type":"string",
+               "description":"api_key used to identify client",
                "required":true
             },
             "secret":{
                "type":"string",
-               "description":"The client's secret",
-               "required":false
+               "description":"secret key used to log into system",
+               "required":true
             }
+
          }
       },
       "Credentials":{
@@ -332,11 +284,36 @@
                "description":"The user's username",
                "required":true
             },
-            "password":{
+             "password":{
+                "type":"string",
+                "description":"The user's password",
+                "required":true
+             }
+         }
+      },
+      "Auth_Credentials":{
+         "id":"Auth_Credentials",
+         "properties":{
+            "username":{
                "type":"string",
-               "description":"The user's password",
+               "description":"The user's username",
                "required":true
-            }
+            },
+             "password":{
+                "type":"string",
+                "description":"The user's password",
+                "required":true
+             },
+             "api_key":{
+                "type":"string",
+                "description":"The developers identifier",
+                "required":true
+             },
+              "secret":{
+                 "type":"string",
+                 "description":"The developers secret key",
+                 "required":true
+              }
          }
       },
       "Session":{
