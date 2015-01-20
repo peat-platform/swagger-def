@@ -121,14 +121,7 @@
                      "required":true,
                      "type":"Auth_Credentials",
                      "paramType":"body"
-                  },
-                {
-                   "name"        : "Authorization",
-                   "description" : "OPENi session Token",
-                   "required"    : true,
-                   "type"        : "string",
-                   "paramType"   : "header"
-                }
+                  }
                ],
                "responseMessages":[
                   {
@@ -165,6 +158,13 @@
                      "required":true,
                      "type":"ClientRegisterRequest",
                      "paramType":"body"
+                  },
+                  {
+                   "name"        : "Authorization",
+                   "description" : "OPENi session Token",
+                   "required"    : true,
+                   "type"        : "string",
+                   "paramType"   : "header"
                   }
                ],
                "responseMessages":[
