@@ -199,17 +199,22 @@
                 "description": "The id of the cloudlet the subscribed object belongs too.",
                 "required"   : true
             },
+            "typeid": {
+                "type"       : "string",
+                "description": "OPENi Type ID",
+                "required"   : true
+                        },
             "objectid": {
                "type"       : "string",
                "description": "The id of the subscribed Object.",
-               "required"   : true
+               "required"   : false
             },
             "data"    : {
                "type"       : "string",
                "description": "The Object/Data to watch for changes",
                "required"   : true
             },
-            "type"    : {
+            "notification_type"    : {
                "type"       : "string",
                "description": "The Notification type. [Email, SMS, NOTIFICATION]",
                "required"   : true
