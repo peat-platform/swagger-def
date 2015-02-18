@@ -5,7 +5,7 @@
    "resourcePath"  : "/notification",
    "apis"          : [
       {
-         "path"      : "/subscription/{cloudletId}",
+         "path"      : "/subscription",
          "operations": [
             {
                "method"          : "GET",
@@ -26,11 +26,11 @@
                ],
                "parameters"      : [
                   {
-                     "name"       : "cloudletId",
-                     "description": "The Cloudlet Id for the User",
-                     "required"   : true,
-                     "type"       : "string",
-                     "paramType"  : "path"
+                    "name"        : "Authorization",
+                    "description" : "OPENi Auth Token",
+                    "required"    : true,
+                    "type"        : "string",
+                    "paramType"   : "header"
                   }
                ]
             },
@@ -60,18 +60,18 @@
                      "paramType"  : "body"
                   },
                   {
-                     "name"       : "cloudletId",
-                     "description": "The Cloudlet Id for the User",
-                     "required"   : true,
-                     "type"       : "string",
-                     "paramType"  : "path"
+                    "name"        : "Authorization",
+                    "description" : "OPENi Auth Token",
+                    "required"    : true,
+                    "type"        : "string",
+                    "paramType"   : "header"
                   }
                ]
             }
          ]
       },
       {
-         "path"      : "/subscription/{cloudletId}/{subscriptionId}",
+         "path"      : "/subscription/{subscriptionId}",
          "operations": [
             {
                "method"          : "GET",
@@ -92,11 +92,11 @@
                ],
                "parameters"      : [
                   {
-                     "name"       : "cloudletId",
-                     "description": "The Cloudlet Id for the User",
-                     "required"   : true,
-                     "type"       : "string",
-                     "paramType"  : "path"
+                    "name"        : "Authorization",
+                    "description" : "OPENi Auth Token",
+                    "required"    : true,
+                    "type"        : "string",
+                    "paramType"   : "header"
                   },
                   {
                      "name"       : "subscriptionId",
@@ -123,7 +123,7 @@
          ]
       },
       {
-         "path"      : "/subscription/{cloudletId}/{subscriptionId}/{revision}",
+         "path"      : "/subscription/{subscriptionId}/{revision}",
          "operations": [
             {
                "method"          : "PUT",
@@ -144,11 +144,11 @@
                ],
                "parameters"      : [
                   {
-                     "name"       : "cloudletId",
-                     "description": "The Cloudlet Id for the User",
-                     "required"   : true,
-                     "type"       : "string",
-                     "paramType"  : "path"
+                    "name"        : "Authorization",
+                    "description" : "OPENi Auth Token",
+                    "required"    : true,
+                    "type"        : "string",
+                    "paramType"   : "header"
                   },
                   {
                      "name"       : "subscriptionId",
@@ -199,17 +199,22 @@
                 "description": "The id of the cloudlet the subscribed object belongs too.",
                 "required"   : true
             },
+            "typeid": {
+                "type"       : "string",
+                "description": "OPENi Type ID",
+                "required"   : true
+                        },
             "objectid": {
                "type"       : "string",
                "description": "The id of the subscribed Object.",
-               "required"   : true
+               "required"   : false
             },
             "data"    : {
                "type"       : "string",
                "description": "The Object/Data to watch for changes",
                "required"   : true
             },
-            "type"    : {
+            "notification_type"    : {
                "type"       : "string",
                "description": "The Notification type. [Email, SMS, NOTIFICATION]",
                "required"   : true
