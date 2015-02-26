@@ -104,43 +104,6 @@
          ]
       },
       {
-         "path":"/authorizations",
-         "operations":[
-            {
-               "method":"POST",
-               "summary":"",
-               "type":"Session",
-               "nickname":"getAuthToken",
-               "authorizations":{
-
-               },
-               "parameters":[
-                  {
-                     "name":"AuthCredentials",
-                     "description":"The user and apps credentials",
-                     "required":true,
-                     "type":"Auth_Credentials",
-                     "paramType":"body"
-                  }
-               ],
-               "responseMessages":[
-                  {
-                     "code":200,
-                     "message":"OK"
-                  },
-                  {
-                     "code":400,
-                     "message":"Bad Request"
-                  },
-                  {
-                     "code":406,
-                     "message":"Not Acceptable"
-                  }
-               ]
-            }
-         ]
-      },
-      {
          "path":"/clients",
          "operations":[
             {
@@ -180,6 +143,39 @@
             }
          ]
       },
+     {
+       "path":"/clients",
+       "operations":[
+         {
+           "method":"GET",
+           "summary":"",
+           "type":"ClientsResponse",
+           "nickname":"readClient",
+           "authorizations":{
+
+           },
+           "parameters":[
+             {
+               "name"        : "Authorization",
+               "description" : "OPENi session Token",
+               "required"    : true,
+               "type"        : "string",
+               "paramType"   : "header"
+             }
+           ],
+           "responseMessages":[
+             {
+               "code":200,
+               "message":"OK"
+             },
+             {
+               "code":400,
+               "message":"Bad Request"
+             }
+           ]
+         }
+       ]
+     },
       {
          "path":"/users",
          "operations":[
@@ -245,6 +241,49 @@
             }
          }
       },
+      "Client" : {
+        "id" : "Client",
+        "properties":{
+          "name":{
+            "type":"string",
+            "description":"The client's name",
+            "required":true
+          },
+          "description":{
+            "type":"string",
+            "description":"The client's description",
+            "required":false
+          },
+          "cloudlet":{
+            "type":"string",
+            "description":"Developers Cloudlet associated with Client (Used for permissions).",
+            "required":true
+          },
+          "api_key":{
+            "type":"string",
+            "description":"api_key used to identify client",
+            "required":true
+          },
+          "secret":{
+            "type":"string",
+            "description":"secret key used to log into system",
+            "required":true
+          }
+        }
+      },
+
+     "ClientsResponse":{
+       "id":"ClientsResponse",
+       "properties":{
+         "list": {
+           "type"        : "array",
+           "description" : "An array of Types",
+           "items"       : {
+             "$ref" : "Client"
+           }
+         }
+       }
+     },
       "ClientRegisterResponse":{
          "id":"ClientRegisterResponse",
          "properties":{
