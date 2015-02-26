@@ -29,6 +29,10 @@
       {
          "path": "/api-spec/v1/permissions",
          "description": "Permissions API"
+      },
+      {
+         "path": "/api-spec/v1/app_permissions",
+         "description": "App_Permissions API"
       }
    ],
    "info": {
