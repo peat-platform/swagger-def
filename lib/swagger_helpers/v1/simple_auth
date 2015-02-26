@@ -104,6 +104,42 @@
          ]
       },
       {
+         "path": "/authorizations",
+         "operations": [
+            {
+               "method": "POST",
+               "summary": "",
+               "type": "Session",
+               "nickname": "getAuthToken",
+               "authorizations": {
+               },
+               "parameters": [
+                  {
+                     "name": "AuthCredentials",
+                     "description": "The user and apps credentials",
+                     "required": true,
+                     "type": "Auth_Credentials",
+                     "paramType": "body"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "OK"
+                  },
+                  {
+                     "code": 400,
+                     "message": "Bad Request"
+                  },
+                  {
+                     "code": 406,
+                     "message": "Not Acceptable"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "path":"/clients",
          "operations":[
             {
@@ -112,7 +148,6 @@
                "type":"ClientRegisterResponse",
                "nickname":"createClient",
                "authorizations":{
-
                },
                "parameters":[
                   {
@@ -143,39 +178,39 @@
             }
          ]
       },
-     {
-       "path":"/clients",
-       "operations":[
-         {
-           "method":"GET",
-           "summary":"",
-           "type":"ClientsResponse",
-           "nickname":"readClient",
-           "authorizations":{
+      {
+         "path":"/clients",
+         "operations":[
+            {
+               "method":"GET",
+               "summary":"",
+               "type":"ClientsResponse",
+               "nickname":"readClient",
+               "authorizations":{
 
-           },
-           "parameters":[
-             {
-               "name"        : "Authorization",
-               "description" : "OPENi session Token",
-               "required"    : true,
-               "type"        : "string",
-               "paramType"   : "header"
-             }
-           ],
-           "responseMessages":[
-             {
-               "code":200,
-               "message":"OK"
-             },
-             {
-               "code":400,
-               "message":"Bad Request"
-             }
-           ]
-         }
-       ]
-     },
+               },
+               "parameters":[
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi session Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages":[
+                  {
+                     "code":200,
+                     "message":"OK"
+                  },
+                  {
+                     "code":400,
+                     "message":"Bad Request"
+                  }
+               ]
+            }
+         ]
+      },
       {
          "path":"/users",
          "operations":[
