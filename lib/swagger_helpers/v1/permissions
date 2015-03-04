@@ -233,6 +233,10 @@
     "AppPermissions": {
       "id": "AppPermission",
       "properties": {
+        "app_api_key" :{
+          "type" : "string",
+          "required": "true"
+        },
         "permissions": {
           "type": "array",
           "items": {
