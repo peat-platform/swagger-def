@@ -101,7 +101,15 @@
               "required": true,
               "type": "string",
               "paramType": "header"
-            }
+            },
+             {
+                "name"          : "history",
+                "description"   : "If true returns an array containing all the historical app permissions.",
+                "required"      : false,
+                "type"          : "boolean",
+                "paramType"     : "query",
+                "allowMultiple" : false
+             }
           ]
         }
       ]
