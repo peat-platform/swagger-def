@@ -93,7 +93,31 @@
           "items": {
             "$ref": "AppPermissions"
           },
-          "nickname": "getPermissions",
+          "nickname": "getDevelopersAppPermissions",
+          "parameters": [
+            {
+              "name": "Authorization",
+              "description": "OPENi Auth Token",
+              "required": true,
+              "type": "string",
+              "paramType": "header"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/app_permissions/{api_key}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Read permissions.",
+          "notes": "",
+          "type": "array",
+          "items": {
+            "$ref": "AppPermissions"
+          },
+          "nickname": "getAppPermissionsByApiKey",
           "parameters": [
             {
               "name": "Authorization",
@@ -102,14 +126,13 @@
               "type": "string",
               "paramType": "header"
             },
-             {
-                "name"          : "history",
-                "description"   : "If true returns an array containing all the historical app permissions.",
-                "required"      : false,
-                "type"          : "boolean",
-                "paramType"     : "query",
-                "allowMultiple" : false
-             }
+            {
+              "name": "api_key",
+              "description": "API Key for app",
+              "required": true,
+              "type": "string",
+              "paramType": "path"
+            }
           ]
         }
       ]
