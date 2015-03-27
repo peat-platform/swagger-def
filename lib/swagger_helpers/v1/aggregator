@@ -1,0 +1,47 @@
+{
+   "apiVersion"      : "1.0.0",
+   "swaggerVersion"  : "1.2",
+   "basePath"        : "/api/v1",
+   "resourcePath"    : "/aggregate",
+   "type"            : "string",
+   "apis": [ 
+      {
+         "path": "/aggregator",
+         "operations": [
+            {
+               "method"    : "POST",
+               "summary"   : "",
+               "notes"     : "",
+               "nickname"  : "getAggregated",
+               "type"      : "string",
+               "parameters" : [
+                  {
+                     "name"        : "request",
+                     "description" : "Aggregated Data Request.",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "body"
+                  },
+                  {
+                     "name"        : "Authorization",
+                     "description" : "OPENi Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  }
+               ],
+               "responseMessages": [
+                  {
+                     "code": 200,
+                     "message": "Ok"
+                  },
+                  {
+                     "code": 501,
+                     "message": "Not yet Implemented"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
