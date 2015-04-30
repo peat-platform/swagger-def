@@ -740,7 +740,7 @@
       "ObjectResponse": {
          "id": "ObjectResponse",
          "properties": {
-            "id": {
+            "@id": {
                "type"        : "string",
                "description" : "The ID of the OPENi Object acted upon.",
                "required"    : true
