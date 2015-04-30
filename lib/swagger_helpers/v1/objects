@@ -612,6 +612,7 @@
                    "type"          : "string",
                    "paramType"     : "query",
                    "enum"          : [ "ascending", "descending"],
+                   "defaultValue" : "ascending",
                    "allowMultiple" : false
                   },
                   {
