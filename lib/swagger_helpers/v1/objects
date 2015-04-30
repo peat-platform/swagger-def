@@ -456,7 +456,7 @@
                "summary"    : "Retrieves the Cloudlets Objects.",
                "notes"      : "Returns a Cloudlets objects according to the specified filters. ",
                "type"       : "OPENiObjectList",
-               "nickname"   : "getObjects",
+               "nickname"   : "listObjects",
                "parameters" : [
                   {
                      "name"        : "cloudletId",
@@ -549,7 +549,7 @@
                "summary"    : "Retrieves the Cloudlets Objects.",
                "notes"      : "Returns a Cloudlets objects according to the specified filters. ",
                "type"       : "OPENiObjectList",
-               "nickname"   : "getObjectsWithAuthToken",
+               "nickname"   : "listObjectsWithAuthToken",
                "parameters" : [
                   {
                      "name"        : "offset",
