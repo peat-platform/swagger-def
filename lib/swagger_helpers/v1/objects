@@ -606,6 +606,14 @@
                      "allowMultiple" : true
                   },
                   {
+                   "name"          : "order",
+                   "description"   : "Ascending or Descending order.",
+                   "required"      : false,
+                   "type"          : "string",
+                   "paramType"     : "query",
+                   "allowMultiple" : false
+                  },
+                  {
                      "name"        : "Authorization",
                      "description" : "OPENi Auth Token",
                      "required"    : true,
