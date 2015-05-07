@@ -1,6 +1,6 @@
 # swagger-def
 
-Generated the SWAGGER JSON files for the OPENi Platform.
+Generated the SWAGGER JSON files for the Peat Platform.
 
 
 

@@ -13,7 +13,7 @@
             {
                "method"     : "POST",
                "summary"    : "Create an Object",
-               "notes"      : "<h3>Creates a object on the Cloudlet platform</h3>Creates an object on the platform. An objects structure is based on the _openi_type of which the object is defined.<br>For each property in the type a field and value should be defined. <br><br> For example, if the type had a 'name' property of type string then data would have the entry {'name':'some string name'}",
+               "notes"      : "<h3>Creates a object on the platform</h3>Creates an object on the platform. An objects structure is based on the type of which the object is defined.<br>For each property in the type a field and value should be defined. <br><br> For example, if the type had a 'name' property of type string then data would have the entry {'name':'some string name'}",
                "type"       : "ObjectResponse",
                "responseClass" : "ObjectResponse",
                "nickname"   : "createObject",
@@ -29,12 +29,12 @@
                      "name"        : "object",
                      "description" : "Object to be created in the cloudlet.",
                      "required"    : true,
-                     "type"        : "OPENiObject",
+                     "type"        : "PeatObject",
                      "paramType"   : "body"
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -66,7 +66,7 @@
             {
                "method"     : "POST",
                "summary"    : "Create an Object",
-               "notes"      : "<h3>Creates a object on the Cloudlet platform</h3>Creates an object on the platform. An objects structure is based on the _openi_type of which the object is defined.<br>For each property in the type a field and value should be defined. <br><br> For example, if the type had a 'name' property of type string then data would have the entry {'name':'some string name'}",
+               "notes"      : "<h3>Creates a object on the platform</h3>Creates an object on the platform. An objects structure is based on the type of which the object is defined.<br>For each property in the type a field and value should be defined. <br><br> For example, if the type had a 'name' property of type string then data would have the entry {'name':'some string name'}",
                "type"       : "ObjectResponse",
                "responseClass" : "ObjectResponse",
                "nickname"   : "createObjectWithAuth",
@@ -75,12 +75,12 @@
                      "name"        : "object",
                      "description" : "Object to be created in the cloudlet.",
                      "required"    : true,
-                     "type"        : "OPENiObject",
+                     "type"        : "PeatObject",
                      "paramType"   : "body"
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -111,10 +111,10 @@
          "operations": [
             {
                "method"     : "GET",
-               "summary"    : "Retrieves an object from the Cloudlet.",
-               "notes"      : "Returns an object from the Cloudlet.",
-               "type"       : "OPENiObject",
-               "responseClass" : "OPENiObject",
+               "summary"    : "Retrieves an object from the users Cloudlet.",
+               "notes"      : "Returns an object from the users Cloudlet.",
+               "type"       : "PeatObject",
+               "responseClass" : "PeatObject",
                "nickname"   : "getObject",
                "parameters" : [
                   {
@@ -140,7 +140,7 @@
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -185,12 +185,12 @@
                      "name"        : "data",
                      "description" : "Object with properties that are to be overwritten.",
                      "required"    : true,
-                     "type"        : "OPENiObject",
+                     "type"        : "PeatObject",
                      "paramType"   : "body"
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -233,7 +233,7 @@
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -260,8 +260,8 @@
                "method"     : "GET",
                "summary"    : "Retrieves an object from the Cloudlet.",
                "notes"      : "Returns an object from the Cloudlet.",
-               "type"       : "OPENiObject",
-               "responseClass" : "OPENiObject",
+               "type"       : "PeatObject",
+               "responseClass" : "PeatObject",
                "nickname"   : "getObjectByAuthToken",
                "parameters" : [
                   {
@@ -280,7 +280,7 @@
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -318,12 +318,12 @@
                      "name"        : "data",
                      "description" : "Object with properties that are to be overwritten.",
                      "required"    : true,
-                     "type"        : "OPENiObject",
+                     "type"        : "PeatObject",
                      "paramType"   : "body"
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -359,7 +359,7 @@
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -427,7 +427,7 @@
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -455,7 +455,7 @@
                "method"     : "GET",
                "summary"    : "Retrieves the Cloudlets Objects.",
                "notes"      : "Returns a Cloudlets objects according to the specified filters. ",
-               "type"       : "OPENiObjectList",
+               "type"       : "PeatObjectList",
                "nickname"   : "listObjects",
                "parameters" : [
                   {
@@ -521,7 +521,7 @@
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -548,7 +548,7 @@
                "method"     : "GET",
                "summary"    : "Retrieves the Cloudlets Objects.",
                "notes"      : "Returns a Cloudlets objects according to the specified filters. ",
-               "type"       : "OPENiObjectList",
+               "type"       : "PeatObjectList",
                "nickname"   : "listObjectsWithAuthToken",
                "parameters" : [
                   {
@@ -617,7 +617,7 @@
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -655,8 +655,8 @@
             }
          }
       },
-      "OPENiObjectList" :{
-         "id": "OPENiObjectList",
+      "PeatObjectList" :{
+         "id": "PeatObjectList",
          "properties": {
             "Meta" : {
                "type" : "Meta"
@@ -664,7 +664,7 @@
             "result" : {
                "type"        : "array",
                "items"       : {
-                  "$ref" : "OPENiObject"
+                  "$ref" : "PeatObject"
                }
             }
          }
@@ -702,8 +702,8 @@
             }
          }
       },
-      "OPENiObject": {
-         "id": "OPENiObject",
+      "PeatObject": {
+         "id": "PeatObject",
          "properties": {
             "@id":{
                "type"        :"string",
@@ -720,9 +720,9 @@
                "description" : "The Object's Cloudlet Id.",
                "required"    : false
             },
-            "@openi_type": {
+            "@type": {
                "type"        : "string",
-               "description" : "OPENi Type that this object is an instance of.",
+               "description" : "Peat Type that this object is an instance of.",
                "required"    : true
             },
             "@data":{
@@ -752,7 +752,7 @@
          "properties": {
             "@id": {
                "type"        : "string",
-               "description" : "The ID of the OPENi Object acted upon.",
+               "description" : "The ID of the Object acted upon.",
                "required"    : true
             }
          }

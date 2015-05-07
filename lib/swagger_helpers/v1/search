@@ -12,7 +12,7 @@
 					"method" : "GET",
 					"summary" : "Search for data within a cloudlet.",
 					"notes" : "This endpoint can be used to search within a Cloudlet. Objects can be searched by their types, context and data properties. All parameters support RQL queries <a href='http://www.persvr.org/rql'>http://www.persvr.org/rql</a>. Parameters allow for pagination and result sorting. The response contains an array of data views.",
-					"type" : "OPENiObjectList",
+					"type" : "ObjectList",
 					"nickname" : "search",
 					"parameters" : [
 						{
@@ -58,7 +58,7 @@
 						},
 						{
                      					"name"        : "Authorization",
-                					"description" : "OPENi Auth Token",
+                					"description" : "Auth Token",
                      					"required"    : true,
                      					"type"        : "string",
                      					"paramType"   : "header"
@@ -92,8 +92,8 @@
 				}
 			}
 		},
-      "OPENiObjectList" :{
-         "id": "OPENiObjectList",
+      "ObjectList" :{
+         "id": "ObjectList",
          "properties": {
             "meta" : {
                "type" : "Meta"
@@ -101,7 +101,7 @@
             "result" : {
                "type"        : "array",
                "items"       : {
-                  "$ref" : "OPENiObject"
+                  "$ref" : "PeatObject"
                }
             }
          }
@@ -139,8 +139,8 @@
             }
          }
       },
-		"OPENiObject" : {
-			"id" : "OPENiObject",
+		"PeatObject" : {
+			"id" : "PeatObject",
 			"properties" : {
 				"@id" : {
 					"type" : "string",
@@ -157,9 +157,9 @@
 					"description" : "The Object's Cloudlet Id.",
 					"required" : false
 				},
-				"@openi_type" : {
+				"@type" : {
 					"type" : "string",
-					"description" : "OPENi Type that this object is an instance of.",
+					"description" : "Peat Type that this object is an instance of.",
 					"required" : true
 				},
 				"@data" : {

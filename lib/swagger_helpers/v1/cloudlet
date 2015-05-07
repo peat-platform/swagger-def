@@ -8,11 +8,11 @@
       },
       {
          "path": "/api-spec/v1/types",
-         "description": "Controls OPENi types"
+         "description": "Controls PEAT types"
       },
       {
          "path": "/api-spec/v1/objects",
-         "description": "Controls OPENi Objects"
+         "description": "Controls PEAT Objects"
       },
       {
          "path": "/api-spec/v1/search",
@@ -36,10 +36,10 @@
       }
    ],
    "info": {
-      "title": "OPENi Platform REST APIs",
+      "title": "PEAT Platform REST APIs",
       "description": "",
       "termsOfServiceUrl": "/terms/",
-      "contact": "help@openi-ict.eu",
+      "contact": "help@peat-platform.org",
       "license": "Apache 2.0",
       "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
    }

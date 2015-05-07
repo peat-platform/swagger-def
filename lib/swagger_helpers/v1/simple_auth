@@ -159,7 +159,7 @@
                   },
                   {
                    "name"        : "Authorization",
-                   "description" : "OPENi session Token",
+                   "description" : "Peat session Token",
                    "required"    : true,
                    "type"        : "string",
                    "paramType"   : "header"
@@ -192,7 +192,7 @@
                "parameters":[
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi session Token",
+                     "description" : "Peat session Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -427,10 +427,10 @@
       }
    },
    "info":{
-      "title":"OPENi Platform Security Framework REST APIs",
+      "title":"Peat Platform Security Framework REST APIs",
       "description":"",
       "termsOfService":"",
-      "contact":"help@openi-ict.eu",
+      "contact":"help@peat-platform.org",
       "license":"MIT",
       "licenseUrl":"http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
    }

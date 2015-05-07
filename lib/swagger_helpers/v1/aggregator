@@ -24,7 +24,7 @@
                   },
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"

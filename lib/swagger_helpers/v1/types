@@ -13,7 +13,7 @@
             {
                "method"     : "POST",
                "summary"    : "Creates a type.",
-               "notes"      : "<h3>Creates a type on the Cloudlet platform</h3>Creates an OPENi Type on the platform. An OPENi type defines how an OPENi object is structured. A type has a number of required fields including _reference and _context. The _context contains an array of member descriptions that an object requires so that it is compliant with the Type. When an OPENi Object is persisted to the system it is validated against the context as outlined in its OPENiType. <br/><br/>The Types allow for members of the following primitive types to be defined in the OPENi Objects.<br><br><ul><li>boolean</li><li>int</li><li>float</li><li>string</li><li>hexadecimal</li><li>base64</li><li>date(DD-MM-YYYY)</li><li>timestamp(yyyy-MM-dd HH:mm:ss.SSS)</li><li>OPENitype</li></ul>",
+               "notes"      : "<h3>Creates a type on the platform</h3>Creates a Type on the platform. A type defines how an object is structured. A type has a number of required fields including @reference and @context. The @context contains an array of member descriptions that an object requires so that it is compliant with the Type. Before an Object is created on the system it is validated against the context as outlined in its Type. <br/><br/>The Types allow for members of the following primitive types to be defined in the Objects.<br><br><ul><li>boolean</li><li>int</li><li>float</li><li>string</li><li>hexadecimal</li><li>base64</li><li>date(DD-MM-YYYY)</li><li>timestamp(yyyy-MM-dd HH:mm:ss.SSS)</li><li>Type</li></ul>",
                "type"       : "CreateResponse",
                "nickname"   : "createType",
                "parameters" : [
@@ -21,7 +21,7 @@
                      "name"         : "data",
                      "description"  : "The type to be created.",
                      "required"     : true,
-                     "type"         : "OPENiType",
+                     "type"         : "Type",
                      "paramType"    : "body"
                   }
                ],
@@ -54,7 +54,7 @@
                      "required"     : true,
                      "type": "array",
                      "items": {
-                        "$ref" : "OPENiType"
+                        "$ref" : "Type"
                      },
                      "paramType"    : "body"
                   }
@@ -79,9 +79,9 @@
          "operations": [
             {
                "method"     : "GET",
-               "summary"    : "Retrieves the OPENi types on the system.",
-               "notes"      : "Retrieves the OPENi types on the system.. ",
-               "type": "OPENiTypeList",
+               "summary"    : "Retrieves the types on the system.",
+               "notes"      : "Retrieves the types on the system.. ",
+               "type"       : "TypeList",
                "nickname"   : "getTypes",
                "parameters" : [
                   {
@@ -137,7 +137,7 @@
                "method"     : "GET",
                "summary"    : "Get a type.",
                "notes"      : "Returns the type associated with the provided Id.",
-               "type"       : "OPENiType",
+               "type"       : "Type",
                "nickname"   : "getType",
                "parameters" : [
                   {
@@ -202,8 +202,8 @@
       }
    ],
    "models": {
-      "OPENiType": {
-         "id": "OPENiType",
+      "Type": {
+         "id": "Type",
          "properties": {
             "@id": {
                "type"        : "string",
@@ -234,8 +234,8 @@
             }
          }
       },
-      "OPENiTypeList" :{
-         "id": "OPENiTypeList",
+      "TypeList" :{
+         "id": "TypeList",
          "properties": {
             "meta" : {
                "type" : "Meta"
@@ -243,7 +243,7 @@
             "result" : {
                "type"        : "array",
                "items"       : {
-                  "$ref" : "OPENiType"
+                  "$ref" : "Type"
                }
             }
          }
@@ -301,7 +301,7 @@
          "properties": {
             "id": {
                "type"        : "string",
-               "description" : "The id of the newly created OPENi Type",
+               "description" : "The id of the newly created Type",
                "required"    : true
             }
          }
@@ -324,9 +324,9 @@
                "description" : "Identifier for the context",
                "required"    : true
             },
-            "@openi_type": {
+            "@data_type": {
                "type"        : "string",
-               "description" : "The type's semantic context (optional?)",
+               "description" : "The type's basic type: one of boolean, int, string",
                "required"    : true
             },
             "@required": {
@@ -347,9 +347,9 @@
                },
                "required"    : false
             },
-            "@context_id": {
+            "@context": {
                "type"        : "string",
-               "description" : "Identifier for the context",
+               "description" : "A human readable description for the type (used in the auth dialogs).",
                "required"    : true
             }
          }

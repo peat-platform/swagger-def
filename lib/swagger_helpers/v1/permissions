@@ -13,7 +13,7 @@
         {
           "method": "POST",
           "summary": "Update permissions.",
-          "notes": "<h3>OPENi Permissions</h3></br>The OPENi permissions endpoint takes an array of permissions for access to elements of the OPENi platform.</br>The syntax of these permissions is very specific and must conform to the specification.</br></br>The <b>type</b> key can only accepy the following values.</br><ul><li>'object'</li><li> 'type'</li></ul></br></br>The <b>ref</b> key must be a valid <i>objectid</i> or <i>typeid</i> reference.</br></br>The <b>access_type</b> key will only accept the following values.</br><ul><li>'CREATE'</li><li>'READ'</li><li>'UPDATE'</li><li>'DELETE'</li></ul></br>The <b>access_level</b> key can be the following.</br><ul><li>'cloudlet'</li><li>'app'</li></ul>",
+          "notes": "<h3>Permissions</h3></br>The permissions endpoint takes an array of permissions for access to elements of the platform.</br>The syntax of these permissions is very specific and must conform to the specification.</br></br>The <b>type</b> key can only accepy the following values.</br><ul><li>'object'</li><li> 'type'</li></ul></br></br>The <b>ref</b> key must be a valid <i>objectid</i> or <i>typeid</i> reference.</br></br>The <b>access_type</b> key will only accept the following values.</br><ul><li>'CREATE'</li><li>'READ'</li><li>'UPDATE'</li><li>'DELETE'</li></ul></br>The <b>access_level</b> key can be the following.</br><ul><li>'cloudlet'</li><li>'app'</li></ul>",
           "type": "PermissionsResponse",
           "responseClass": "PermissionsResponse",
           "nickname": "updatePermissions",
@@ -30,7 +30,7 @@
             },
             {
               "name": "Authorization",
-              "description": "OPENi Auth Token",
+              "description": "Auth Token",
               "required": true,
               "type": "string",
               "paramType": "header"
@@ -49,7 +49,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "description": "OPENi Auth Token",
+              "description": "Auth Token",
               "required": true,
               "type": "string",
               "paramType": "header"
@@ -78,7 +78,7 @@
             },
             {
               "name": "Authorization",
-              "description": "OPENi Auth Token",
+              "description": "Auth Token",
               "required": true,
               "type": "string",
               "paramType": "header"
@@ -97,7 +97,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "description": "OPENi Auth Token",
+              "description": "Auth Token",
               "required": true,
               "type": "string",
               "paramType": "header"
@@ -121,7 +121,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "description": "OPENi Auth Token",
+              "description": "Auth Token",
               "required": true,
               "type": "string",
               "paramType": "header"
@@ -183,8 +183,8 @@
         }
       }
     },
-    "OPENiType": {
-      "id": "OPENiType",
+    "Type": {
+      "id": "Type",
       "properties": {
         "@id": {
           "type"        : "string",
@@ -223,7 +223,7 @@
           "description" : "Identifier for the context",
           "required"    : true
         },
-        "@openi_type": {
+        "@type": {
           "type"        : "string",
           "description" : "The type's semantic context (optional?)",
           "required"    : true
@@ -246,7 +246,7 @@
           },
           "required"    : false
         },
-        "@context_id": {
+        "@context": {
           "type"        : "string",
           "description" : "Identifier for the context",
           "required"    : true
@@ -271,9 +271,9 @@
         "types": {
           "type": "array",
           "items": {
-            "$ref": "OPENiType"
+            "$ref": "Type"
           },
-          "description": "OPENi Types",
+          "description": "Peat Types",
           "required": "true"
         }
       }

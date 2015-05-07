@@ -1,24 +1,24 @@
 {
   "name": "swagger-def",
-  "description": "Generated the swagger JSON for the OPENi Cloudlet Platform",
+  "description": "Generated the swagger JSON for the PEAT Cloudlet Platform",
   "version": "0.1.0",
-  "homepage": "openi-ict.eu",
+  "homepage": "peat-platform.org",
   "author": {
     "name": "dmccarthy",
     "email": "dmccarthy@tssg.org"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:OPENi-ict/swagger-def.git"
+    "url": "git@github.com:peat-platform/swagger-def.git"
   },
   "main": "lib/main",
   "engines": {
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "loglet": "git://github.com/OPENi-ict/loglet",
-    "m2nodehandler": "git+https://github.com/OPENi-ict/m2nodehandler.git#master",
-    "openi-logger": "git+https://github.com/OPENi-ict/openi-logger.git#master"
+    "loglet": "git://github.com/peat-platform/loglet",
+    "m2nodehandler": "git+https://github.com/peat-platform/m2nodehandler.git#master",
+    "openi-logger": "git+https://github.com/peat-platform/openi-logger.git#master"
   },
   "keywords": [],
   "devDependencies": {

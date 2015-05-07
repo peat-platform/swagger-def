@@ -14,13 +14,13 @@
                "method"        : "GET",
                "summary"       : "Export Cloudlet data.",
                "notes"         : "This endpoint returns the cloudlet id associated with the presented token.",
-               "type"          : "OPENiCloudlet",
-               "responseClass" : "OPENiCloudlet",
+               "type"          : "UserCloudlet",
+               "responseClass" : "UserCloudlet",
                "nickname"      : "getCloudletId",
                "parameters"    : [
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
@@ -59,7 +59,7 @@
                "notes"      : "Retrieves all Cloudlets on the platform.",
                "type": "array",
                "items": {
-                  "$ref" : "OPENiCloudlet"
+                  "$ref" : "UserCloudlet"
                },
                "nickname"   : "getCloudlets",
                "parameters" : [
@@ -94,8 +94,8 @@
       }
    ],
    "models": {
-      "OPENiCloudlet": {
-         "id": "OPENiCloudlet",
+      "UserCloudlet": {
+         "id": "UserCloudlet",
          "properties": {
             "@id": {
                "type"        : "string",
