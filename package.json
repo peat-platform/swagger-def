@@ -18,7 +18,7 @@
   "dependencies": {
     "loglet": "git://github.com/peat-platform/loglet",
     "m2nodehandler": "git+https://github.com/peat-platform/m2nodehandler.git#master",
-    "openi-logger": "git+https://github.com/peat-platform/openi-logger.git#master"
+    "peat-logger": "git+https://github.com/peat-platform/peat-logger.git#master"
   },
   "keywords": [],
   "devDependencies": {
