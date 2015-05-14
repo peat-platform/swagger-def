@@ -273,6 +273,11 @@
                "type":"string",
                "description":"The client's description",
                "required":false
+            },
+            "isSE":{
+               "type":"boolean",
+               "description":"Marks the Client as a Service Enabler.",
+               "required":true
             }
          }
       },
@@ -289,11 +294,16 @@
             "description":"The client's description",
             "required":false
           },
-          "cloudlet":{
-            "type":"string",
-            "description":"Developers Cloudlet associated with Client (Used for permissions).",
-            "required":true
-          },
+           "isSE":{
+              "type":"boolean",
+              "description":"Marks the Client as a Service Enabler.",
+              "required":true
+           },
+           "cloudlet":{
+              "type":"string",
+              "description":"Developers Cloudlet associated with Client (Used for permissions).",
+              "required":true
+           },
           "api_key":{
             "type":"string",
             "description":"api_key used to identify client",
@@ -331,6 +341,11 @@
                "type":"string",
                "description":"The client's description",
                "required":false
+            },
+            "isSE":{
+               "type":"boolean",
+               "description":"Marks the Client as a Service Enabler.",
+               "required":true
             },
             "cloudlet":{
                "type":"string",
