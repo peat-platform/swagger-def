@@ -8,10 +8,6 @@
          "description": ""
       },
       {
-         "path": "/api-spec/v1/crud",
-         "description": ""
-      },
-      {
          "path": "/api-spec/v1/cloudlets",
          "description": "Cloudlet Administration API"
       },
@@ -30,10 +26,6 @@
       {
          "path": "/api-spec/v1/attachments",
          "description": "Serves binary content"
-      },
-      {
-         "path": "/api-spec/v1/permissions",
-         "description": "Permissions API"
       },
       {
          "path": "/api-spec/v1/subscription",

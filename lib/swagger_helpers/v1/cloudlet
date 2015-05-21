@@ -27,10 +27,6 @@
          "description": "Subscription API"
       },
       {
-         "path": "/api-spec/v1/permissions",
-         "description": "Permissions API"
-      },
-      {
          "path": "/api-spec/v1/aggregator",
          "description": "Aggregator API"
       }
