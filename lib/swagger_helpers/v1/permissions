@@ -8,7 +8,7 @@
   ],
   "apis": [
     {
-      "path": "/permissions",
+      "path": "/permissions/{api_key}",
       "operations": [
         {
           "method": "POST",
