@@ -347,7 +347,7 @@
                },
                "required"    : false
             },
-            "@context": {
+            "@description": {
                "type"        : "string",
                "description" : "A human readable description for the type (used in the auth dialogs).",
                "required"    : true

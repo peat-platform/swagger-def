@@ -246,9 +246,9 @@
           },
           "required"    : false
         },
-        "@context": {
+        "@description": {
           "type"        : "string",
-          "description" : "Identifier for the context",
+          "description" : "User friendly description of the object member",
           "required"    : true
         }
       }
