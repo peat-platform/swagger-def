@@ -32,6 +32,10 @@
          "description": "Subscription API"
       },
       {
+         "path": "/api-spec/v1/permissions",
+         "description": "Permissions API"
+      },
+      {
          "path": "/api-spec/v1/crud",
          "description": "Generic guarded access API"
       },
