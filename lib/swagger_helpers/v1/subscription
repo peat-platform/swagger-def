@@ -100,7 +100,7 @@
                   },
                   {
                      "name"       : "subscriptionId",
-                     "description": "Subscription Object",
+                     "description": "Subscription Id String",
                      "required"   : true,
                      "type"       : "string",
                      "paramType"  : "path"
