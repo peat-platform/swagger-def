@@ -32,11 +32,18 @@
          "description": "Subscription API"
       },
       {
+         "path": "/api-spec/v1/permissions",
+         "description": "Permissions API"
+      },
+      {
          "path": "/api-spec/v1/crud",
          "description": "Generic guarded access API"
       },
       {
          "path": "/api-spec/apis/v1/Account"
+      },
+      {
+         "path": "/api-spec/apis/v1/Address"
       },
       {
          "path": "/api-spec/apis/v1/Application"
@@ -51,7 +58,25 @@
          "path": "/api-spec/apis/v1/Badge"
       },
       {
+         "path": "/api-spec/apis/v1/BaseFile"
+      },
+      {
+         "path": "/api-spec/apis/v1/BasePlace"
+      },
+      {
+         "path": "/api-spec/apis/v1/BaseProduct"
+      },
+      {
+         "path": "/api-spec/apis/v1/BaseService"
+      },
+      {
+         "path": "/api-spec/apis/v1/BaseTag"
+      },
+      {
          "path": "/api-spec/apis/v1/Card"
+      },
+      {
+         "path": "/api-spec/apis/v1/Cart"
       },
       {
          "path": "/api-spec/apis/v1/Checkin"
@@ -123,13 +148,16 @@
          "path": "/api-spec/apis/v1/Order"
       },
       {
+         "path": "/api-spec/apis/v1/Organization"
+      },
+      {
          "path": "/api-spec/apis/v1/Page"
       },
       {
          "path": "/api-spec/apis/v1/Payment"
       },
       {
-         "path": "/api-spec/apis/v1/PersonModel"
+         "path": "/api-spec/apis/v1/Person"
       },
       {
          "path": "/api-spec/apis/v1/Photo"
@@ -177,6 +205,9 @@
          "path": "/api-spec/apis/v1/Shop"
       },
       {
+         "path": "/api-spec/apis/v1/Size"
+      },
+      {
          "path": "/api-spec/apis/v1/Sleep"
       },
       {
@@ -212,6 +243,7 @@
       {
          "path": "/api-spec/apis/v1/Workout"
       }
+
    ],
    "authorizations":
    {

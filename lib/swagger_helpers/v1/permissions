@@ -8,7 +8,7 @@
   ],
   "apis": [
     {
-      "path": "/permissions",
+      "path": "/permissions/{api_key}",
       "operations": [
         {
           "method": "POST",
@@ -76,25 +76,6 @@
               "type": "AppPermissions",
               "paramType": "body"
             },
-            {
-              "name": "Authorization",
-              "description": "Auth Token",
-              "required": true,
-              "type": "string",
-              "paramType": "header"
-            }
-          ]
-        },
-        {
-          "method": "GET",
-          "summary": "Read permissions.",
-          "notes": "",
-          "type": "array",
-          "items": {
-            "$ref": "AppPermissions"
-          },
-          "nickname": "getDevelopersAppPermissions",
-          "parameters": [
             {
               "name": "Authorization",
               "description": "Auth Token",
