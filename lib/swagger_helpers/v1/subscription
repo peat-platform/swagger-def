@@ -127,7 +127,7 @@
                "parameters"      : [
                   {
                      "name"        : "Authorization",
-                     "description" : "OPENi Auth Token",
+                     "description" : "PEAT Auth Token",
                      "required"    : true,
                      "type"        : "string",
                      "paramType"   : "header"
