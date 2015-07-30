@@ -100,7 +100,7 @@
                   },
                   {
                      "name"       : "subscriptionId",
-                     "description": "Subscription Object",
+                     "description": "Subscription Id String",
                      "required"   : true,
                      "type"       : "string",
                      "paramType"  : "path"
@@ -115,8 +115,29 @@
                "type"            : "string",
                "responseMessages": [
                   {
-                     "code"   : 501,
-                     "message": "Not yet Implemented"
+                     "code"   : 200,
+                     "message": "ok"
+                  },
+                  {
+                     "code"         : 400,
+                     "message"      : "Bad Request",
+                     "responseModel": "SubscriptionStatus"
+                  }
+               ],
+               "parameters"      : [
+                  {
+                     "name"        : "Authorization",
+                     "description" : "PEAT Auth Token",
+                     "required"    : true,
+                     "type"        : "string",
+                     "paramType"   : "header"
+                  },
+                  {
+                     "name"       : "subscriptionId",
+                     "description": "Subscription Object",
+                     "required"   : true,
+                     "type"       : "string",
+                     "paramType"  : "path"
                   }
                ]
             }

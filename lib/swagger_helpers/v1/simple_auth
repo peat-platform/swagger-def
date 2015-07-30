@@ -377,7 +377,12 @@
                 "type":"string",
                 "description":"The user's password",
                 "required":true
-             }
+             },
+            "scope":{
+               "type":"string",
+               "description":"The scope of the user (either user or developer)",
+               "required":true
+            }
          }
       },
       "Auth_Credentials":{
