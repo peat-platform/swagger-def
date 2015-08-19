@@ -34,6 +34,13 @@
               "required": true,
               "type": "string",
               "paramType": "header"
+            },
+            {
+              "name": "api_key",
+              "description": "API Key for app",
+              "required": true,
+              "type": "string",
+              "paramType": "path"
             }
           ]
         },
@@ -53,6 +60,13 @@
               "required": true,
               "type": "string",
               "paramType": "header"
+            },
+            {
+              "name": "api_key",
+              "description": "API Key for app",
+              "required": true,
+              "type": "string",
+              "paramType": "path"
             }
           ]
         }
