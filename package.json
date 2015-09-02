@@ -16,9 +16,7 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "loglet": "git://github.com/peat-platform/loglet",
     "m2nodehandler": "git+https://github.com/peat-platform/m2nodehandler.git#master",
-    "peat-logger": "git+https://github.com/peat-platform/peat-logger.git#master"
   },
   "keywords": [],
   "devDependencies": {
