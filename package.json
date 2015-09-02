@@ -16,7 +16,7 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "m2nodehandler": "git+https://github.com/peat-platform/m2nodehandler.git#master",
+    "m2nodehandler": "git+https://github.com/peat-platform/m2nodehandler.git#master"
   },
   "keywords": [],
   "devDependencies": {
